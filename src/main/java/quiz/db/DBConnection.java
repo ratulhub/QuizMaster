@@ -29,38 +29,24 @@ public class DBConnection {
     public static Connection getConnection() {
 
         try {
-<<<<<<< HEAD
-
-            // Debug logs
-            System.out.println("DB_URL = " + URL);
-            System.out.println("DB_USER = " + USER);
-
-            Connection conn =
-                    DriverManager.getConnection(URL, USER, PASS);
-
-            System.out.println("Database Connected Successfully");
-
-            return conn;
-
-        } catch (SQLException e) {
-
-            System.out.println("Database Connection Failed");
-
-            e.printStackTrace();
-
-            return null;
-=======
             if (URL == null || URL.trim().isEmpty()) {
                 throw new RuntimeException("DB_URL environment variable is not set!");
             }
-            return DriverManager.getConnection(URL, USER, PASS);
+            
+            // Debug logs
+            System.out.println("DB_URL = " + URL);
+            System.out.println("DB_USER = " + USER);
+            
+            Connection conn = DriverManager.getConnection(URL, USER, PASS);
+            System.out.println("Database Connected Successfully");
+            return conn;
+
         } catch (SQLException e) {
             System.err.println("Database Connection Failed!");
             System.err.println("DB_URL: " + URL);
             System.err.println("DB_USER: " + USER);
             e.printStackTrace();
             throw new RuntimeException("Database connection failed. Check DB_URL, DB_USER, DB_PASSWORD env vars.", e);
->>>>>>> 9271416 (Applied production fixes)
         }
     }
 }
