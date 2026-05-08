@@ -1,0 +1,46 @@
+08-May-2026 01:07:22.789 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.19
+08-May-2026 01:07:22.791 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Feb 14 2024 19:36:50 UTC
+08-May-2026 01:07:22.791 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.19.0
+08-May-2026 01:07:22.791 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+08-May-2026 01:07:22.791 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            6.19.13-arch1-1
+08-May-2026 01:07:22.791 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+08-May-2026 01:07:22.791 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-26-openjdk
+08-May-2026 01:07:22.791 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           26.0.1
+08-May-2026 01:07:22.791 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Arch Linux
+08-May-2026 01:07:22.791 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /home/ratul/Downloads/QuizWebApp-main/tomcat
+08-May-2026 01:07:22.791 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /home/ratul/Downloads/QuizWebApp-main/tomcat
+08-May-2026 01:07:22.799 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/home/ratul/Downloads/QuizWebApp-main/tomcat/conf/logging.properties
+08-May-2026 01:07:22.799 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+08-May-2026 01:07:22.799 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+08-May-2026 01:07:22.799 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+08-May-2026 01:07:22.799 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+08-May-2026 01:07:22.799 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+08-May-2026 01:07:22.799 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+08-May-2026 01:07:22.799 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+08-May-2026 01:07:22.799 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+08-May-2026 01:07:22.799 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+08-May-2026 01:07:22.799 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/home/ratul/Downloads/QuizWebApp-main/tomcat
+08-May-2026 01:07:22.799 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/home/ratul/Downloads/QuizWebApp-main/tomcat
+08-May-2026 01:07:22.799 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/home/ratul/Downloads/QuizWebApp-main/tomcat/temp
+08-May-2026 01:07:22.801 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib]
+08-May-2026 01:07:22.961 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+08-May-2026 01:07:22.973 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [291] milliseconds
+08-May-2026 01:07:22.995 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+08-May-2026 01:07:22.995 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.19]
+08-May-2026 01:07:22.999 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/ratul/Downloads/QuizWebApp-main/tomcat/webapps/docs]
+08-May-2026 01:07:23.144 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/ratul/Downloads/QuizWebApp-main/tomcat/webapps/docs] has finished in [143] ms
+08-May-2026 01:07:23.144 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/ratul/Downloads/QuizWebApp-main/tomcat/webapps/examples]
+08-May-2026 01:07:23.232 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/ratul/Downloads/QuizWebApp-main/tomcat/webapps/examples] has finished in [88] ms
+08-May-2026 01:07:23.232 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/ratul/Downloads/QuizWebApp-main/tomcat/webapps/host-manager]
+08-May-2026 01:07:23.246 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/ratul/Downloads/QuizWebApp-main/tomcat/webapps/host-manager] has finished in [14] ms
+08-May-2026 01:07:23.246 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/ratul/Downloads/QuizWebApp-main/tomcat/webapps/manager]
+08-May-2026 01:07:23.255 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/ratul/Downloads/QuizWebApp-main/tomcat/webapps/manager] has finished in [9] ms
+08-May-2026 01:07:23.256 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/ratul/Downloads/QuizWebApp-main/tomcat/webapps/ROOT]
+08-May-2026 01:07:23.550 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+08-May-2026 01:07:23.553 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/ratul/Downloads/QuizWebApp-main/tomcat/webapps/ROOT] has finished in [297] ms
+08-May-2026 01:07:23.555 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+08-May-2026 01:07:23.561 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [587] milliseconds
+08-May-2026 01:08:50.113 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+08-May-2026 01:08:50.115 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+08-May-2026 01:08:50.126 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+08-May-2026 01:08:50.138 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]

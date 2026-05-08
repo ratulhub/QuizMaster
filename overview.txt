@@ -1,0 +1,41 @@
+======================================================
+QuizMaster - Project Overview
+======================================================
+
+QuizMaster is a university-level Java Web Application designed to showcase fundamental software engineering principles while delivering a premium, startup-quality user experience.
+
+Architecture:
+-------------
+- Model-View-Controller (MVC) Pattern implemented via Servlets and JSP.
+- No heavy frameworks (No Spring, No Hibernate) to demonstrate raw understanding of HTTP requests, session lifecycle, and JDBC.
+- Deployment: Containerized via Docker running Apache Tomcat 10.1 on Render.
+- Database: Supabase PostgreSQL.
+
+Directory Structure:
+--------------------
+QuizMaster/
+├── src/main/java/quiz/
+│   ├── db/        (Database Connection)
+│   ├── filter/    (Authentication Middleware)
+│   ├── model/     (Data Models like User, Question)
+│   ├── servlet/   (Controllers handling HTTP methods)
+│   └── util/      (Helpers: Password Hashing, File Parsing)
+│
+├── src/main/webapp/
+│   ├── assets/    (CSS, JS, Fonts)
+│   ├── pages/     (JSP Views: Login, Dashboard, Admin)
+│   ├── WEB-INF/   (Security configurations)
+│   └── index.jsp  (Entry point redirect)
+│
+├── pom.xml        (Maven Dependencies and Build configs)
+└── Dockerfile     (Render deployment instructions)
+
+Key Features:
+-------------
+1. Secure Authentication (SHA-256 Hashing, Session Management).
+2. Gamification (XP, Ranks, Streaks).
+3. Dynamic Quiz Modes (Normal, Roast, Sudden Death, Teacher).
+4. Admin Capabilities (Bulk uploading questions via TXT, DOCX, PDF).
+5. Cinematic UI/UX (Glassmorphism, CSS animations).
+
+This project proves that "simple" Java EE can look and function like a modern web startup when architecture and design are prioritized.

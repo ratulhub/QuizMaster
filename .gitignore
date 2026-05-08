@@ -1,0 +1,17 @@
+# Maven
+target/
+build/
+*.class
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# IntelliJ
+.idea/
+*.iml
+
+# Environment Variables
+.env
+env.example
