@@ -14,4 +14,18 @@ build/
 
 # Environment Variables
 .env
-env.example
+
+# WEB-INF build artifacts (Maven manages these)
+src/main/webapp/WEB-INF/lib/
+src/main/webapp/WEB-INF/classes/
+
+# Docker
+.dockerignore
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Agent skills (not needed in Docker)
+.agents/
+skills-lock.json

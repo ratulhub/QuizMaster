@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN mvn clean package -DskipTests
+RUN mvn clean package -DskipTests -e
 
 FROM tomcat:10.1-jdk17
 
