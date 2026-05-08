@@ -6,10 +6,9 @@ import java.sql.SQLException;
 
 public class DBConnection {
     // Supabase PostgreSQL Credentials
-    private static final String URL = getEnv("DB_URL", "jdbc:postgresql://db.zvubcokrvfltmcjfiqof.supabase.co:5432/postgres?user=postgres&password=[PASS]");
-    private static final String USER = getEnv("DB_USER", "ratul2005");
-    private static final String PASS = getEnv("DB_PASSWORD", "hiratul123#R");
-
+    private static final String URL = System.getenv("DB_URL");
+private static final String USER = System.getenv("DB_USER");
+private static final String PASS = System.getenv("DB_PASSWORD");
     static {
         try {
             // Load the PostgreSQL JDBC driver
