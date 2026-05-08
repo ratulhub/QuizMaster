@@ -16,12 +16,11 @@ RUN rm -rf /usr/local/tomcat/webapps/*
 
 COPY --from=build /app/target/ROOT.war /usr/local/tomcat/webapps/ROOT.war
 
-# Render uses $PORT env var; Tomcat defaults to 8080 if not set
-RUN sed -i 's/port="8080"/port="${PORT}"/' /usr/local/tomcat/conf/server.xml
-RUN sed -i 's/port="8443"/port="8444"/' /usr/local/tomcat/conf/server.xml
-
+# Render provides the PORT environment variable at runtime.
+# We must replace it in server.xml just before Tomcat starts.
 ENV PORT=8080
-
 EXPOSE ${PORT}
 
-CMD ["catalina.sh", "run"]
+CMD sed -i "s/port=\"8080\"/port=\"${PORT}\"/" /usr/local/tomcat/conf/server.xml && \
+    sed -i "s/port=\"8443\"/port=\"8444\"/" /usr/local/tomcat/conf/server.xml && \
+    catalina.sh run
