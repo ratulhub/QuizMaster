@@ -33,11 +33,20 @@ public class DBConnection {
                 throw new RuntimeException("DB_URL environment variable is not set!");
             }
             
+            String finalUrl = URL;
+            if (finalUrl.contains("supabase.co") && !finalUrl.contains("sslmode=require")) {
+                if (finalUrl.contains("?")) {
+                    finalUrl += "&sslmode=require";
+                } else {
+                    finalUrl += "?sslmode=require";
+                }
+            }
+
             // Debug logs
-            System.out.println("DB_URL = " + URL);
+            System.out.println("DB_URL = " + finalUrl);
             System.out.println("DB_USER = " + USER);
             
-            Connection conn = DriverManager.getConnection(URL, USER, PASS);
+            Connection conn = DriverManager.getConnection(finalUrl, USER, PASS);
             System.out.println("Database Connected Successfully");
             return conn;
 
