@@ -4,7 +4,10 @@ WORKDIR /app
 
 COPY . .
 
-RUN mvn clean package -DskipTests -e
+RUN echo "=== STEP 1: Maven Version ===" && mvn --version && \
+    echo "=== STEP 2: Validating POM ===" && mvn validate -e && \
+    echo "=== STEP 3: Resolving Dependencies ===" && mvn dependency:resolve -e && \
+    echo "=== STEP 4: Building WAR ===" && mvn clean package -DskipTests -e
 
 FROM tomcat:10.1-jdk17
 
