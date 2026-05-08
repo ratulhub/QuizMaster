@@ -21,9 +21,18 @@
         <div class="grid grid-cols-2 stagger-animate">
             <div class="glass-panel" style="border-color: rgba(239, 68, 68, 0.3);">
                 <h3 class="mb-2">Bulk Upload Questions</h3>
-                <p class="text-secondary mb-4">Upload a text file containing questions to quickly populate the database.</p>
+                <p class="text-secondary mb-4">Upload a file containing questions to quickly populate the database.</p>
                 <form action="${pageContext.request.contextPath}/admin/upload" method="post" enctype="multipart/form-data">
-                    <input type="file" name="file" class="input-field" accept=".txt" required>
+                    <input type="text" name="title" class="input-field" placeholder="Quiz Title" required>
+                    <select name="category_id" class="input-field" required>
+                        <option value="" disabled selected>Select Category</option>
+                        <option value="1">General Knowledge</option>
+                        <option value="2">Science</option>
+                        <option value="3">History</option>
+                        <option value="4">Technology</option>
+                        <option value="5">Mathematics</option>
+                    </select>
+                    <input type="file" name="file" class="input-field" accept=".txt,.pdf,.docx" required>
                     <button type="submit" class="btn" style="background: var(--accent-red);">Upload File</button>
                 </form>
                 <% String message = request.getParameter("message");

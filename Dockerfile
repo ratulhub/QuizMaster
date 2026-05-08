@@ -4,10 +4,21 @@ WORKDIR /app
 
 COPY . .
 
-RUN mvn clean package
+RUN mvn clean package -DskipTests
 
 FROM tomcat:10.1-jdk17
 
-COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/ROOT.war
+# Remove default Tomcat apps
+RUN rm -rf /usr/local/tomcat/webapps/*
 
-EXPOSE 8080
+COPY --from=build /app/target/ROOT.war /usr/local/tomcat/webapps/ROOT.war
+
+# Render uses $PORT env var; Tomcat defaults to 8080 if not set
+RUN sed -i 's/port="8080"/port="${PORT}"/' /usr/local/tomcat/conf/server.xml
+RUN sed -i 's/port="8443"/port="8444"/' /usr/local/tomcat/conf/server.xml
+
+ENV PORT=8080
+
+EXPOSE ${PORT}
+
+CMD ["catalina.sh", "run"]

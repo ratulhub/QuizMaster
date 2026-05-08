@@ -38,7 +38,34 @@ CREATE TABLE IF NOT EXISTS quiz_modes (
     xp_multiplier DECIMAL(3,2) DEFAULT 1.0
 );
 
--- 5. Quiz Attempts Table (History)
+-- 5. Categories Table
+CREATE TABLE IF NOT EXISTS categories (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) UNIQUE NOT NULL
+);
+
+-- 6. Quizzes Table (Used by AdminServlet & UploadServlet)
+CREATE TABLE IF NOT EXISTS quizzes (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    category_id INTEGER REFERENCES categories(id),
+    created_by UUID REFERENCES users(id) ON DELETE SET NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 7. Questions Table (Used by UploadServlet)
+CREATE TABLE IF NOT EXISTS questions (
+    id SERIAL PRIMARY KEY,
+    quiz_id INTEGER REFERENCES quizzes(id) ON DELETE CASCADE,
+    question_text TEXT NOT NULL,
+    option_a TEXT NOT NULL,
+    option_b TEXT NOT NULL,
+    option_c TEXT NOT NULL,
+    option_d TEXT NOT NULL,
+    correct_option VARCHAR(1) NOT NULL
+);
+
+-- 8. Quiz Attempts Table (History)
 CREATE TABLE IF NOT EXISTS quiz_attempts (
     id SERIAL PRIMARY KEY,
     user_id UUID REFERENCES users(id) ON DELETE CASCADE,
@@ -47,6 +74,12 @@ CREATE TABLE IF NOT EXISTS quiz_attempts (
     total_questions INTEGER NOT NULL,
     xp_earned INTEGER DEFAULT 0,
     completed_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 9. Roast Messages Table (Used by RoastGenerator)
+CREATE TABLE IF NOT EXISTS roast_messages (
+    id SERIAL PRIMARY KEY,
+    message TEXT NOT NULL
 );
 
 -- ==========================================
@@ -62,6 +95,27 @@ INSERT INTO quiz_modes (code, name, description, xp_multiplier) VALUES
 ('bride', 'Bride Interview', 'Answer life scenario questions.', 1.0),
 ('battle', 'Friend Battle', 'Multiplayer real-time competition.', 1.5)
 ON CONFLICT (code) DO NOTHING;
+
+-- Insert Default Categories
+INSERT INTO categories (name) VALUES
+('General Knowledge'),
+('Science'),
+('History'),
+('Technology'),
+('Mathematics')
+ON CONFLICT (name) DO NOTHING;
+
+-- Insert Default Roast Messages
+INSERT INTO roast_messages (message) VALUES
+('Is your brain on airplane mode?'),
+('Even a potato could guess better than that.'),
+('Error 404: Logic Not Found.'),
+('Are you guessing or just closing your eyes?'),
+('My grandma could answer that, and she doesn''t even use a computer.'),
+('You picked THAT answer? Bold strategy, let''s see if it pays off. Spoiler: it won''t.'),
+('I''ve seen smarter choices from a random number generator.'),
+('That answer was so wrong, it looped back around and was still wrong.')
+ON CONFLICT DO NOTHING;
 
 -- Create an Admin user (Password is 'admin123')
 -- Note: Replace this hash in production with a proper bcrypt hash
@@ -82,3 +136,5 @@ ON CONFLICT (user_id) DO NOTHING;
 -- ==========================================
 CREATE INDEX IF NOT EXISTS idx_attempts_user ON quiz_attempts(user_id);
 CREATE INDEX IF NOT EXISTS idx_users_username ON users(username);
+CREATE INDEX IF NOT EXISTS idx_questions_quiz ON questions(quiz_id);
+CREATE INDEX IF NOT EXISTS idx_quizzes_category ON quizzes(category_id);

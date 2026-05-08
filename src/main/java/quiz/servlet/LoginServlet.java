@@ -55,7 +55,7 @@ public class LoginServlet extends HttpServlet {
                              psStreak.executeUpdate();
                         }
 
-                        res.sendRedirect(req.getContextPath() + "/pages/dashboard.jsp"); // Forwarding to the dashboard page
+                        res.sendRedirect(req.getContextPath() + "/dashboard"); // Redirect to servlet, not JSP directly
                     } else {
                         res.sendRedirect(req.getContextPath() + "/pages/login.jsp?error=Invalid+Credentials");
                     }
