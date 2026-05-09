@@ -14,15 +14,7 @@ import jakarta.servlet.http.HttpSession;
 
 /**
  * Authentication Filter to protect specific pages from unauthorized access.
- * 
- * WHY IT EXISTS:
- * Instead of checking `session.getAttribute("user") != null` in every single Servlet and JSP file
- * (which violates the DRY principle - Don't Repeat Yourself), we use a Filter.
- * 
- * HOW IT WORKS:
- * A Filter intercepts HTTP requests BEFORE they reach the target Servlet or JSP.
- * If the user has a valid session, `chain.doFilter()` passes the request along.
- * If not, the Filter stops the request and redirects them to the login page immediately.
+ * This is a clean, standard Java EE way to handle security without repeating checks.
  */
 @WebFilter(urlPatterns = {"/pages/user/*", "/pages/modes/*", "/pages/admin/*"})
 public class AuthFilter implements Filter {

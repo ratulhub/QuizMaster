@@ -4,14 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- * DBConnection handles the connection to the PostgreSQL database (Supabase).
- * 
- * WHY IT EXISTS:
- * It centralizes connection logic. By using Environment Variables, we ensure that
- * sensitive credentials (database passwords) are never hardcoded into the source code,
- * making the application secure and ready for cloud deployment (Render).
- */
 public class DBConnection {
 
     static {

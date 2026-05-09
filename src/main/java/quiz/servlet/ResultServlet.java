@@ -15,18 +15,6 @@ import jakarta.servlet.http.HttpSession;
 
 import quiz.db.DBConnection;
 
-/**
- * ResultServlet processes the submission of a quiz.
- * 
- * WHY IT EXISTS:
- * To calculate XP, save the attempt history, and update the user's global profile.
- * 
- * KEY CONCEPT: TRANSACTION MANAGEMENT
- * Since submitting a quiz requires updating TWO tables (quiz_attempts and profiles),
- * we must ensure both updates succeed, or neither do. If the server crashes after updating
- * quiz_attempts but before updating profiles, the database becomes inconsistent.
- * We use `conn.setAutoCommit(false)` to start a Transaction, and `conn.commit()` to finalize it.
- */
 @WebServlet("/submit")
 public class ResultServlet extends HttpServlet {
 
@@ -48,8 +36,6 @@ public class ResultServlet extends HttpServlet {
         int xpEarned = score * 10 * xpMultiplier;
 
         try (Connection conn = DBConnection.getConnection()) {
-            // Disable auto-commit to begin a manual transaction block.
-            // This ensures Atomicity (from ACID properties).
             conn.setAutoCommit(false);
 
             String sqlAttempt = "INSERT INTO quiz_attempts (user_id, mode_id, score, total_questions, xp_earned) " +
@@ -90,8 +76,6 @@ public class ResultServlet extends HttpServlet {
                 ps.executeUpdate();
             }
 
-            // If everything above succeeded without exceptions, we commit the transaction
-            // making all changes permanently visible in the database.
             conn.commit();
 
             req.setAttribute("score", score);
@@ -102,8 +86,6 @@ public class ResultServlet extends HttpServlet {
 
         } catch (Exception e) {
             e.printStackTrace();
-            // If any error occurred during the transaction, the DB automatically rolls back
-            // because we never called commit(). This preserves data integrity.
             res.sendRedirect(req.getContextPath() + "/pages/dashboard.jsp");
             return;
         }
