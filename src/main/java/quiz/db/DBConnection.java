@@ -6,56 +6,38 @@ import java.sql.SQLException;
 
 public class DBConnection {
 
-    private static final String URL = System.getenv("DB_URL");
-    private static final String USER = System.getenv("DB_USER");
-    private static final String PASS = System.getenv("DB_PASSWORD");
-
     static {
-
         try {
-
             Class.forName("org.postgresql.Driver");
-
-            System.out.println("PostgreSQL Driver Loaded Successfully");
-
         } catch (ClassNotFoundException e) {
-
-            System.out.println("PostgreSQL Driver Not Found");
-
-            e.printStackTrace();
+            throw new RuntimeException("PostgreSQL JDBC Driver not found. Ensure the dependency is added.", e);
         }
     }
 
     public static Connection getConnection() {
+        String url = System.getenv("DB_URL");
+        String user = System.getenv("DB_USER");
+        String password = System.getenv("DB_PASSWORD");
+
+        if (url == null || url.trim().isEmpty()) {
+            throw new IllegalStateException("Database connection failed: DB_URL environment variable is missing.");
+        }
+        if (user == null || user.trim().isEmpty()) {
+            throw new IllegalStateException("Database connection failed: DB_USER environment variable is missing.");
+        }
+        if (password == null) {
+            throw new IllegalStateException("Database connection failed: DB_PASSWORD environment variable is missing.");
+        }
+
+        // Automatically append sslmode=require for secure connections like Supabase or Render
+        if (!url.contains("sslmode=")) {
+            url += (url.contains("?") ? "&" : "?") + "sslmode=require";
+        }
 
         try {
-            if (URL == null || URL.trim().isEmpty()) {
-                throw new RuntimeException("DB_URL environment variable is not set!");
-            }
-            
-            String finalUrl = URL;
-            if (finalUrl.contains("supabase.co") && !finalUrl.contains("sslmode=require")) {
-                if (finalUrl.contains("?")) {
-                    finalUrl += "&sslmode=require";
-                } else {
-                    finalUrl += "?sslmode=require";
-                }
-            }
-
-            // Debug logs
-            System.out.println("DB_URL = " + finalUrl);
-            System.out.println("DB_USER = " + USER);
-            
-            Connection conn = DriverManager.getConnection(finalUrl, USER, PASS);
-            System.out.println("Database Connected Successfully");
-            return conn;
-
+            return DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
-            System.err.println("Database Connection Failed!");
-            System.err.println("DB_URL: " + URL);
-            System.err.println("DB_USER: " + USER);
-            e.printStackTrace();
-            throw new RuntimeException("Database connection failed. Check DB_URL, DB_USER, DB_PASSWORD env vars.", e);
+            throw new RuntimeException("Database connection failed. Please verify your credentials and network connection.", e);
         }
     }
 }
