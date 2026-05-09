@@ -4,7 +4,10 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
+import quiz.model.Models;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -31,7 +34,7 @@ public class QuizServlet extends HttpServlet {
         if ("/dashboard".equals(path)) {
             handleDashboard(req, res, session);
         } else if ("/quiz".equals(path)) {
-            req.getRequestDispatcher("/pages/quiz.jsp").forward(req, res);
+            handleQuiz(req, res);
         } else {
             res.sendRedirect(req.getContextPath() + "/dashboard");
         }
@@ -87,6 +90,45 @@ public class QuizServlet extends HttpServlet {
         req.getRequestDispatcher("/pages/dashboard.jsp").forward(req, res);
     }
 
+    private void handleQuiz(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        List<Models.Question> questions = new ArrayList<>();
+        try (Connection conn = DBConnection.getConnection()) {
+            String sql = "SELECT id, quiz_id, question_text, " +
+                         "options->>'A' AS option_a, " +
+                         "options->>'B' AS option_b, " +
+                         "options->>'C' AS option_c, " +
+                         "options->>'D' AS option_d " +
+                         "FROM questions ORDER BY RANDOM() LIMIT 5";
+            try (PreparedStatement ps = conn.prepareStatement(sql)) {
+                try (ResultSet rs = ps.executeQuery()) {
+                    while (rs.next()) {
+                        Models.Question q = new Models.Question();
+                        q.setId(rs.getInt("id"));
+                        q.setQuizId(rs.getInt("quiz_id"));
+                        q.setText(rs.getString("question_text"));
+                        q.setOptionA(rs.getString("option_a"));
+                        q.setOptionB(rs.getString("option_b"));
+                        q.setOptionC(rs.getString("option_c"));
+                        q.setOptionD(rs.getString("option_d"));
+                        questions.add(q);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        req.setAttribute("questions", questions);
+        
+        StringBuilder ids = new StringBuilder();
+        for (int i = 0; i < questions.size(); i++) {
+            ids.append(questions.get(i).getId());
+            if (i < questions.size() - 1) ids.append(",");
+        }
+        req.setAttribute("questionIds", ids.toString());
+        req.setAttribute("total", questions.size());
 
+        req.getRequestDispatcher("/pages/quiz.jsp").forward(req, res);
+    }
 }
 

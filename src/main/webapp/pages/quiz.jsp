@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.List, quiz.model.Models" %>
 <!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="utf-8"/>
@@ -148,93 +149,50 @@
 <!-- Quiz Content -->
 <form id="quizForm" action="${pageContext.request.contextPath}/submit" method="post" class="space-y-xxl">
 <input type="hidden" name="mode" value="<%= request.getParameter("mode") != null ? request.getParameter("mode") : "normal" %>">
-<input type="hidden" name="total" value="3">
-<!-- Question 1 -->
-<div class="space-y-md">
-<h2 class="font-title-lg text-title-lg text-on-background mb-lg">1. What is the size of int variable in Java?</h2>
+<input type="hidden" name="total" value="<%= request.getAttribute("total") != null ? request.getAttribute("total") : "0" %>">
+<input type="hidden" name="questionIds" value="<%= request.getAttribute("questionIds") %>">
+
+<% 
+    List<Models.Question> questions = (List<Models.Question>) request.getAttribute("questions");
+    if (questions != null && !questions.isEmpty()) {
+        int i = 1;
+        for (Models.Question q : questions) {
+%>
+<!-- Question <%= i %> -->
+<div class="space-y-md mt-xl">
+<h2 class="font-title-lg text-title-lg text-on-background mb-lg"><%= i %>. <%= q.getText() %></h2>
 <div class="space-y-sm">
 <!-- Option A -->
 <label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q1" value="8 bit" type="radio"/>
-<span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors">8 bit</span>
+<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q_<%= q.getId() %>" value="A" type="radio" required/>
+<span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors"><%= q.getOptionA() %></span>
 </label>
 <!-- Option B -->
 <label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q1" value="16 bit" type="radio"/>
-<span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors">16 bit</span>
+<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q_<%= q.getId() %>" value="B" type="radio" required/>
+<span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors"><%= q.getOptionB() %></span>
 </label>
 <!-- Option C -->
 <label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q1" value="32 bit" type="radio"/>
-<span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors">32 bit</span>
+<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q_<%= q.getId() %>" value="C" type="radio" required/>
+<span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors"><%= q.getOptionC() %></span>
 </label>
 <!-- Option D -->
 <label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q1" value="64 bit" type="radio"/>
-<span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors">64 bit</span>
+<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q_<%= q.getId() %>" value="D" type="radio" required/>
+<span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors"><%= q.getOptionD() %></span>
 </label>
 </div>
 </div>
-<!-- Question 2 -->
-<div class="space-y-md">
-<h2 class="font-title-lg text-title-lg text-on-background mb-lg">2. What is the entry point of a Java program?</h2>
-<div class="space-y-sm">
-<!-- Option A -->
-<label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q2" value="main()" type="radio"/>
-<span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors">main()</span>
-</label>
-<!-- Option B -->
-<label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q2" value="start()" type="radio"/>
-<span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors">start()</span>
-</label>
-<!-- Option C -->
-<label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q2" value="init()" type="radio"/>
-<span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors">init()</span>
-</label>
-<!-- Option D -->
-<label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q2" value="run()" type="radio"/>
-<span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors">run()</span>
-</label>
-</div>
-</div>
-<!-- Question 3 -->
-<div class="space-y-md">
-<h2 class="font-title-lg text-title-lg text-on-background mb-lg">3. Which keyword is used to define a namespace?</h2>
-<div class="space-y-sm">
-<!-- Option A -->
-<label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q3" value="namespace" type="radio"/>
-<span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors">namespace</span>
-</label>
-<!-- Option B -->
-<label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q3" value="package" type="radio"/>
-<span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors">package</span>
-</label>
-<!-- Option C -->
-<label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q3" value="import" type="radio"/>
-<span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors">import</span>
-</label>
-<!-- Option D -->
-<label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q3" value="include" type="radio"/>
-<span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors">include</span>
-</label>
-</div>
-</div>
-<!-- Simulated Score Input -->
-<div class="space-y-md mt-lg border-t border-surface-variant pt-lg">
-<h2 class="font-title-md text-title-md text-on-surface-variant mb-sm">Simulated Score (0-3)</h2>
-<div class="relative max-w-[250px]">
-<span class="material-symbols-outlined absolute left-gutter top-1/2 -translate-y-1/2 text-outline">score</span>
-<input name="score" id="sim-score" class="w-full rounded-full border border-outline-variant bg-surface pl-[56px] pr-gutter py-md font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="Score" min="0" max="3" required="" type="number"/>
-</div>
-</div>
+<% 
+        i++;
+        }
+    } else {
+%>
+    <div class="text-center p-xl">
+        <p class="font-body-lg text-body-lg text-on-surface-variant">No questions found in the database. Please ask an admin to upload a quiz.</p>
+    </div>
+<% } %>
 <!-- Submit Button Area (Optional/Contextual) -->
 <div class="mt-xl pt-lg flex justify-end">
 <button type="submit" class="bg-primary text-on-primary font-label-lg text-label-lg px-8 py-3 rounded-full hover:bg-primary/90 transition-colors shadow-sm">

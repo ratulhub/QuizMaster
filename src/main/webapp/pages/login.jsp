@@ -156,15 +156,7 @@
 <span class="material-symbols-outlined absolute left-gutter top-1/2 -translate-y-1/2 text-outline">lock</span>
 <input name="password" class="w-full rounded-full border border-outline-variant bg-surface pl-[56px] pr-gutter py-md font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="Password" required="" type="password"/>
 </div>
-<!-- Options Row -->
-<div class="flex items-center justify-between px-xs mt-xs">
-<label class="flex items-center gap-xs cursor-pointer group">
-<div class="w-4 h-4 rounded-sm border border-outline-variant group-hover:border-primary transition-colors flex items-center justify-center">
-<span class="material-symbols-outlined text-[14px] text-surface opacity-0">check</span>
-</div>
-<span class="font-body-md text-body-md text-on-surface-variant">Remember me</span>
-</label>
-</div>
+
 <!-- Primary Action -->
 <button class="w-full bg-primary text-on-primary rounded-full py-md mt-sm font-label-lg text-label-lg shadow-level-2 hover:bg-surface-tint active:scale-[0.98] transition-all flex items-center justify-center gap-sm" type="submit">
                     Sign In

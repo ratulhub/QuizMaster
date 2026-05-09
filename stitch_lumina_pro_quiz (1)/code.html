@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -8,8 +8,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <!-- Google Fonts: Outfit -->
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/style.css">
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -130,18 +130,14 @@
 <div class="font-title-lg text-title-lg font-bold text-primary dark:text-primary-fixed-dim">QuizMaster</div>
 <div class="hidden md:flex items-center gap-xl">
 <nav class="flex gap-lg">
-<a class="font-label-lg text-label-lg text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 active:opacity-70 transition-opacity" href="${pageContext.request.contextPath}/modes">Protocols</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="${pageContext.request.contextPath}/dashboard">History</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="${pageContext.request.contextPath}/dashboard">Profile</a>
+<a class="font-label-lg text-label-lg text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 active:opacity-70 transition-opacity" href="#">Protocols</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">History</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Profile</a>
 </nav>
 <div class="flex items-center gap-md ml-xl">
-<span class="font-body-md text-body-md text-on-surface-variant">Welcome, <%= session.getAttribute("user") %></span>
-<% if ("ADMIN".equals(session.getAttribute("role"))) { %>
-<a href="${pageContext.request.contextPath}/pages/admin.jsp" class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-label-sm text-label-sm">Admin</a>
-<% } else { %>
-<span class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-label-sm text-label-sm">User</span>
-<% } %>
-<a href="${pageContext.request.contextPath}/login?action=logout" class="border border-secondary text-secondary rounded-full px-6 py-1 font-label-lg text-label-lg hover:bg-secondary hover:text-on-secondary transition-all">Logout</a>
+<span class="font-body-md text-body-md text-on-surface-variant">Welcome, ratul</span>
+<span class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-label-sm text-label-sm">Admin</span>
+<button class="border border-secondary text-secondary rounded-full px-6 py-1 font-label-lg text-label-lg hover:bg-secondary hover:text-on-secondary transition-all">Logout</button>
 </div>
 </div>
 <div class="flex items-center gap-md md:hidden">
@@ -150,11 +146,11 @@
 </div>
 </header>
 <!-- Main Content Area -->
-<main class="pt-xxl pb-xxl px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto hero-gradient mt-xl">
+<main class="pt-xxl pb-xxl px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto hero-gradient">
 <!-- User Profile Header -->
 <section class="mt-xl mb-xxl">
 <h1 class="font-display-lg text-[48px] md:text-display-lg">
-                Commander <span class="text-primary-container font-extrabold"><%= request.getAttribute("rank_title") != null ? request.getAttribute("rank_title") : "Novice" %></span>
+                Commander <span class="text-primary-container font-extrabold">Novice</span>
 </h1>
 </section>
 <!-- Bento Grid Stats Section -->
@@ -162,19 +158,19 @@
 <!-- XP Card -->
 <div class="tonal-elevation bg-surface-container-lowest p-lg rounded-lg flex flex-col items-center justify-center text-center transition-all hover:shadow-md">
 <span class="font-label-lg text-label-lg text-on-surface-variant mb-md uppercase tracking-wider">Total XP</span>
-<span class="font-display-lg text-[64px] text-primary-container leading-none font-bold"><%= request.getAttribute("xp") != null ? request.getAttribute("xp") : "0" %></span>
+<span class="font-display-lg text-[64px] text-primary-container leading-none font-bold">70</span>
 </div>
 <!-- Quizzes Card -->
 <div class="tonal-elevation bg-surface-container-lowest p-lg rounded-lg flex flex-col items-center justify-center text-center transition-all hover:shadow-md">
 <span class="font-label-lg text-label-lg text-on-surface-variant mb-md uppercase tracking-wider">Quizzes Completed</span>
-<span class="font-display-lg text-[64px] text-primary-container leading-none font-bold"><%= request.getAttribute("total_quizzes") != null ? request.getAttribute("total_quizzes") : "0" %></span>
+<span class="font-display-lg text-[64px] text-primary-container leading-none font-bold">3</span>
 </div>
 <!-- Streak Card -->
 <div class="tonal-elevation bg-surface-container-lowest p-lg rounded-lg flex flex-col items-center justify-center text-center transition-all hover:shadow-md relative overflow-hidden">
 <div class="absolute top-0 right-0 w-16 h-16 bg-secondary opacity-5 rotate-45 translate-x-8 -translate-y-8"></div>
 <span class="font-label-lg text-label-lg text-on-surface-variant mb-md uppercase tracking-wider">Current Streak</span>
 <div class="flex items-center gap-sm">
-<span class="font-display-lg text-[64px] text-secondary leading-none font-bold"><%= request.getAttribute("current_streak") != null ? request.getAttribute("current_streak") : "0" %></span>
+<span class="font-display-lg text-[64px] text-secondary leading-none font-bold">0</span>
 <span class="material-symbols-outlined text-[48px] text-secondary" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
 </div>
 </div>
@@ -185,9 +181,9 @@
 <div class="relative z-10 max-w-2xl mx-auto">
 <h2 class="font-headline-lg text-headline-lg text-on-surface mb-md">Enter the Arena</h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant mb-xl">Choose your challenge mode and prove your worth. Compete against others or test your knowledge solo.</p>
-<a href="${pageContext.request.contextPath}/pages/modes.jsp" class="inline-block bg-primary text-on-primary font-title-md text-title-md px-xxl py-md rounded-full shadow-lg hover:bg-primary-container hover:scale-105 transition-all duration-300">
+<button class="bg-primary text-on-primary font-title-md text-title-md px-xxl py-md rounded-full shadow-lg hover:bg-primary-container hover:scale-105 transition-all duration-300">
                     Select Game Mode
-</a>
+                </button>
 </div>
 <!-- Subtle background elements -->
 <div class="absolute bottom-0 left-0 w-32 h-32 bg-primary-container opacity-5 rounded-full -translate-x-12 translate-y-12"></div>
@@ -229,19 +225,21 @@
 </main>
 <!-- BottomNavBar (Visible only on mobile) -->
 <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] bg-surface-container-lowest dark:bg-inverse-surface">
-<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-6 py-1 hover:bg-surface-container-high transition-all" href="${pageContext.request.contextPath}/dashboard">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-6 py-1 hover:bg-surface-container-high transition-all" href="#">
 <span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
 <span class="font-label-sm text-label-sm">Library</span>
 </a>
-<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-6 py-1 scale-95 duration-100" href="${pageContext.request.contextPath}/modes">
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-6 py-1 scale-95 duration-100" href="#">
 <span class="material-symbols-outlined" data-icon="play_circle" style="font-variation-settings: 'FILL' 1;">play_circle</span>
 <span class="font-label-sm text-label-sm">Active</span>
 </a>
-<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-6 py-1 hover:bg-surface-container-high transition-all" href="${pageContext.request.contextPath}/dashboard">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-6 py-1 hover:bg-surface-container-high transition-all" href="#">
 <span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
 <span class="font-label-sm text-label-sm">Stats</span>
 </a>
 </nav>
-
-<script src="${pageContext.request.contextPath}/assets/app.js"></script>
+<!-- Decoration element -->
+<div class="fixed bottom-margin-desktop right-margin-desktop opacity-20 pointer-events-none hidden lg:block">
+<img class="w-64 h-64 object-cover grayscale opacity-30 mix-blend-multiply rounded-full" data-alt="A stylized, minimalist 3D rendering of floating geometric quiz elements like checkmarks and question marks in a soft periwinkle and lavender palette. The lighting is high-key and corporate modern, matching a clean educational dashboard aesthetic. The overall mood is intelligent, calm, and professional with high-end digital art finishes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWmxevs9FBaB_waIKT7kaJm9S1IoLaottcKrGInLhTAgSAykre7rvX4GUd16UV_wHLc8O0fduj3UtzdtxfXAvdHFSvlwDQ--sKuNtNW0GHq4-Rod-G5W_VvSjYmI7aiixhOrKlAmFQncTtSAvgg-DYWKGvGaVIoaCwpQodZoLnfeYZMlxKws_EH2ilHG1SZ063kthLskZfkfw1ymZQItRQWz9iNPkdKOOqIkfCssPKNquhWiUndeAEYHfDa_zA-8pM0KJaeIKr8YU"/>
+</div>
 </body></html>

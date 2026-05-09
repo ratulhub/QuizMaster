@@ -89,7 +89,7 @@ public class UploadServlet extends HttpServlet {
                         List<String> options = new ArrayList<>();
                         String correct = "A";
                         
-                        String sqlQ = "INSERT INTO questions (quiz_id, question_text, option_a, option_b, option_c, option_d, correct_option) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                        String sqlQ = "INSERT INTO questions (quiz_id, question_text, options, correct_answer) VALUES (?, ?, ?::jsonb, ?)";
                         try (PreparedStatement psQ = conn.prepareStatement(sqlQ)) {
                             for (String line : lines) {
                                 line = line.trim();
@@ -99,11 +99,9 @@ public class UploadServlet extends HttpServlet {
                                     if (!currentQ.isEmpty() && options.size() >= 4) {
                                         psQ.setInt(1, quizId);
                                         psQ.setString(2, currentQ);
-                                        psQ.setString(3, options.get(0));
-                                        psQ.setString(4, options.get(1));
-                                        psQ.setString(5, options.get(2));
-                                        psQ.setString(6, options.get(3));
-                                        psQ.setString(7, correct);
+                                        String jsonOpts = "{\"A\":\"" + escapeJson(options.get(0)) + "\",\"B\":\"" + escapeJson(options.get(1)) + "\",\"C\":\"" + escapeJson(options.get(2)) + "\",\"D\":\"" + escapeJson(options.get(3)) + "\"}";
+                                        psQ.setString(3, jsonOpts);
+                                        psQ.setString(4, correct);
                                         psQ.executeUpdate();
                                     }
                                     currentQ = line;
@@ -119,11 +117,9 @@ public class UploadServlet extends HttpServlet {
                             if (!currentQ.isEmpty() && options.size() >= 4) {
                                 psQ.setInt(1, quizId);
                                 psQ.setString(2, currentQ);
-                                psQ.setString(3, options.get(0));
-                                psQ.setString(4, options.get(1));
-                                psQ.setString(5, options.get(2));
-                                psQ.setString(6, options.get(3));
-                                psQ.setString(7, correct);
+                                String jsonOpts = "{\"A\":\"" + escapeJson(options.get(0)) + "\",\"B\":\"" + escapeJson(options.get(1)) + "\",\"C\":\"" + escapeJson(options.get(2)) + "\",\"D\":\"" + escapeJson(options.get(3)) + "\"}";
+                                psQ.setString(3, jsonOpts);
+                                psQ.setString(4, correct);
                                 psQ.executeUpdate();
                             }
                         }
@@ -135,5 +131,10 @@ public class UploadServlet extends HttpServlet {
                 throw e;
             }
         }
+    }
+    
+    private String escapeJson(String str) {
+        if (str == null) return "";
+        return str.replace("\\", "\\\\").replace("\"", "\\\"");
     }
 }

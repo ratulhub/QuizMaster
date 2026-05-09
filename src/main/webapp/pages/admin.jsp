@@ -52,9 +52,13 @@
                     
                     <button type="submit" class="md-btn md-btn-filled" style="background: #B3261E; width: 100%;">Upload File</button>
                 </form>
-                <% String message = request.getParameter("message");
-                   if (message != null) { %>
-                   <div style="color: #386a20; background: #e6f4ea; padding: 12px; border-radius: 8px; margin-top: 1rem; text-align: center;"><%= message %></div>
+                <% String success = request.getParameter("success");
+                   if (success != null) { %>
+                   <div style="color: #386a20; background: #e6f4ea; padding: 12px; border-radius: 8px; margin-top: 1rem; text-align: center;"><%= success.replace("+", " ") %></div>
+                <% } %>
+                <% String error = request.getParameter("error");
+                   if (error != null) { %>
+                   <div style="color: #b3261e; background: #f9dedc; padding: 12px; border-radius: 8px; margin-top: 1rem; text-align: center;"><%= error.replace("+", " ") %></div>
                 <% } %>
             </div>
             

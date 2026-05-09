@@ -28,8 +28,46 @@ public class ResultServlet extends HttpServlet {
 
         UUID userId = (UUID) session.getAttribute("userId");
         String mode = req.getParameter("mode");
-        int score = Integer.parseInt(req.getParameter("score"));
-        int total = Integer.parseInt(req.getParameter("total"));
+        
+        String questionIdsParam = req.getParameter("questionIds");
+        int score = 0;
+        int total = 0;
+        
+        if (questionIdsParam != null && !questionIdsParam.trim().isEmpty()) {
+            String[] qIds = questionIdsParam.split(",");
+            total = qIds.length;
+            
+            try (Connection conn = DBConnection.getConnection()) {
+                StringBuilder placeholders = new StringBuilder();
+                for (int i = 0; i < qIds.length; i++) {
+                    placeholders.append("?");
+                    if (i < qIds.length - 1) placeholders.append(",");
+                }
+                
+                String sql = "SELECT id, correct_option FROM questions WHERE id IN (" + placeholders.toString() + ")";
+                try (PreparedStatement ps = conn.prepareStatement(sql)) {
+                    for (int i = 0; i < qIds.length; i++) {
+                        ps.setInt(i + 1, Integer.parseInt(qIds[i].trim()));
+                    }
+                    try (ResultSet rs = ps.executeQuery()) {
+                        while (rs.next()) {
+                            int qId = rs.getInt("id");
+                            String correctAns = rs.getString("correct_option");
+                            String userAns = req.getParameter("q_" + qId);
+                            
+                            if (correctAns != null && correctAns.equalsIgnoreCase(userAns)) {
+                                score++;
+                            }
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            // fallback if someone skipped the form
+            total = req.getParameter("total") != null ? Integer.parseInt(req.getParameter("total")) : 0;
+        }
 
         // Simplified XP Calculation
         int xpMultiplier = mode != null && mode.equalsIgnoreCase("sudden_death") ? 2 : 1;
