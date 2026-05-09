@@ -1,0 +1,139 @@
+Question: What does CPU stand for?
+A) Central Processing Unit
+B) Central Program Utility
+C) Computer Processing Unit
+D) Core Processing Unit
+Answer: A
+
+Question: What is the study of living organisms called?
+A) Chemistry
+B) Physics
+C) Biology
+D) Geology
+Answer: C
+
+Question: Which of the following is a prime number?
+A) 9
+B) 15
+C) 21
+D) 17
+Answer: D
+
+Question: What is the formula for the area of a circle?
+A) 2πr
+B) πr²
+C) πd
+D) 2πr²
+Answer: B
+
+Question: Which gas do plants absorb during photosynthesis?
+A) Oxygen
+B) Nitrogen
+C) Carbon Dioxide
+D) Hydrogen
+Answer: C
+
+Question: What is the powerhouse of the cell?
+A) Nucleus
+B) Ribosome
+C) Mitochondria
+D) Golgi Apparatus
+Answer: C
+
+Question: Who developed the theory of relativity?
+A) Isaac Newton
+B) Galileo Galilei
+C) Albert Einstein
+D) Niels Bohr
+Answer: C
+
+Question: What is H2O?
+A) Hydrogen Peroxide
+B) Water
+C) Hydrochloric Acid
+D) Saltwater
+Answer: B
+
+Question: Which planet is known as the Red Planet?
+A) Venus
+B) Saturn
+C) Jupiter
+D) Mars
+Answer: D
+
+Question: What does DNA stand for?
+A) Deoxyribonucleic Acid
+B) Diribonucleic Acid
+C) Deoxyribose Nucleotide Acid
+D) Double Nucleic Acid
+Answer: A
+
+Question: In mathematics, what is the value of Pi (π) approximately?
+A) 3.12
+B) 3.14
+C) 3.16
+D) 3.18
+Answer: B
+
+Question: Who wrote "Romeo and Juliet"?
+A) Charles Dickens
+B) Mark Twain
+C) William Shakespeare
+D) Jane Austen
+Answer: C
+
+Question: What is the boiling point of water at sea level?
+A) 90°C
+B) 95°C
+C) 100°C
+D) 110°C
+Answer: C
+
+Question: Which country is known as the Land of the Rising Sun?
+A) China
+B) Korea
+C) Japan
+D) Thailand
+Answer: C
+
+Question: What is photosynthesis?
+A) Process of cell division
+B) Process plants use to make food from sunlight
+C) Process of digestion in plants
+D) Process of water absorption
+Answer: B
+
+Question: What is Newton's first law of motion called?
+A) Law of Acceleration
+B) Law of Action and Reaction
+C) Law of Inertia
+D) Law of Gravity
+Answer: C
+
+Question: How many sides does a hexagon have?
+A) 5
+B) 6
+C) 7
+D) 8
+Answer: B
+
+Question: What is the chemical formula of table salt?
+A) KCl
+B) HCl
+C) NaCl
+D) CaCl2
+Answer: C
+
+Question: What type of energy does the sun primarily emit?
+A) Nuclear Energy
+B) Chemical Energy
+C) Mechanical Energy
+D) Radiant Energy
+Answer: D
+
+Question: What is the largest organ in the human body?
+A) Liver
+B) Brain
+C) Heart
+D) Skin
+Answer: D

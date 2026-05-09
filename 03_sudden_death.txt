@@ -1,0 +1,139 @@
+Question: What is the smallest planet in our solar system?
+A) Mars
+B) Venus
+C) Mercury
+D) Pluto
+Answer: C
+
+Question: How many bones are in the adult human body?
+A) 206
+B) 210
+C) 198
+D) 215
+Answer: A
+
+Question: What is the chemical symbol for Gold?
+A) Go
+B) Gd
+C) Ag
+D) Au
+Answer: D
+
+Question: Which country has the largest land area in the world?
+A) China
+B) USA
+C) Russia
+D) Canada
+Answer: C
+
+Question: What is the speed of light in km/s?
+A) 200,000 km/s
+B) 300,000 km/s
+C) 400,000 km/s
+D) 150,000 km/s
+Answer: B
+
+Question: In which year did World War II end?
+A) 1943
+B) 1944
+C) 1945
+D) 1946
+Answer: C
+
+Question: What is the hardest natural substance on Earth?
+A) Gold
+B) Iron
+C) Diamond
+D) Platinum
+Answer: C
+
+Question: Which planet has the most moons in our solar system?
+A) Jupiter
+B) Saturn
+C) Uranus
+D) Neptune
+Answer: B
+
+Question: What is the largest ocean on Earth?
+A) Atlantic Ocean
+B) Indian Ocean
+C) Arctic Ocean
+D) Pacific Ocean
+Answer: D
+
+Question: Who invented the telephone?
+A) Thomas Edison
+B) Nikola Tesla
+C) Alexander Graham Bell
+D) Guglielmo Marconi
+Answer: C
+
+Question: How many continents are there on Earth?
+A) 5
+B) 6
+C) 7
+D) 8
+Answer: C
+
+Question: What is the longest river in the world?
+A) Amazon
+B) Mississippi
+C) Yangtze
+D) Nile
+Answer: D
+
+Question: Which element has the atomic number 1?
+A) Helium
+B) Hydrogen
+C) Carbon
+D) Oxygen
+Answer: B
+
+Question: What is the capital of Australia?
+A) Sydney
+B) Melbourne
+C) Canberra
+D) Brisbane
+Answer: C
+
+Question: How many chambers does the human heart have?
+A) 2
+B) 3
+C) 4
+D) 5
+Answer: C
+
+Question: What is the currency of Japan?
+A) Won
+B) Yuan
+C) Yen
+D) Ringgit
+Answer: C
+
+Question: Which gas is most abundant in the Earth's atmosphere?
+A) Oxygen
+B) Carbon Dioxide
+C) Argon
+D) Nitrogen
+Answer: D
+
+Question: What is the largest mammal in the world?
+A) Elephant
+B) Blue Whale
+C) Giraffe
+D) Sperm Whale
+Answer: B
+
+Question: In what year did man first land on the Moon?
+A) 1965
+B) 1967
+C) 1969
+D) 1971
+Answer: C
+
+Question: What is the square root of 144?
+A) 11
+B) 12
+C) 13
+D) 14
+Answer: B

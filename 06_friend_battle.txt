@@ -1,0 +1,139 @@
+Question: What is your best friend's middle name?
+A) They don't have one
+B) You actually don't know
+C) You know it perfectly
+D) You've never thought to ask
+Answer: C
+
+Question: What is your friend's go-to order at their favorite restaurant?
+A) They always try something new
+B) You know it by heart
+C) They can never decide
+D) They let others choose
+Answer: B
+
+Question: Which song does your friend sing when they're happy?
+A) A random song from childhood
+B) Their current favorite
+C) An embarrassing old song
+D) They don't sing
+Answer: C
+
+Question: What would your friend do if they won the lottery?
+A) Save all of it
+B) Travel the world immediately
+C) Buy a house first
+D) Share it with friends and family
+Answer: D
+
+Question: What is your friend's biggest fear?
+A) Heights
+B) Spiders
+C) Being alone
+D) Failure
+Answer: B
+
+Question: What would your friend choose: pizza or burgers?
+A) Pizza always
+B) Burgers always
+C) Depends on the mood
+D) Neither — they're dieting
+Answer: A
+
+Question: What does your friend do when they're upset?
+A) Talks it out immediately
+B) Needs space and time
+C) Cries and then laughs
+D) Goes quiet for days
+Answer: B
+
+Question: Where would your friend most like to live?
+A) A big city
+B) A quiet countryside
+C) Near the beach
+D) Wherever their friends are
+Answer: C
+
+Question: What is your friend's biggest dream?
+A) To travel everywhere
+B) To start their own business
+C) To have a happy family
+D) To be famous
+Answer: B
+
+Question: What is your friend's love language?
+A) Words of affirmation
+B) Acts of service
+C) Gift giving
+D) Quality time
+Answer: D
+
+Question: Who does your friend call first when something exciting happens?
+A) Their mom
+B) Their partner
+C) Their best friend
+D) They post it on social media
+Answer: C
+
+Question: What is your friend's secret talent?
+A) Singing
+B) Drawing
+C) Cooking
+D) Impressions
+Answer: B
+
+Question: How does your friend handle stress?
+A) Exercises
+B) Overeats
+C) Watches movies
+D) Calls a friend
+Answer: D
+
+Question: What was your friend's favorite subject in school?
+A) Math
+B) Science
+C) English
+D) Art
+Answer: C
+
+Question: What item could your friend not live without?
+A) Their phone
+B) Their headphones
+C) Their laptop
+D) Their journal
+Answer: A
+
+Question: What is your friend's guilty pleasure?
+A) Reality TV shows
+B) Junk food at midnight
+C) Romantic movies
+D) Online shopping
+Answer: B
+
+Question: How does your friend react to surprises?
+A) Loves them completely
+B) Hates unexpected things
+C) Gets emotional every time
+D) Acts cool but secretly loves it
+Answer: C
+
+Question: What would your friend order at a café?
+A) Black coffee
+B) Iced latte
+C) Hot chocolate
+D) Matcha latte
+Answer: B
+
+Question: What does your friend value most in a friendship?
+A) Honesty
+B) Loyalty
+C) Fun and laughter
+D) Being understanding
+Answer: B
+
+Question: What is the most memorable trip you both took together?
+A) A beach trip
+B) A road trip
+C) An international trip
+D) A local adventure
+Answer: C

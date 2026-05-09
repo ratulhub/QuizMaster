@@ -1,0 +1,139 @@
+Question: What is Java?
+A) Programming Language
+B) Database
+C) Browser
+D) Operating System
+Answer: A
+
+Question: Which keyword is used to inherit a class in Java?
+A) this
+B) import
+C) extends
+D) implements
+Answer: C
+
+Question: What does JDBC stand for?
+A) Java Database Connection
+B) Java Database Connectivity
+C) Java Driver Basic Connection
+D) Java Direct Bridge Connection
+Answer: B
+
+Question: Which of the following is not a Java feature?
+A) Object-Oriented
+B) Platform Independent
+C) Use of Pointers
+D) Robust
+Answer: C
+
+Question: What is the default value of an int variable in Java?
+A) null
+B) 0
+C) 1
+D) undefined
+Answer: B
+
+Question: Which method is the entry point of a Java program?
+A) start()
+B) run()
+C) init()
+D) main()
+Answer: D
+
+Question: Which keyword is used to create an object in Java?
+A) create
+B) object
+C) new
+D) make
+Answer: C
+
+Question: What is the size of int in Java?
+A) 8 bits
+B) 16 bits
+C) 32 bits
+D) 64 bits
+Answer: C
+
+Question: Which of the following is a valid Java identifier?
+A) 2variable
+B) variable_2
+C) variable-2
+D) variable 2
+Answer: B
+
+Question: What does JVM stand for?
+A) Java Variable Machine
+B) Java Visual Machine
+C) Java Virtual Machine
+D) Java Versatile Module
+Answer: C
+
+Question: Which package is automatically imported in Java?
+A) java.io
+B) java.util
+C) java.lang
+D) java.net
+Answer: C
+
+Question: What is the parent class of all classes in Java?
+A) Base
+B) Object
+C) Super
+D) Root
+Answer: B
+
+Question: Which keyword is used to prevent a class from being subclassed?
+A) static
+B) final
+C) abstract
+D) private
+Answer: B
+
+Question: What is the output of System.out.println(10 + 20 + "30")?
+A) 102030
+B) 3030
+C) 60
+D) 10 + 20 + 30
+Answer: B
+
+Question: Which exception is thrown when dividing by zero in Java?
+A) NullPointerException
+B) ArithmeticException
+C) NumberFormatException
+D) ArrayIndexOutOfBoundsException
+Answer: B
+
+Question: What is an interface in Java?
+A) A class with only variables
+B) A class with only constructors
+C) A blueprint with abstract methods
+D) A class with static methods only
+Answer: C
+
+Question: Which keyword is used to handle exceptions in Java?
+A) catch
+B) handle
+C) try
+D) Both A and C
+Answer: D
+
+Question: What does the 'this' keyword refer to in Java?
+A) The parent class
+B) The current object
+C) A static method
+D) A new object
+Answer: B
+
+Question: What is method overloading in Java?
+A) Same method name, same parameters
+B) Same method name, different parameters
+C) Different method name, same parameters
+D) Different method name, different parameters
+Answer: B
+
+Question: Which collection class allows duplicate elements and maintains insertion order?
+A) HashSet
+B) TreeSet
+C) ArrayList
+D) HashMap
+Answer: C

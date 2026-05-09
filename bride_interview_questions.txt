@@ -1,0 +1,699 @@
+[BRIDE_INTERVIEW]
+
+Ghumano niye —
+Tumi ki 'just 5 more minutes' type naki 'alarm er age uthte paro' type?
+
+A) Alarm er age uthi, gym o kori
+B) Just 5 minutes... 5 minutes... 5 minutes...
+C) Alarm? Ota ki?
+D) Bhaiya uthale uthi, noyto na
+
+ANSWER: B
+
+POINTS: 10
+CATEGORY: Daily Habit
+DIFFICULTY: EASY
+TIMER: 20
+
+FAMILY_CHARACTER:
+"Curious Nando (Bhaiyar Choto Bon)"
+
+REACTION_TYPE:
+"Giggling"
+
+HUMOR_SCORE: 9
+RESPECT_SCORE: 5
+CULTURE_SCORE: 6
+
+ENDING_EFFECT:
+"Relatable Bride Unlocked"
+
+FUNNY_REACTION:
+"Nando whispers to bhaiya: 'Tui-o to same, toder juti hobe.'"
+
+-----------------------------------
+
+[BRIDE_INTERVIEW]
+
+Argument style —
+Jukti dite dite tumi ki 'okay fine' bole chup hoye jao, naki last word tomar-i howa lagbe?
+
+A) Okay fine — (but mentally still arguing)
+B) Last word amari hobe, final answer
+C) Ami chup thaki, karon ami mature
+D) Bhaiyar last word-i amar last word
+
+ANSWER: A
+
+POINTS: 15
+CATEGORY: Personality
+DIFFICULTY: EASY
+TIMER: 20
+
+FAMILY_CHARACTER:
+"Shashuri (Strict Mode)"
+
+REACTION_TYPE:
+"Suspicious But Impressed"
+
+HUMOR_SCORE: 8
+RESPECT_SCORE: 7
+CULTURE_SCORE: 7
+
+ENDING_EFFECT:
+"Shashuri Noted It"
+
+FUNNY_REACTION:
+"Shashuri bole: 'Okay fine mane actually fine na — ei meyeke ami chini.'"
+
+-----------------------------------
+
+[BRIDE_INTERVIEW]
+
+Grocery niye —
+Bazar list banao naki dukane giye 'dekha jaak ki lagbe' type?
+
+A) Excel sheet e list, category wise sorted
+B) List banai, tarpor bhule asi
+C) Dukane giye decide kori, plus extra 500 taka kharch
+D) Bhaiya jabe, ami barite thakbo
+
+ANSWER: C
+
+POINTS: 10
+CATEGORY: Household Management
+DIFFICULTY: EASY
+TIMER: 20
+
+FAMILY_CHARACTER:
+"Shashur (Family Budget Controller)"
+
+REACTION_TYPE:
+"Concerned"
+
+HUMOR_SCORE: 8
+RESPECT_SCORE: 5
+CULTURE_SCORE: 6
+
+ENDING_EFFECT:
+"Budget Meeting Scheduled"
+
+FUNNY_REACTION:
+"Shashur quietly calculates monthly grocery damage in his head."
+
+-----------------------------------
+
+[BRIDE_INTERVIEW]
+
+Mood niye —
+Kono karone mood off hole mukhe bolo naki 'kichu na' bole thako ar expect koro je bujhe nebo?
+
+A) Directly boli, communication is key
+B) 'Kichu na' — but sab kichu ache
+C) Mukh dekhlei bujhe newa uchit
+D) Boli na, por din normal
+
+ANSWER: B
+
+POINTS: 15
+CATEGORY: Personality
+DIFFICULTY: MEDIUM
+TIMER: 25
+
+FAMILY_CHARACTER:
+"Bhaiyar Boro Apu (Experienced)"
+
+REACTION_TYPE:
+"Knowing Smile"
+
+HUMOR_SCORE: 9
+RESPECT_SCORE: 6
+CULTURE_SCORE: 7
+
+ENDING_EFFECT:
+"Sisterhood Bond Activated"
+
+FUNNY_REACTION:
+"Boro Apu nods slowly: 'Amrao same, welcome to the club.'"
+
+-----------------------------------
+
+[BRIDE_INTERVIEW]
+
+Khawa niye —
+Khete boso naki 'tumi suru koro' bole nije thay boso ar pore complain koro thanda hoye geche?
+
+A) Ami agei boshe pori, bhokhaz manush
+B) 'Tumi suru koro'... tarpor thanda dekhe complain
+C) Ektu busy chilam, microwave ache to
+D) Khawar cheye scroll kora beshi enjoy
+
+ANSWER: B
+
+POINTS: 10
+CATEGORY: Daily Habit
+DIFFICULTY: EASY
+TIMER: 20
+
+FAMILY_CHARACTER:
+"Shashuri (Head Chef of Family)"
+
+REACTION_TYPE:
+"Dramatically Offended"
+
+HUMOR_SCORE: 8
+RESPECT_SCORE: 4
+CULTURE_SCORE: 5
+
+ENDING_EFFECT:
+"Shashuri Will Remind This Forever"
+
+FUNNY_REACTION:
+"Shashuri: 'Amar haater ranna thanda hoy na, tumi thanda korecho.'"
+
+-----------------------------------
+
+[BRIDE_INTERVIEW]
+
+Decision making —
+Restaurant e giye order dite paro naki menu dekhe 20 minute pore 'tumi ki nebe seta-i nebo' type?
+
+A) Agetheke decide kore asi, no time waste
+B) Menu dekhi, 20 min pore bhaiyarta-i noi
+C) Waiter pressure dile jebhab mone ase bollefelai
+D) Shob menu te 'not available' — ekta pawa jaay
+
+ANSWER: B
+
+POINTS: 10
+CATEGORY: Personality
+DIFFICULTY: EASY
+TIMER: 20
+
+FAMILY_CHARACTER:
+"Bhaiyar Choto Bhai (Observer)"
+
+REACTION_TYPE:
+"Laughing Silently"
+
+HUMOR_SCORE: 9
+RESPECT_SCORE: 5
+CULTURE_SCORE: 5
+
+ENDING_EFFECT:
+"Bhaiya's Order Budget Just Doubled"
+
+FUNNY_REACTION:
+"Choto bhai: 'Bhaiya tui restaurant e jais na boro howa porjonto.'"
+
+-----------------------------------
+
+[BRIDE_INTERVIEW]
+
+Cleaning niye —
+Ghor nongra dekhle sathe sathe clean koro naki 'pore korbo' bole 3 din rakho?
+
+A) Dekhai pari na, sathe sathe clean
+B) Pore korbo... pore korbo... guests asbe, tab korbo
+C) Bhaiya korbe, ami supervise korbo
+D) Minimalist lifestyle, kichu nai to nongra-o nai
+
+ANSWER: B
+
+POINTS: 10
+CATEGORY: Household Management
+DIFFICULTY: EASY
+TIMER: 20
+
+FAMILY_CHARACTER:
+"Shashuri (Cleanliness Obsessed)"
+
+REACTION_TYPE:
+"Silently Judging"
+
+HUMOR_SCORE: 7
+RESPECT_SCORE: 4
+CULTURE_SCORE: 6
+
+ENDING_EFFECT:
+"Shashuri Will Personally Supervise"
+
+FUNNY_REACTION:
+"Shashuri already bought an extra broom. Just in case."
+
+-----------------------------------
+
+[BRIDE_INTERVIEW]
+
+Weekend niye —
+Off day mane productive howar plan koro naki alarm diye rakho tarpor snooze kore ghumao?
+
+A) 6 ta kaje list kori, 1 ta kori
+B) Alarm dii 7 ta te, uthhi 11 te, guilt e din kati
+C) Weekend mane complete rest, no compromise
+D) Bhaiyar sathe plan, tarpor cancelled
+
+ANSWER: B
+
+POINTS: 10
+CATEGORY: Daily Habit
+DIFFICULTY: EASY
+TIMER: 20
+
+FAMILY_CHARACTER:
+"Shashur (Early Riser, 5 AM Club)"
+
+REACTION_TYPE:
+"Deeply Concerned"
+
+HUMOR_SCORE: 8
+RESPECT_SCORE: 4
+CULTURE_SCORE: 5
+
+ENDING_EFFECT:
+"Shashur Will Knock At 7 AM Every Weekend"
+
+FUNNY_REACTION:
+"Shashur: 'Amar barite subhe 6 ta te shob jaage.' Bride internally screams."
+
+-----------------------------------
+
+[BRIDE_INTERVIEW]
+
+Netflix niye —
+'Just one episode' bole koto episode dekho realistically?
+
+A) Exactly one. Ami disciplined.
+B) 3-4 ta... okay full season
+C) 'Next episode in 5 seconds' — ami ki korbo
+D) Bhaiya ghumiye gele ami solo marathon
+
+ANSWER: C
+
+POINTS: 10
+CATEGORY: Entertainment
+DIFFICULTY: EASY
+TIMER: 20
+
+FAMILY_CHARACTER:
+"Bhaiyar Choto Bon (Fellow Binge Watcher)"
+
+REACTION_TYPE:
+"High Five"
+
+HUMOR_SCORE: 9
+RESPECT_SCORE: 5
+CULTURE_SCORE: 4
+
+ENDING_EFFECT:
+"Netflix Partner Found"
+
+FUNNY_REACTION:
+"Choto bon: 'Apu tumi amader barite-i thako, bhaiyar dorkar nai.'"
+
+-----------------------------------
+
+[BRIDE_INTERVIEW]
+
+Jinish khoja niye —
+Kono jinish khuje na pele sabaikke jiggesh koro naki nije 10 minute khozo tarpor chechaao?
+
+A) Nijei phai, organized manush
+B) 10 second khoji, tarpor — 'EITAAA KOI GELO?!'
+C) Bhaiyake call kori, o jabe khujbe
+D) Jai hoye jak, notun kinbo
+
+ANSWER: B
+
+POINTS: 10
+CATEGORY: Daily Habit
+DIFFICULTY: EASY
+TIMER: 20
+
+FAMILY_CHARACTER:
+"Shashuri (Knows Where Everything Is)"
+
+REACTION_TYPE:
+"Already Walking Toward The Item"
+
+HUMOR_SCORE: 8
+RESPECT_SCORE: 5
+CULTURE_SCORE: 6
+
+ENDING_EFFECT:
+"Shashuri Is Now The Family GPS"
+
+FUNNY_REACTION:
+"Shashuri silently hands the item over before the scream finishes."
+
+-----------------------------------
+
+[BRIDE_INTERVIEW]
+
+In-laws niye honest —
+Shashuri kichhu bolele sarasari jobab dao naki pore bhaiyar kache puro dialogue replay koro?
+
+A) Sarasari boli, transparency rakhi
+B) Hashi dii... pore bhaiyake full script shonai
+C) Recording rekhi, evidence hisebe
+D) Amio kichu boli na, shashuri-o bolen na — peace
+
+ANSWER: B
+
+POINTS: 20
+CATEGORY: Family Dynamics
+DIFFICULTY: MEDIUM
+TIMER: 25
+
+FAMILY_CHARACTER:
+"Shashuri (Unaware)"
+
+REACTION_TYPE:
+"Smiling Obliviously"
+
+HUMOR_SCORE: 9
+RESPECT_SCORE: 6
+CULTURE_SCORE: 8
+
+ENDING_EFFECT:
+"Bhaiya Is Now The Family Therapist"
+
+FUNNY_REACTION:
+"Bhaiya at night: 'Abar shuru, recorder ready rakhi.'"
+
+-----------------------------------
+
+[BRIDE_INTERVIEW]
+
+Phone battery niye —
+Battery 20% hole charger khojo naki 1% porjonto use kore drama koro?
+
+A) 50% e plug in, always prepared
+B) 1% — 'LOW BATTERY' notification-e tarpor dash
+C) Power bank sathei thake
+D) Phone off hok, break-i dorkar chilo
+
+ANSWER: B
+
+POINTS: 10
+CATEGORY: Daily Habit
+DIFFICULTY: EASY
+TIMER: 20
+
+FAMILY_CHARACTER:
+"Bhaiyar Choto Bhai (Tech Guy)"
+
+REACTION_TYPE:
+"Facepalm"
+
+HUMOR_SCORE: 8
+RESPECT_SCORE: 4
+CULTURE_SCORE: 4
+
+ENDING_EFFECT:
+"Choto Bhai Will Buy Her A Power Bank As Gift"
+
+FUNNY_REACTION:
+"Choto bhai: 'Bhaiya apu-r jonno backup charger lagbe, ami manage korchi.'"
+
+-----------------------------------
+
+[BRIDE_INTERVIEW]
+
+Late howar habit —
+Ready 'almost' mane tomar kache exactly koto minute?
+
+A) Almost = 2 minute, punctual manush ami
+B) Almost = 15-20 minute, optimistically bolchi
+C) Almost = 'tumi gari niye niche jao'
+D) Ami ready, tumi ki ready?
+
+ANSWER: C
+
+POINTS: 15
+CATEGORY: Personality
+DIFFICULTY: EASY
+TIMER: 20
+
+FAMILY_CHARACTER:
+"Shashur (Always On Time)"
+
+REACTION_TYPE:
+"Checking Watch Aggressively"
+
+HUMOR_SCORE: 9
+RESPECT_SCORE: 4
+CULTURE_SCORE: 5
+
+ENDING_EFFECT:
+"Family Will Leave 1 Hour Early From Now On"
+
+FUNNY_REACTION:
+"Shashur to driver: 'Gari ready rakho, 'almost' mane 30 minute bujhte hobe.'"
+
+-----------------------------------
+
+[BRIDE_INTERVIEW]
+
+Shopping niye —
+Sale dekhle ki koro — plan moto kino naki 'dorkar nai kintu offer ache' logic e kino?
+
+A) List moto kini, budget strict
+B) 'Lagbe na but 70% off' — cart full
+C) Sale mane trap, ami bujhi
+D) Bhaiyar card diye kini, tarpor dekhagelo
+
+ANSWER: B
+
+POINTS: 10
+CATEGORY: Finance & Lifestyle
+DIFFICULTY: EASY
+TIMER: 20
+
+FAMILY_CHARACTER:
+"Shashur (Family Accountant)"
+
+REACTION_TYPE:
+"Heart Attack Mode"
+
+HUMOR_SCORE: 8
+RESPECT_SCORE: 4
+CULTURE_SCORE: 5
+
+ENDING_EFFECT:
+"Shashur Hidden The Extra Debit Card"
+
+FUNNY_REACTION:
+"Shashur: 'Bhaiya tomar card block kore dao, ebarer moto.'"
+
+-----------------------------------
+
+[BRIDE_INTERVIEW]
+
+Ranna niye —
+Recipe YouTube e dekhe ranna koro naki 'andaj moto' dile better hoy type?
+
+A) Exact recipe follow, science er moto
+B) YouTube pause kori 47 bar, tao somehow vul
+C) Andaj e perfect hoy, haath gune
+D) Order kori, ranna amake diye hobe na
+
+ANSWER: B
+
+POINTS: 15
+CATEGORY: Cooking Skills
+DIFFICULTY: MEDIUM
+TIMER: 25
+
+FAMILY_CHARACTER:
+"Shashuri (Master Chef)"
+
+REACTION_TYPE:
+"Offering To Teach"
+
+HUMOR_SCORE: 7
+RESPECT_SCORE: 7
+CULTURE_SCORE: 9
+
+ENDING_EFFECT:
+"Shashuri Cooking Class — Enrollment Confirmed"
+
+FUNNY_REACTION:
+"Shashuri: 'Aso, haath dhore shikhiye debo, YouTube lagbe na.'"
+
+-----------------------------------
+
+[BRIDE_INTERVIEW]
+
+Surprise reaction —
+Bhaiya surprise dile tumi ki actually surprised hao naki age thekei jano?
+
+A) Ami kichhu jani na, pure innocent
+B) Jani kintu surprised er acting kori — Oscar worthy
+C) Facebook e spoiler dekhechilam, but chup chilo
+D) Bhaiya surprise plan kore na, realistic answer nai
+
+ANSWER: B
+
+POINTS: 10
+CATEGORY: Personality
+DIFFICULTY: EASY
+TIMER: 20
+
+FAMILY_CHARACTER:
+"Bhaiyar Choto Bon (Surprise Leaker)"
+
+REACTION_TYPE:
+"Guilty Face"
+
+HUMOR_SCORE: 9
+RESPECT_SCORE: 6
+CULTURE_SCORE: 6
+
+ENDING_EFFECT:
+"Choto Bon Officially Banned From Surprise Planning"
+
+FUNNY_REACTION:
+"Choto bon: 'Apuke ami-i bolte diyechilam, bhaiyake bolona please.'"
+
+-----------------------------------
+
+[BRIDE_INTERVIEW]
+
+Khawa pic niye —
+Khabar age pic tolo naki garam thaktei khai?
+
+A) Garam khabar age, pic pore
+B) Photo perfect na hoa porjonto khawar anumatai nai
+C) Bhaiya khete boshle tarpor pic toli
+D) Food blogger ami, ata toh must
+
+ANSWER: B
+
+POINTS: 10
+CATEGORY: Daily Habit
+DIFFICULTY: EASY
+TIMER: 20
+
+FAMILY_CHARACTER:
+"Shashuri (Made Food With Love)"
+
+REACTION_TYPE:
+"Watching Food Get Cold With Pain"
+
+HUMOR_SCORE: 7
+RESPECT_SCORE: 4
+CULTURE_SCORE: 6
+
+ENDING_EFFECT:
+"Shashuri Will Serve Cold Food Directly Next Time"
+
+FUNNY_REACTION:
+"Shashuri: 'Pic tolaite tolaite thanda hoye gelo, Instagram ki khabe?'"
+
+-----------------------------------
+
+[BRIDE_INTERVIEW]
+
+Bhaiyar dost niye —
+Bhaiyar best friend ke ki consider korbe — bhai naki suspicious?
+
+A) Bhai-i, no tension
+B) Bhai... but history check korte hobe ektu
+C) Depends on vibes, first meeting e bujhbo
+D) Bhaiya jader sathe thake tara-o amari
+
+ANSWER: C
+
+POINTS: 15
+CATEGORY: Social & Family
+DIFFICULTY: MEDIUM
+TIMER: 25
+
+FAMILY_CHARACTER:
+"Bhaiyar Best Friend (Nervous)"
+
+REACTION_TYPE:
+"Sweating Slightly"
+
+HUMOR_SCORE: 8
+RESPECT_SCORE: 7
+CULTURE_SCORE: 7
+
+ENDING_EFFECT:
+"Vibe Check Passed — Conditionally"
+
+FUNNY_REACTION:
+"Best friend to bhaiya later: 'Bhai, tomar bou-er chokh diye x-ray hoy, ami nischit.'"
+
+-----------------------------------
+
+[BRIDE_INTERVIEW]
+
+Fight er por —
+Bhaiyar sathe fight er por tumi ki age sorry bolo naki wait koro?
+
+A) Ami agei sorry boli, ego nai
+B) Wait kori... but hint dii je ami wait korchi
+C) Silent treatment, o bujhuk age
+D) Fight? Ami kabhi fire nei
+
+ANSWER: B
+
+POINTS: 15
+CATEGORY: Relationship
+DIFFICULTY: MEDIUM
+TIMER: 25
+
+FAMILY_CHARACTER:
+"Bhaiyar Boro Apu (Marriage Veteran)"
+
+REACTION_TYPE:
+"Nodding With 10 Years Of Experience"
+
+HUMOR_SCORE: 8
+RESPECT_SCORE: 6
+CULTURE_SCORE: 8
+
+ENDING_EFFECT:
+"Boro Apu Approves — She Did The Same"
+
+FUNNY_REACTION:
+"Boro apu: 'Hint dewa ta art, direct sorry toh heros bole — tumi bujhecho.'"
+
+-----------------------------------
+
+[BRIDE_INTERVIEW]
+
+Life philosophy —
+Tumi ki 'go with the flow' type naki sabal plan kore cholo type?
+
+A) 5 year plan ache, Excel e
+B) Flow te jai, but anxiety o sathe jai
+C) Plan kori, life onno plan kore
+D) Bhaiyar plan-i amar plan
+
+ANSWER: B
+
+POINTS: 20
+CATEGORY: Personality
+DIFFICULTY: MEDIUM
+TIMER: 25
+
+FAMILY_CHARACTER:
+"Entire Family (Final Round)"
+
+REACTION_TYPE:
+"Everyone Laughs Together"
+
+HUMOR_SCORE: 10
+RESPECT_SCORE: 8
+CULTURE_SCORE: 8
+
+ENDING_EFFECT:
+"Family Accepted — She's One Of Us"
+
+FUNNY_REACTION:
+"Shashuri: 'Anxiety niye flow, ei barir shবার same — tumi thik jaygay ashecho.'"
+
+-----------------------------------
