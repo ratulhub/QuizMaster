@@ -34,6 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('load', hideLoader);
     }
 
+    // Handle Back/Forward Cache (BFCache) to ensure loader hides on back navigation
+    window.addEventListener('pageshow', hideLoader);
+
     // Show loader on navigation or form submission
     const showLoader = () => {
         loaderOverlay.classList.remove('hidden');
@@ -94,8 +97,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     document.querySelectorAll('.stagger-animate').forEach((el, index) => {
-        el.style.animationDelay = `${index * 0.15}s`;
-        observer.observe(el);
+        if (el.classList.contains('grid')) {
+            // If it's a grid container, stagger its children
+            Array.from(el.children).forEach((child, childIndex) => {
+                child.style.opacity = '0'; // Ensure hidden initially
+                child.style.animationDelay = `${childIndex * 0.15}s`;
+                observer.observe(child);
+            });
+        } else {
+            // Otherwise apply to the element itself
+            el.style.opacity = '0';
+            el.style.animationDelay = `${index * 0.15}s`;
+            observer.observe(el);
+        }
     });
 
     // 3. Quiz Game Engine Logic (Simplified)
@@ -112,8 +126,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Add CSS rule for hidden class dynamically to keep it clean
-    const style = document.createElement('style');
-    style.innerHTML = `.hidden { display: none !important; }`;
-    document.head.appendChild(style);
 });

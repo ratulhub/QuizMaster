@@ -151,6 +151,18 @@ a { text-decoration: none; color: inherit; }
     background-color: rgba(103, 80, 164, 0.1); /* Primary 10% */
 }
 
+.md-btn-custom {
+    background-color: var(--btn-color, var(--md-primary));
+    color: #FFFFFF;
+}
+.md-btn-custom:hover {
+    filter: brightness(0.9);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.md-btn-custom:active {
+    filter: brightness(0.8);
+}
+
 /* Material Inputs (Filled Text Field) */
 .md-input-container {
     position: relative;

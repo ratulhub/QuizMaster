@@ -34,7 +34,7 @@
                     <h3 class="mb-1" style="color: #B3261E; font-size: 1.8rem;">Roast Mode</h3>
                     <p class="text-secondary mb-4" style="font-size: 1rem;">AI will roast your mistakes relentlessly.</p>
                 </div>
-                <a href="${pageContext.request.contextPath}/quiz?mode=roast" class="md-btn md-btn-filled" style="width: 100%; background: #B3261E;">Engage</a>
+                <a href="${pageContext.request.contextPath}/quiz?mode=roast" class="md-btn md-btn-custom" style="width: 100%; --btn-color: #B3261E;">Engage</a>
             </div>
 
             <div class="md-card interactive text-center" style="display: flex; flex-direction: column; justify-content: space-between;">
@@ -42,7 +42,7 @@
                     <h3 class="mb-1" style="color: var(--md-tertiary); font-size: 1.8rem;">Sudden Death</h3>
                     <p class="text-secondary mb-4" style="font-size: 1rem;">One mistake and the simulation ends. 2x XP.</p>
                 </div>
-                <a href="${pageContext.request.contextPath}/quiz?mode=sudden_death" class="md-btn md-btn-filled" style="width: 100%; background: var(--md-tertiary);">Engage</a>
+                <a href="${pageContext.request.contextPath}/quiz?mode=sudden_death" class="md-btn md-btn-custom" style="width: 100%; --btn-color: var(--md-tertiary);">Engage</a>
             </div>
             
             <div class="md-card interactive text-center" style="display: flex; flex-direction: column; justify-content: space-between;">
@@ -50,7 +50,7 @@
                     <h3 class="mb-1" style="color: #b16a00; font-size: 1.8rem;">Teacher Mode</h3>
                     <p class="text-secondary mb-4" style="font-size: 1rem;">Receive detailed explanations for every answer.</p>
                 </div>
-                <a href="${pageContext.request.contextPath}/quiz?mode=teacher" class="md-btn md-btn-filled" style="width: 100%; background: #b16a00;">Engage</a>
+                <a href="${pageContext.request.contextPath}/quiz?mode=teacher" class="md-btn md-btn-custom" style="width: 100%; --btn-color: #b16a00;">Engage</a>
             </div>
             
             <div class="md-card interactive text-center" style="display: flex; flex-direction: column; justify-content: space-between;">
@@ -60,7 +60,7 @@
                 </div>
                 <form action="${pageContext.request.contextPath}/battle" method="post" class="flex-center" style="width: 100%;">
                     <input type="hidden" name="action" value="create">
-                    <button type="submit" class="md-btn md-btn-filled" style="width: 100%; background: #386a20;">Host</button>
+                    <button type="submit" class="md-btn md-btn-custom" style="width: 100%; --btn-color: #386a20;">Host</button>
                 </form>
             </div>
             
@@ -69,7 +69,7 @@
                     <h3 class="mb-1" style="color: #9c27b0; font-size: 1.8rem;">Bride Interview</h3>
                     <p class="text-secondary mb-4" style="font-size: 1rem;">Answer life scenario questions.</p>
                 </div>
-                <a href="${pageContext.request.contextPath}/quiz?mode=bride" class="md-btn md-btn-filled" style="width: 100%; background: #9c27b0;">Engage</a>
+                <a href="${pageContext.request.contextPath}/quiz?mode=bride" class="md-btn md-btn-custom" style="width: 100%; --btn-color: #9c27b0;">Engage</a>
             </div>
         </div>
     </div>
