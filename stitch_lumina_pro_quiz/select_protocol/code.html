@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -7,7 +7,7 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -120,13 +120,12 @@
 <div class="flex items-center gap-xl">
 <h1 class="font-title-lg text-title-lg font-bold text-primary dark:text-primary-fixed-dim">QuizMaster</h1>
 <nav class="flex gap-lg">
-<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 font-label-lg text-label-lg hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="${pageContext.request.contextPath}/modes">Protocols</a>
-<a class="text-on-surface-variant dark:text-surface-variant font-label-lg text-label-lg hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="${pageContext.request.contextPath}/dashboard">History</a>
-<a class="text-on-surface-variant dark:text-surface-variant font-label-lg text-label-lg hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="${pageContext.request.contextPath}/dashboard">Profile</a>
+<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 font-label-lg text-label-lg hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Protocols</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-lg text-label-lg hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">History</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-lg text-label-lg hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Profile</a>
 </nav>
 </div>
 <div class="flex items-center gap-md">
-<a href="${pageContext.request.contextPath}/dashboard" class="text-on-surface-variant hover:text-primary transition-colors font-label-lg text-label-lg mr-4">Back to Base</a>
 <button class="text-on-surface-variant hover:text-primary transition-colors">
 <span class="material-symbols-outlined" data-icon="settings">settings</span>
 </button>
@@ -149,9 +148,9 @@
 <h3 class="font-headline-md text-headline-md text-primary mb-md">Normal Mode</h3>
 <p class="font-body-md text-body-md text-on-surface-variant">Standard assessment protocol. Balanced difficulty.</p>
 </div>
-<a href="${pageContext.request.contextPath}/quiz?mode=normal" class="w-full bg-primary text-on-primary rounded-full py-md font-label-lg text-label-lg hover:bg-primary/90 transition-colors block text-center">
+<button class="w-full bg-primary text-on-primary rounded-full py-md font-label-lg text-label-lg hover:bg-primary/90 transition-colors">
                     Engage
-</a>
+                </button>
 </div>
 <!-- Roast Mode Card -->
 <div class="bg-surface-container-low relative overflow-hidden rounded-[2rem] p-lg flex flex-col justify-between border border-outline-variant/30 shadow-[0_4px_8px_-4px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_16px_-4px_rgba(0,0,0,0.08)] hover:border-outline-variant/50 transition-all duration-300 min-h-[280px]">
@@ -160,9 +159,9 @@
 <h3 class="font-headline-md text-headline-md text-mode-roast mb-md">Roast Mode</h3>
 <p class="font-body-md text-body-md text-on-surface-variant">AI will roast your mistakes relentlessly.</p>
 </div>
-<a href="${pageContext.request.contextPath}/quiz?mode=roast" class="w-full bg-mode-roast text-on-primary rounded-full py-md font-label-lg text-label-lg hover:bg-mode-roast/90 transition-colors relative z-10 block text-center">
+<button class="w-full bg-mode-roast text-on-primary rounded-full py-md font-label-lg text-label-lg hover:bg-mode-roast/90 transition-colors relative z-10">
                     Engage
-</a>
+                </button>
 </div>
 <!-- Sudden Death Card -->
 <div class="bg-surface-container-low relative overflow-hidden rounded-[2rem] p-lg flex flex-col justify-between border border-outline-variant/30 shadow-[0_4px_8px_-4px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_16px_-4px_rgba(0,0,0,0.08)] hover:border-outline-variant/50 transition-all duration-300 min-h-[280px]">
@@ -171,9 +170,9 @@
 <h3 class="font-headline-md text-headline-md text-mode-sudden-death mb-md">Sudden Death</h3>
 <p class="font-body-md text-body-md text-on-surface-variant">One mistake and the simulation ends. 2x XP.</p>
 </div>
-<a href="${pageContext.request.contextPath}/quiz?mode=sudden_death" class="w-full bg-mode-sudden-death text-on-primary rounded-full py-md font-label-lg text-label-lg hover:bg-mode-sudden-death/90 transition-colors relative z-10 block text-center">
+<button class="w-full bg-mode-sudden-death text-on-primary rounded-full py-md font-label-lg text-label-lg hover:bg-mode-sudden-death/90 transition-colors relative z-10">
                     Engage
-</a>
+                </button>
 </div>
 <!-- Teacher Mode Card -->
 <div class="bg-surface-container-low relative overflow-hidden rounded-[2rem] p-lg flex flex-col justify-between border border-outline-variant/30 shadow-[0_4px_8px_-4px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_16px_-4px_rgba(0,0,0,0.08)] hover:border-outline-variant/50 transition-all duration-300 min-h-[280px]">
@@ -182,9 +181,9 @@
 <h3 class="font-headline-md text-headline-md text-mode-teacher mb-md">Teacher Mode</h3>
 <p class="font-body-md text-body-md text-on-surface-variant">Receive detailed explanations for every answer.</p>
 </div>
-<a href="${pageContext.request.contextPath}/quiz?mode=teacher" class="w-full bg-mode-teacher text-on-primary rounded-full py-md font-label-lg text-label-lg hover:bg-mode-teacher/90 transition-colors relative z-10 block text-center">
+<button class="w-full bg-mode-teacher text-on-primary rounded-full py-md font-label-lg text-label-lg hover:bg-mode-teacher/90 transition-colors relative z-10">
                     Engage
-</a>
+                </button>
 </div>
 <!-- Friend Battle Card -->
 <div class="bg-surface-container-low relative overflow-hidden rounded-[2rem] p-lg flex flex-col justify-between border border-outline-variant/30 shadow-[0_4px_8px_-4px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_16px_-4px_rgba(0,0,0,0.08)] hover:border-outline-variant/50 transition-all duration-300 min-h-[280px]">
@@ -193,12 +192,9 @@
 <h3 class="font-headline-md text-headline-md text-mode-friend mb-md">Friend Battle</h3>
 <p class="font-body-md text-body-md text-on-surface-variant">Compete head-to-head in real time.</p>
 </div>
-<form action="${pageContext.request.contextPath}/battle" method="post" class="w-full">
-    <input type="hidden" name="action" value="create">
-    <button type="submit" class="w-full bg-mode-friend text-on-primary rounded-full py-md font-label-lg text-label-lg hover:bg-mode-friend/90 transition-colors relative z-10">
-                        Host
-    </button>
-</form>
+<button class="w-full bg-mode-friend text-on-primary rounded-full py-md font-label-lg text-label-lg hover:bg-mode-friend/90 transition-colors relative z-10">
+                    Host
+                </button>
 </div>
 <!-- Bride Interview Card -->
 <div class="bg-surface-container-low relative overflow-hidden rounded-[2rem] p-lg flex flex-col justify-between border border-outline-variant/30 shadow-[0_4px_8px_-4px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_16px_-4px_rgba(0,0,0,0.08)] hover:border-outline-variant/50 transition-all duration-300 min-h-[280px]">
@@ -207,26 +203,25 @@
 <h3 class="font-headline-md text-headline-md text-mode-bride mb-md">Bride Interview</h3>
 <p class="font-body-md text-body-md text-on-surface-variant">Answer life scenario questions.</p>
 </div>
-<a href="${pageContext.request.contextPath}/quiz?mode=bride" class="w-full bg-mode-bride text-on-primary rounded-full py-md font-label-lg text-label-lg hover:bg-mode-bride/90 transition-colors relative z-10 block text-center">
+<button class="w-full bg-mode-bride text-on-primary rounded-full py-md font-label-lg text-label-lg hover:bg-mode-bride/90 transition-colors relative z-10">
                     Engage
-</a>
+                </button>
 </div>
 </div>
 </main>
 <!-- BottomNavBar (Mobile) -->
 <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] bg-surface-container-lowest dark:bg-inverse-surface">
-<a href="${pageContext.request.contextPath}/dashboard" class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-6 py-1 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all">
+<button class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-6 py-1 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all">
 <span class="material-symbols-outlined font-label-sm text-label-sm" data-icon="auto_stories">auto_stories</span>
 <span class="font-label-sm text-label-sm mt-1">Library</span>
-</a>
-<a href="${pageContext.request.contextPath}/modes" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-6 py-1 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all">
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-6 py-1 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all">
 <span class="material-symbols-outlined font-label-sm text-label-sm" data-icon="play_circle">play_circle</span>
 <span class="font-label-sm text-label-sm mt-1">Active</span>
-</a>
-<a href="${pageContext.request.contextPath}/dashboard" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-6 py-1 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all">
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-6 py-1 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all">
 <span class="material-symbols-outlined font-label-sm text-label-sm" data-icon="leaderboard">leaderboard</span>
 <span class="font-label-sm text-label-sm mt-1">Stats</span>
-</a>
+</button>
 </nav>
-<script src="${pageContext.request.contextPath}/assets/app.js"></script>
 </body></html>

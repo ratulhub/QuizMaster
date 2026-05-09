@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -7,7 +7,7 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -124,9 +124,9 @@
 <span class="font-title-lg text-title-lg font-bold text-primary dark:text-primary-fixed-dim">QuizMaster</span>
 </div>
 <nav class="hidden md:flex gap-8 items-center">
-<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 font-label-lg text-label-lg" href="${pageContext.request.contextPath}/modes">Protocols</a>
-<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 font-label-lg text-label-lg" href="${pageContext.request.contextPath}/dashboard">History</a>
-<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 font-label-lg text-label-lg" href="${pageContext.request.contextPath}/dashboard">Profile</a>
+<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 font-label-lg text-label-lg opacity-70 transition-opacity" href="#">Protocols</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 font-label-lg text-label-lg" href="#">History</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 font-label-lg text-label-lg" href="#">Profile</a>
 </nav>
 <div class="flex items-center gap-4 text-on-surface-variant">
 <button class="hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-variant"><span class="material-symbols-outlined" data-icon="settings">settings</span></button>
@@ -142,35 +142,33 @@
 <div class="flex justify-between items-center mb-xl border-b border-surface-variant pb-lg">
 <h1 class="font-headline-lg text-headline-lg text-primary">Protocol Active</h1>
 <div class="bg-primary text-on-primary font-label-sm text-label-sm px-4 py-2 rounded-full uppercase tracking-wider">
-                    MODE: <%= request.getParameter("mode") != null ? request.getParameter("mode").toUpperCase() : "NORMAL" %>
+                    MODE: NORMAL
                 </div>
 </div>
 <!-- Quiz Content -->
-<form id="quizForm" action="${pageContext.request.contextPath}/submit" method="post" class="space-y-xxl">
-<input type="hidden" name="mode" value="<%= request.getParameter("mode") != null ? request.getParameter("mode") : "normal" %>">
-<input type="hidden" name="total" value="3">
+<div class="space-y-xxl">
 <!-- Question 1 -->
 <div class="space-y-md">
 <h2 class="font-title-lg text-title-lg text-on-background mb-lg">1. What is the size of int variable in Java?</h2>
 <div class="space-y-sm">
 <!-- Option A -->
 <label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q1" value="8 bit" type="radio"/>
+<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q1" type="radio"/>
 <span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors">8 bit</span>
 </label>
 <!-- Option B -->
 <label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q1" value="16 bit" type="radio"/>
+<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q1" type="radio"/>
 <span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors">16 bit</span>
 </label>
 <!-- Option C -->
 <label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q1" value="32 bit" type="radio"/>
+<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q1" type="radio"/>
 <span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors">32 bit</span>
 </label>
 <!-- Option D -->
 <label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q1" value="64 bit" type="radio"/>
+<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q1" type="radio"/>
 <span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors">64 bit</span>
 </label>
 </div>
@@ -181,22 +179,22 @@
 <div class="space-y-sm">
 <!-- Option A -->
 <label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q2" value="main()" type="radio"/>
+<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q2" type="radio"/>
 <span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors">main()</span>
 </label>
 <!-- Option B -->
 <label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q2" value="start()" type="radio"/>
+<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q2" type="radio"/>
 <span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors">start()</span>
 </label>
 <!-- Option C -->
 <label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q2" value="init()" type="radio"/>
+<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q2" type="radio"/>
 <span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors">init()</span>
 </label>
 <!-- Option D -->
 <label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q2" value="run()" type="radio"/>
+<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q2" type="radio"/>
 <span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors">run()</span>
 </label>
 </div>
@@ -207,57 +205,38 @@
 <div class="space-y-sm">
 <!-- Option A -->
 <label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q3" value="namespace" type="radio"/>
+<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q3" type="radio"/>
 <span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors">namespace</span>
 </label>
 <!-- Option B -->
 <label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q3" value="package" type="radio"/>
+<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q3" type="radio"/>
 <span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors">package</span>
 </label>
-<!-- Option C -->
-<label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q3" value="import" type="radio"/>
-<span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors">import</span>
-</label>
-<!-- Option D -->
-<label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q3" value="include" type="radio"/>
-<span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors">include</span>
-</label>
 </div>
-</div>
-<!-- Simulated Score Input -->
-<div class="space-y-md mt-lg border-t border-surface-variant pt-lg">
-<h2 class="font-title-md text-title-md text-on-surface-variant mb-sm">Simulated Score (0-3)</h2>
-<div class="relative max-w-[250px]">
-<span class="material-symbols-outlined absolute left-gutter top-1/2 -translate-y-1/2 text-outline">score</span>
-<input name="score" id="sim-score" class="w-full rounded-full border border-outline-variant bg-surface pl-[56px] pr-gutter py-md font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="Score" min="0" max="3" required="" type="number"/>
 </div>
 </div>
 <!-- Submit Button Area (Optional/Contextual) -->
-<div class="mt-xl pt-lg flex justify-end">
-<button type="submit" class="bg-primary text-on-primary font-label-lg text-label-lg px-8 py-3 rounded-full hover:bg-primary/90 transition-colors shadow-sm">
+<div class="mt-xl pt-lg border-t border-surface-variant flex justify-end">
+<button class="bg-primary text-on-primary font-label-lg text-label-lg px-8 py-3 rounded-full hover:bg-primary/90 transition-colors shadow-sm">
                     Submit Answers
                 </button>
 </div>
-</form>
 </div>
 </main>
 <!-- BottomNavBar (Mobile) -->
 <nav class="md:hidden shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] bg-surface-container-lowest dark:bg-inverse-surface shadow-md fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2">
-<a href="${pageContext.request.contextPath}/dashboard" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-6 py-1 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-full group">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-6 py-1 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-full group">
 <span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform" data-icon="auto_stories">auto_stories</span>
 <span class="font-label-sm text-label-sm">Library</span>
-</a>
-<a href="${pageContext.request.contextPath}/modes" class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-6 py-1 scale-95 duration-100 group">
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-6 py-1 scale-95 duration-100 group">
 <span class="material-symbols-outlined mb-1" data-icon="play_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_circle</span>
 <span class="font-label-sm text-label-sm">Active</span>
-</a>
-<a href="${pageContext.request.contextPath}/dashboard" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-6 py-1 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-full group">
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-6 py-1 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-full group">
 <span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform" data-icon="leaderboard">leaderboard</span>
 <span class="font-label-sm text-label-sm">Stats</span>
-</a>
+</button>
 </nav>
-<script src="${pageContext.request.contextPath}/assets/app.js"></script>
 </body></html>
