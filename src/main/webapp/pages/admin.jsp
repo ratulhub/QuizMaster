@@ -37,12 +37,13 @@
                     
                     <div class="md-input-container">
                         <select name="category_id" id="category" class="md-input" required style="padding-top: 16px;">
-                            <option value="" disabled selected>Select Category</option>
-                            <option value="1">General Knowledge</option>
-                            <option value="2">Science</option>
-                            <option value="3">History</option>
-                            <option value="4">Technology</option>
-                            <option value="5">Mathematics</option>
+                            <option value="" disabled selected>Select Mode</option>
+                            <option value="1">Normal Mode</option>
+                            <option value="2">Roast Mode</option>
+                            <option value="3">Sudden Death</option>
+                            <option value="4">Teacher Mode</option>
+                            <option value="5">Bride Interview</option>
+                            <option value="6">Friend Battle</option>
                         </select>
                     </div>
                     

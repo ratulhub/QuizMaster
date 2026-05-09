@@ -91,15 +91,27 @@ public class QuizServlet extends HttpServlet {
     }
 
     private void handleQuiz(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        String mode = req.getParameter("mode");
+        int categoryId = 1; // Default Normal Mode
+        if ("roast".equals(mode)) categoryId = 2;
+        else if ("sudden_death".equals(mode)) categoryId = 3;
+        else if ("teacher".equals(mode)) categoryId = 4;
+        else if ("bride".equals(mode)) categoryId = 5;
+        else if ("battle".equals(mode)) categoryId = 6;
+
         List<Models.Question> questions = new ArrayList<>();
         try (Connection conn = DBConnection.getConnection()) {
-            String sql = "SELECT id, quiz_id, question_text, " +
-                         "options->>'A' AS option_a, " +
-                         "options->>'B' AS option_b, " +
-                         "options->>'C' AS option_c, " +
-                         "options->>'D' AS option_d " +
-                         "FROM questions ORDER BY RANDOM() LIMIT 5";
+            String sql = "SELECT q.id, q.quiz_id, q.question_text, " +
+                         "q.options->>'A' AS option_a, " +
+                         "q.options->>'B' AS option_b, " +
+                         "q.options->>'C' AS option_c, " +
+                         "q.options->>'D' AS option_d " +
+                         "FROM questions q " +
+                         "JOIN quizzes qz ON q.quiz_id = qz.id " +
+                         "WHERE qz.category_id = ? " +
+                         "ORDER BY RANDOM() LIMIT 5";
             try (PreparedStatement ps = conn.prepareStatement(sql)) {
+                ps.setInt(1, categoryId);
                 try (ResultSet rs = ps.executeQuery()) {
                     while (rs.next()) {
                         Models.Question q = new Models.Question();

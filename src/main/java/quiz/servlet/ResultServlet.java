@@ -44,7 +44,7 @@ public class ResultServlet extends HttpServlet {
                     if (i < qIds.length - 1) placeholders.append(",");
                 }
                 
-                String sql = "SELECT id, correct_option FROM questions WHERE id IN (" + placeholders.toString() + ")";
+                String sql = "SELECT id, correct_answer FROM questions WHERE id IN (" + placeholders.toString() + ")";
                 try (PreparedStatement ps = conn.prepareStatement(sql)) {
                     for (int i = 0; i < qIds.length; i++) {
                         ps.setInt(i + 1, Integer.parseInt(qIds[i].trim()));
@@ -52,7 +52,7 @@ public class ResultServlet extends HttpServlet {
                     try (ResultSet rs = ps.executeQuery()) {
                         while (rs.next()) {
                             int qId = rs.getInt("id");
-                            String correctAns = rs.getString("correct_option");
+                            String correctAns = rs.getString("correct_answer");
                             String userAns = req.getParameter("q_" + qId);
                             
                             if (correctAns != null && correctAns.equalsIgnoreCase(userAns)) {
