@@ -1,119 +1,121 @@
-// Main App JS - Consolidated Logic
+/**
+ * QuizMaster App JS
+ * Handles UI interactions, toasts, simple particles, and loader.
+ */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 0. Inject Global Loader
-    const loaderHTML = `
-        <div class="boxes">
-            <div class="box">
-                <div></div><div></div><div></div><div></div>
-            </div>
-            <div class="box">
-                <div></div><div></div><div></div><div></div>
-            </div>
-            <div class="box">
-                <div></div><div></div><div></div><div></div>
-            </div>
-            <div class="box">
-                <div></div><div></div><div></div><div></div>
-            </div>
-        </div>
-    `;
-    const loaderOverlay = document.createElement('div');
-    loaderOverlay.className = 'global-loader-overlay';
-    loaderOverlay.innerHTML = loaderHTML;
-    document.body.prepend(loaderOverlay);
+    // 1. Loader Logic
+    const loader = document.getElementById('globalLoader');
+    if (loader) {
+        setTimeout(() => {
+            loader.classList.add('hidden');
+        }, 500); // Small delay to allow initial render
+    }
 
-    // Fade out loader on window load (or immediately if already loaded)
-    const hideLoader = () => {
-        loaderOverlay.classList.add('hidden');
-    };
+    // 2. Simple Particles System (Vanilla JS, no heavy dependencies)
+    initParticles();
+
+    // 3. Setup Toast Container
+    if (!document.getElementById('toast-container')) {
+        const toastContainer = document.createElement('div');
+        toastContainer.id = 'toast-container';
+        document.body.appendChild(toastContainer);
+    }
+});
+
+// Toast Notification System
+window.showToast = function(message, type = 'success') {
+    const container = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
     
-    if (document.readyState === 'complete') {
-        hideLoader();
-    } else {
-        window.addEventListener('load', hideLoader);
+    // Icon based on type
+    const icon = type === 'error' ? '⚠️' : (type === 'success' ? '✅' : 'ℹ️');
+    
+    toast.innerHTML = `
+        <div style="font-size: 1.2rem;">${icon}</div>
+        <div>${message}</div>
+    `;
+    
+    container.appendChild(toast);
+    
+    // Trigger animation
+    setTimeout(() => toast.classList.add('show'), 10);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
+};
+
+// Particles System
+function initParticles() {
+    const canvas = document.createElement('canvas');
+    canvas.id = 'particles-js';
+    document.body.prepend(canvas);
+    
+    const ctx = canvas.getContext('2d');
+    let width, height, particles;
+    
+    function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
     }
-
-    // Show loader on navigation or form submission
-    const showLoader = () => {
-        loaderOverlay.classList.remove('hidden');
-    };
-
-    document.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', (e) => {
-            const href = link.getAttribute('href');
-            // Don't show loader for javascript:, #, or target="_blank" links
-            if (href && !href.startsWith('#') && !href.startsWith('javascript:') && link.target !== '_blank') {
-                showLoader();
-            }
-        });
-    });
-
-    document.querySelectorAll('form').forEach(form => {
-        form.addEventListener('submit', () => {
-            showLoader();
-        });
-    });
-
-
-    // 1. Auth Toggle (Login / Register)
-    const toggleAuthLinks = document.querySelectorAll('.toggle-link');
-    const loginForm = document.getElementById('loginForm');
-    const registerForm = document.getElementById('registerForm');
-    const authTitle = document.getElementById('authTitle');
-
-    toggleAuthLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (loginForm && registerForm) {
-                if (loginForm.classList.contains('hidden')) {
-                    loginForm.classList.remove('hidden');
-                    registerForm.classList.add('hidden');
-                    if(authTitle) authTitle.innerText = "Welcome Back";
-                } else {
-                    loginForm.classList.add('hidden');
-                    registerForm.classList.remove('hidden');
-                    if(authTitle) authTitle.innerText = "Create Account";
-                }
-            }
-        });
-    });
-
-    // 2. Simple Cinematic Animations Observer
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-fade-in');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.stagger-animate').forEach((el, index) => {
-        el.style.animationDelay = `${index * 0.15}s`;
-        observer.observe(el);
-    });
-
-    // 3. Quiz Game Engine Logic (Simplified)
-    const quizForm = document.getElementById('quizForm');
-    if (quizForm) {
-        quizForm.addEventListener('submit', (e) => {
-            // Optional client-side validation
-            const inputs = quizForm.querySelectorAll('input[type="radio"]:checked');
-            if (inputs.length < 3) { // assuming 3 questions
-                e.preventDefault();
-                hideLoader(); // hide it back if validation failed
-                alert('Please answer all questions before submitting.');
-            }
-        });
+    
+    window.addEventListener('resize', resize);
+    resize();
+    
+    class Particle {
+        constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.size = Math.random() * 2 + 0.5;
+            this.speedX = Math.random() * 1 - 0.5;
+            this.speedY = Math.random() * 1 - 0.5;
+            this.color = Math.random() > 0.5 ? 'rgba(0, 229, 255, 0.4)' : 'rgba(138, 43, 226, 0.4)';
+        }
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.x > width) this.x = 0;
+            if (this.x < 0) this.x = width;
+            if (this.y > height) this.y = 0;
+            if (this.y < 0) this.y = height;
+        }
+        draw() {
+            ctx.fillStyle = this.color;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
     }
+    
+    function init() {
+        particles = [];
+        const numParticles = Math.min(window.innerWidth / 15, 100); // Scale by screen size, max 100
+        for (let i = 0; i < numParticles; i++) {
+            particles.push(new Particle());
+        }
+    }
+    
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+        for (let i = 0; i < particles.length; i++) {
+            particles[i].update();
+            particles[i].draw();
+        }
+        requestAnimationFrame(animate);
+    }
+    
+    init();
+    animate();
+}
 
-    // Add CSS rule for hidden class dynamically to keep it clean
-    const style = document.createElement('style');
-    style.innerHTML = `.hidden { display: none !important; }`;
-    document.head.appendChild(style);
+// Intercept forms for loader (optional smooth UX)
+document.querySelectorAll('form:not([target])').forEach(form => {
+    form.addEventListener('submit', () => {
+        const loader = document.getElementById('globalLoader');
+        if (loader) loader.classList.remove('hidden');
+    });
 });

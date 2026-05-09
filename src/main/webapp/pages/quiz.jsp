@@ -1,94 +1,155 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.List, quiz.model.Question" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuizMaster - Active Session</title>
+    <title>QuizMaster - Arena</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/style.css">
     <style>
-        .radio-option {
-            display: flex;
-            align-items: center;
-            padding: 12px 16px;
-            background-color: var(--md-surface-container-low);
+        .roast-overlay {
+            position: fixed;
+            top: 20px; left: 50%; transform: translateX(-50%);
+            background: rgba(255, 0, 85, 0.9);
+            color: white;
+            padding: 15px 30px;
             border-radius: 12px;
-            margin-bottom: 8px;
-            cursor: pointer;
-            transition: var(--transition-fast);
-            border: 1px solid transparent;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(255,0,85,0.5);
+            display: none;
+            animation: slideDown 0.5s ease-out;
         }
-        .radio-option:hover {
-            background-color: var(--md-secondary-container);
-        }
-        .radio-option input[type="radio"] {
-            margin-right: 12px;
-            accent-color: var(--md-primary);
-            transform: scale(1.2);
-        }
+        @keyframes slideDown { from { top: -100px; } to { top: 20px; } }
     </style>
 </head>
 <body>
-    <div class="blur-shape blur-tertiary" style="top: 20%; left: 10%; width: 30vw;"></div>
-    
-    <div class="container min-h-screen flex-center animate-fade-in">
-        <div class="md-card" style="max-width: 800px; width: 100%;">
-            <div class="flex-between mb-4" style="border-bottom: 1px solid var(--md-surface-container-low); padding-bottom: 1rem;">
-                <h2 class="text-primary" style="font-size: 2rem;">Protocol Active</h2>
-                <div style="background: var(--md-primary); color: var(--md-on-primary); padding: 4px 12px; border-radius: 9999px; font-size: 0.8rem; font-weight: 500;">
-                    MODE: <%= request.getParameter("mode") != null ? request.getParameter("mode").toUpperCase() : "NORMAL" %>
+    <div id="roastOverlay" class="roast-overlay"></div>
+
+    <div class="container animate-fade-up" style="max-width: 800px; margin-top: 2rem;">
+        <div class="glass-card" style="padding: 3rem;">
+            <div class="flex-between mb-4">
+                <div>
+                    <span class="text-muted" style="text-transform: uppercase; letter-spacing: 1px;">Mode:</span>
+                    <span class="text-gradient" style="font-weight: bold; font-family: var(--font-heading);"><%= session.getAttribute("modeCode") %></span>
                 </div>
+                <div class="timer-display" id="timerDisplay">--</div>
             </div>
 
-            <form id="quizForm" action="${pageContext.request.contextPath}/submit" method="post">
-                <input type="hidden" name="mode" value="<%= request.getParameter("mode") != null ? request.getParameter("mode") : "normal" %>">
-                <input type="hidden" name="total" value="3">
-                     
-                <!-- Simulated Question 1 -->
-                <div class="mb-4">
-                    <h3 class="mb-2" style="font-family: var(--font-main); font-weight: 500; font-size: 1.2rem;">1. What is the size of int variable in Java?</h3>
-                    <div style="display: flex; flex-direction: column;">
-                        <label class="radio-option"><input type="radio" name="q1" value="8 bit"> 8 bit</label>
-                        <label class="radio-option"><input type="radio" name="q1" value="16 bit"> 16 bit</label>
-                        <label class="radio-option"><input type="radio" name="q1" value="32 bit"> 32 bit</label>
-                        <label class="radio-option"><input type="radio" name="q1" value="64 bit"> 64 bit</label>
-                    </div>
-                </div>
+            <div class="quiz-progress-bar">
+                <div class="quiz-progress-fill" id="progressFill"></div>
+            </div>
 
-                <!-- Simulated Question 2 -->
-                <div class="mb-4">
-                    <h3 class="mb-2" style="font-family: var(--font-main); font-weight: 500; font-size: 1.2rem;">2. What is the entry point of a Java program?</h3>
-                    <div style="display: flex; flex-direction: column;">
-                        <label class="radio-option"><input type="radio" name="q2" value="main()"> main()</label>
-                        <label class="radio-option"><input type="radio" name="q2" value="start()"> start()</label>
-                        <label class="radio-option"><input type="radio" name="q2" value="init()"> init()</label>
-                        <label class="radio-option"><input type="radio" name="q2" value="run()"> run()</label>
-                    </div>
-                </div>
-
-                <!-- Simulated Question 3 -->
-                <div class="mb-4">
-                    <h3 class="mb-2" style="font-family: var(--font-main); font-weight: 500; font-size: 1.2rem;">3. Which keyword is used to define a namespace?</h3>
-                    <div style="display: flex; flex-direction: column;">
-                        <label class="radio-option"><input type="radio" name="q3" value="namespace"> namespace</label>
-                        <label class="radio-option"><input type="radio" name="q3" value="package"> package</label>
-                        <label class="radio-option"><input type="radio" name="q3" value="import"> import</label>
-                        <label class="radio-option"><input type="radio" name="q3" value="include"> include</label>
-                    </div>
-                </div>
+            <%
+                List<Question> questions = (List<Question>) session.getAttribute("quizQuestions");
+                Integer currentIndexObj = (Integer) session.getAttribute("currentQuestionIndex");
+                int currentIndex = currentIndexObj != null ? currentIndexObj : 0;
                 
-                <!-- Simulated Score Input -->
-                <div class="md-input-container" style="max-width: 250px;">
-                    <input type="number" name="score" id="sim-score" class="md-input" placeholder=" " min="0" max="3" required>
-                    <label class="md-input-label" for="sim-score">Simulated Score (0-3)</label>
+                if (questions != null && currentIndex < questions.size()) {
+                    Question q = questions.get(currentIndex);
+            %>
+            
+            <h2 class="mb-8" style="font-size: 2rem; line-height: 1.4;"><%= (currentIndex + 1) %>. <%= q.getQuestionText() %></h2>
+            
+            <form id="quizForm" action="${pageContext.request.contextPath}/quiz" method="post">
+                <input type="hidden" name="action" value="submitAnswer">
+                <input type="hidden" name="questionId" value="<%= q.getId() %>">
+                <input type="hidden" id="timeTaken" name="timeTaken" value="0">
+                
+                <%
+                    String optionsStr = q.getOptions();
+                    // Basic parsing for format {"A": "Option 1", "B": "Option 2"}
+                    optionsStr = optionsStr.replace("{", "").replace("}", "").replace("\"", "");
+                    String[] opts = optionsStr.split(",");
+                    for (String opt : opts) {
+                        String[] pair = opt.split(":");
+                        if (pair.length == 2) {
+                            String key = pair[0].trim();
+                            String val = pair[1].trim();
+                %>
+                <div class="animate-fade-up stagger-1">
+                    <input type="radio" id="opt_<%= key %>" name="answer" value="<%= key %>" class="option-input" required>
+                    <label for="opt_<%= key %>" class="option-label"><%= val %></label>
                 </div>
-
-                <div class="flex-center mt-4">
-                    <button type="submit" class="md-btn md-btn-filled" style="font-size: 1.1rem; padding: 12px 32px;">Terminate Session & Submit</button>
+                <%
+                        }
+                    }
+                %>
+                
+                <div class="mt-8 text-center animate-fade-up stagger-2">
+                    <button type="submit" class="btn btn-glow" style="width: 100%; font-size: 1.2rem;">Confirm Answer</button>
                 </div>
             </form>
+            
+            <% } else { %>
+                <div class="text-center">
+                    <h2 class="text-gradient mb-4">Transmission Complete</h2>
+                    <p class="text-muted mb-8">Calculating your results...</p>
+                    <form action="${pageContext.request.contextPath}/quiz" method="post">
+                        <input type="hidden" name="action" value="finish">
+                        <button type="submit" class="btn btn-glow">View Results</button>
+                    </form>
+                </div>
+            <% } %>
         </div>
     </div>
+
     <script src="${pageContext.request.contextPath}/assets/app.js"></script>
+    <script>
+        // Update Progress Bar
+        const total = <%= questions != null ? questions.size() : 1 %>;
+        const current = <%= currentIndex %>;
+        const progress = ((current) / total) * 100;
+        document.getElementById('progressFill').style.width = progress + '%';
+
+        // Timer Logic based on mode
+        let timeLeft = 15; // default
+        const mode = '<%= session.getAttribute("modeCode") %>';
+        if (mode === 'sudden_death') timeLeft = 10;
+        else if (mode === 'teacher') timeLeft = 60;
+        
+        const display = document.getElementById('timerDisplay');
+        const timeTakenInput = document.getElementById('timeTaken');
+        let startTime = Date.now();
+        
+        const timer = setInterval(() => {
+            if(document.getElementById('quizForm') == null) {
+                clearInterval(timer);
+                return; // quiz is over
+            }
+            timeLeft--;
+            display.textContent = timeLeft;
+            
+            if (timeLeft <= 5) {
+                display.classList.add('timer-danger');
+            }
+            
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                // Auto submit empty answer
+                timeTakenInput.value = Math.floor((Date.now() - startTime) / 1000);
+                document.getElementById('quizForm').submit();
+            }
+        }, 1000);
+        
+        // Track time taken on manual submit
+        document.getElementById('quizForm')?.addEventListener('submit', () => {
+            timeTakenInput.value = Math.floor((Date.now() - startTime) / 1000);
+            clearInterval(timer);
+        });
+
+        // Show roast message if it exists in session (from previous wrong answer)
+        <% String roast = (String) session.getAttribute("currentRoast");
+           if (roast != null) { 
+               session.removeAttribute("currentRoast"); // consume it
+        %>
+        const overlay = document.getElementById('roastOverlay');
+        overlay.textContent = "<%= roast %>";
+        overlay.style.display = "block";
+        setTimeout(() => { overlay.style.display = 'none'; }, 4000);
+        <% } %>
+    </script>
 </body>
 </html>

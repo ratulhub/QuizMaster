@@ -10,6 +10,7 @@ This document provides a structured flow and important talking points for your u
 ## 2. Software Engineering Architecture
 **"To keep the project scalable and understandable, I opted for a clean Monolithic Architecture."**
 - **No Over-engineering**: Instead of using heavy frameworks like Spring Boot which abstract away the learning process, I built this using raw **Jakarta EE Servlets and JSP**. This demonstrates a fundamental understanding of HTTP, request lifecycles, and session management.
+- **Frontend Design**: I implemented a "Cinematic Glassmorphism" UI from scratch using custom CSS variables and Vanilla JS to manage toast notifications and a background particle system.
 - **Frontend/Backend Unification**: The frontend (JSP/CSS/JS) and backend (Java) are tightly coupled and compiled into a single `.war` file, deployed on an Apache Tomcat 10 server.
 - **Cloud Database**: The data layer is handled by a Supabase PostgreSQL instance, queried using raw JDBC.
 

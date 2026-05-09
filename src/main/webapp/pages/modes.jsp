@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*, quiz.db.DBConnection" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,72 +9,89 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/style.css">
 </head>
 <body>
-    <nav>
-        <div class="logo">QuizMaster</div>
+    <div id="globalLoader" class="loader-overlay">
+        <div class="cyber-loader"></div>
+    </div>
+
+    <nav class="navbar animate-fade-up">
+        <div class="navbar-brand">
+            <span style="color: var(--accent-primary);">⚡</span> QuizMaster
+        </div>
         <div class="nav-links">
-            <a href="${pageContext.request.contextPath}/dashboard" class="md-btn md-btn-outlined" style="padding: 8px 16px;">Back to Base</a>
+            <a href="${pageContext.request.contextPath}/pages/dashboard.jsp" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Back to Dashboard</a>
         </div>
     </nav>
 
-    <div class="blur-shape blur-primary" style="top: -5%; left: 30%; width: 40vw;"></div>
-
-    <div class="container animate-fade-in" style="position: relative; z-index: 1;">
-        <h1 class="mb-4 text-center text-primary" style="font-size: 3rem;">Select Protocol</h1>
+    <div class="container animate-fade-up stagger-1" style="margin-top: 2rem;">
+        <div class="text-center mb-8">
+            <h1 class="text-gradient" style="font-size: 3rem;">Select Your Trial</h1>
+            <p class="text-muted" style="font-size: 1.2rem;">Different modes offer different XP multipliers.</p>
+        </div>
         
-        <div class="grid grid-cols-3 stagger-animate">
-            <div class="md-card interactive text-center" style="display: flex; flex-direction: column; justify-content: space-between;">
-                <div>
-                    <h3 class="mb-1" style="color: var(--md-primary); font-size: 1.8rem;">Normal Mode</h3>
-                    <p class="text-secondary mb-4" style="font-size: 1rem;">Standard assessment protocol. Balanced difficulty.</p>
-                </div>
-                <a href="${pageContext.request.contextPath}/quiz?mode=normal" class="md-btn md-btn-filled" style="width: 100%;">Engage</a>
+        <!-- Category Selection -->
+        <div class="glass-card mb-8 animate-fade-up stagger-2" style="padding: 1.5rem;">
+            <div class="flex-between">
+                <h3 style="margin: 0; color: var(--accent-secondary);">Category:</h3>
+                <select id="categorySelect" class="input-field" style="width: auto; margin: 0; padding: 0.5rem 1rem; background: rgba(0,0,0,0.5);">
+                    <option value="0">All Categories (Random)</option>
+                    <%
+                        try (Connection conn = DBConnection.getConnection();
+                             PreparedStatement stmt = conn.prepareStatement("SELECT id, name FROM categories ORDER BY name");
+                             ResultSet rs = stmt.executeQuery()) {
+                             while(rs.next()) {
+                    %>
+                    <option value="<%= rs.getInt("id") %>"><%= rs.getString("name") %></option>
+                    <%       }
+                        } catch(Exception e) {
+                            e.printStackTrace();
+                        }
+                    %>
+                </select>
             </div>
-            
-            <div class="md-card interactive text-center" style="display: flex; flex-direction: column; justify-content: space-between;">
-                <div>
-                    <h3 class="mb-1" style="color: #B3261E; font-size: 1.8rem;">Roast Mode</h3>
-                    <p class="text-secondary mb-4" style="font-size: 1rem;">AI will roast your mistakes relentlessly.</p>
-                </div>
-                <a href="${pageContext.request.contextPath}/quiz?mode=roast" class="md-btn md-btn-filled" style="width: 100%; background: #B3261E;">Engage</a>
-            </div>
+        </div>
 
-            <div class="md-card interactive text-center" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="grid grid-cols-3">
+            <%
+                try (Connection conn = DBConnection.getConnection();
+                     PreparedStatement stmt = conn.prepareStatement("SELECT * FROM quiz_modes ORDER BY id");
+                     ResultSet rs = stmt.executeQuery()) {
+                     int delayCounter = 3;
+                     while(rs.next()) {
+                         String code = rs.getString("code");
+                         String name = rs.getString("name");
+                         String desc = rs.getString("description");
+                         double multiplier = rs.getDouble("xp_multiplier");
+                         
+                         String borderGlow = "rgba(138, 43, 226, 0.3)";
+                         if (code.equals("sudden_death") || code.equals("roast")) borderGlow = "rgba(255, 0, 85, 0.3)";
+                         if (code.equals("normal")) borderGlow = "rgba(0, 255, 136, 0.3)";
+            %>
+            <div class="glass-card interactive animate-fade-up stagger-<%= delayCounter++ %>" style="border-color: <%= borderGlow %>; display: flex; flex-direction: column; justify-content: space-between;">
                 <div>
-                    <h3 class="mb-1" style="color: var(--md-tertiary); font-size: 1.8rem;">Sudden Death</h3>
-                    <p class="text-secondary mb-4" style="font-size: 1rem;">One mistake and the simulation ends. 2x XP.</p>
+                    <h2 class="mb-2" style="font-size: 1.8rem; color: var(--text-primary);"><%= name %></h2>
+                    <p class="text-muted mb-4"><%= desc %></p>
                 </div>
-                <a href="${pageContext.request.contextPath}/quiz?mode=sudden_death" class="md-btn md-btn-filled" style="width: 100%; background: var(--md-tertiary);">Engage</a>
-            </div>
-            
-            <div class="md-card interactive text-center" style="display: flex; flex-direction: column; justify-content: space-between;">
                 <div>
-                    <h3 class="mb-1" style="color: #b16a00; font-size: 1.8rem;">Teacher Mode</h3>
-                    <p class="text-secondary mb-4" style="font-size: 1rem;">Receive detailed explanations for every answer.</p>
+                    <div class="mb-4" style="display: inline-block; padding: 4px 12px; background: rgba(255,255,255,0.05); border-radius: 20px; font-size: 0.9rem; font-weight: 600; color: var(--accent-secondary);">
+                        XP Multiplier: <%= multiplier %>x
+                    </div>
+                    <button onclick="startQuiz('<%= code %>')" class="btn <%= code.equals("sudden_death") || code.equals("roast") ? "btn-danger" : "btn-glow" %>" style="width: 100%;">Enter Mode</button>
                 </div>
-                <a href="${pageContext.request.contextPath}/quiz?mode=teacher" class="md-btn md-btn-filled" style="width: 100%; background: #b16a00;">Engage</a>
             </div>
-            
-            <div class="md-card interactive text-center" style="display: flex; flex-direction: column; justify-content: space-between;">
-                <div>
-                    <h3 class="mb-1" style="color: #386a20; font-size: 1.8rem;">Friend Battle</h3>
-                    <p class="text-secondary mb-4" style="font-size: 1rem;">Compete head-to-head in real time.</p>
-                </div>
-                <form action="${pageContext.request.contextPath}/battle" method="post" class="flex-center" style="width: 100%;">
-                    <input type="hidden" name="action" value="create">
-                    <button type="submit" class="md-btn md-btn-filled" style="width: 100%; background: #386a20;">Host</button>
-                </form>
-            </div>
-            
-            <div class="md-card interactive text-center" style="display: flex; flex-direction: column; justify-content: space-between;">
-                <div>
-                    <h3 class="mb-1" style="color: #9c27b0; font-size: 1.8rem;">Bride Interview</h3>
-                    <p class="text-secondary mb-4" style="font-size: 1rem;">Answer life scenario questions.</p>
-                </div>
-                <a href="${pageContext.request.contextPath}/quiz?mode=bride" class="md-btn md-btn-filled" style="width: 100%; background: #9c27b0;">Engage</a>
-            </div>
+            <%       }
+                } catch(Exception e) {
+                    e.printStackTrace();
+                }
+            %>
         </div>
     </div>
     
     <script src="${pageContext.request.contextPath}/assets/app.js"></script>
+    <script>
+        function startQuiz(modeCode) {
+            const catId = document.getElementById('categorySelect').value;
+            window.location.href = '${pageContext.request.contextPath}/quiz?action=start&mode=' + modeCode + '&category=' + catId;
+        }
+    </script>
 </body>
 </html>

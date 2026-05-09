@@ -4,37 +4,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuizMaster - Results</title>
+    <title>QuizMaster - Mission Report</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
-    <div class="blur-shape blur-primary" style="top: 15%; left: 20%; width: 60vw;"></div>
+    <div id="globalLoader" class="loader-overlay">
+        <div class="cyber-loader"></div>
+    </div>
 
-    <div class="container min-h-screen flex-center animate-fade-in">
-        <div class="md-card text-center" style="max-width: 600px; width: 100%; border-radius: 48px; padding: 4rem 2rem;">
-            <h1 class="text-primary mb-2" style="font-size: 3.5rem;">Session Complete</h1>
-            <p class="text-secondary mb-4" style="font-size: 1.2rem; font-family: var(--font-main);">Mode: <%= request.getAttribute("mode") != null ? request.getAttribute("mode") : "Unknown" %></p>
+    <div class="container animate-fade-up flex-center min-h-screen">
+        <div class="glass-card text-center" style="max-width: 600px; width: 100%; padding: 4rem 2rem;">
+            <h1 class="text-gradient mb-2" style="font-size: 2.5rem;">Mission Report</h1>
+            <p class="text-muted mb-8" style="font-size: 1.2rem;">Analyzing your performance...</p>
             
-            <div class="stat-value text-primary mb-4" style="font-size: 5rem;">
-                <%= request.getAttribute("score") != null ? request.getAttribute("score") : "0" %> <span style="font-size: 3rem; color: var(--md-outline);">/ <%= request.getAttribute("total") != null ? request.getAttribute("total") : "3" %></span>
+            <div class="mb-8">
+                <div class="text-muted" style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">Final Score</div>
+                <div class="result-score"><%= request.getAttribute("score") %> / <%= request.getAttribute("total") %></div>
             </div>
             
-            <div class="grid grid-cols-2 mb-4">
-                <div style="background: rgba(103, 80, 164, 0.08); padding: 1.5rem; border-radius: 24px;">
-                    <div class="text-secondary" style="font-family: var(--font-main); font-weight: 500;">XP Earned</div>
-                    <div class="stat-value text-primary" style="font-size: 2.5rem;">+<%= request.getAttribute("xpEarned") != null ? request.getAttribute("xpEarned") : "0" %></div>
+            <div class="grid grid-cols-2 mb-8">
+                <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <div class="text-muted mb-2">XP Earned</div>
+                    <div class="text-gradient" style="font-size: 2rem; font-family: var(--font-heading); font-weight: bold;">+<%= request.getAttribute("xpEarned") != null ? request.getAttribute("xpEarned") : "0" %></div>
                 </div>
-                <div style="background: rgba(125, 82, 96, 0.08); padding: 1.5rem; border-radius: 24px;">
-                    <div class="text-secondary" style="font-family: var(--font-main); font-weight: 500;">Current Rank</div>
-                    <div class="stat-value" style="color: var(--md-tertiary); font-size: 2.5rem;"><%= request.getAttribute("rank") != null ? request.getAttribute("rank") : "Novice" %></div>
+                <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <div class="text-muted mb-2">Mode</div>
+                    <div style="color: var(--accent-secondary); font-size: 1.5rem; font-family: var(--font-heading); font-weight: bold; margin-top: 0.5rem;"><%= request.getAttribute("mode") != null ? request.getAttribute("mode") : "Unknown" %></div>
                 </div>
             </div>
-
-            <div class="flex-center mt-4">
-                <a href="${pageContext.request.contextPath}/dashboard" class="md-btn md-btn-filled" style="font-size: 1.1rem; padding: 12px 32px;">Return to Base</a>
+            
+            <div class="flex-center mt-8 gap-4">
+                <a href="${pageContext.request.contextPath}/pages/dashboard.jsp?welcome=1" class="btn btn-outline" style="width: 100%;">Return to Base</a>
+                <a href="${pageContext.request.contextPath}/pages/modes.jsp" class="btn btn-glow" style="width: 100%;">Play Again</a>
             </div>
         </div>
     </div>
+
     <script src="${pageContext.request.contextPath}/assets/app.js"></script>
+    <script>
+        // Confetti Effect based on score
+        window.onload = () => {
+            const score = parseInt('<%= request.getAttribute("score") %>');
+            const total = parseInt('<%= request.getAttribute("total") %>');
+            
+            if (total > 0 && (score / total) >= 0.5) {
+                const duration = 3000;
+                const end = Date.now() + duration;
+
+                (function frame() {
+                    confetti({
+                        particleCount: 5,
+                        angle: 60,
+                        spread: 55,
+                        origin: { x: 0 },
+                        colors: ['#8a2be2', '#00e5ff', '#00ff88']
+                    });
+                    confetti({
+                        particleCount: 5,
+                        angle: 120,
+                        spread: 55,
+                        origin: { x: 1 },
+                        colors: ['#8a2be2', '#00e5ff', '#00ff88']
+                    });
+
+                    if (Date.now() < end) {
+                        requestAnimationFrame(frame);
+                    }
+                }());
+            } else if (total > 0 && (score / total) == 0) {
+                 if(window.showToast) showToast('Ouch. Complete failure.', 'error');
+            }
+        };
+    </script>
 </body>
 </html>
