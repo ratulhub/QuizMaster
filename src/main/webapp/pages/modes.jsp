@@ -83,19 +83,19 @@
         <!-- Grid Container -->
         <div class="grid grid-cols-4 gap-4 flex-1">
             
-            <!-- Normal Mode (Spans 2 cols) -->
+            <!-- Teacher Mode (Spans 2 cols) -->
             <div class="col-span-2 card-border bg-[#f8f8f8] flex relative overflow-hidden min-h-[300px] group hover:border-blue-600 transition-colors duration-300">
                 <div class="p-8 flex flex-col justify-between w-1/2 z-10 relative">
                     <div>
-                        <h3 class="font-serif text-3xl md:text-4xl font-bold leading-[1.1] mb-4">NORMAL<br>MODE</h3>
-                        <p class="text-sm text-black leading-snug">The classic, adaptive quiz experience. Challenge your knowledge across various subjects.</p>
+                        <h3 class="font-serif text-3xl md:text-4xl font-bold leading-[1.1] mb-4">TEACHER<br>MODE</h3>
+                        <p class="text-sm text-black leading-snug">Receive detailed explanations for every answer. Learn as you play.</p>
                     </div>
                     <div class="mt-8">
-                        <a href="${pageContext.request.contextPath}/quiz?mode=normal" class="btn-play-now">PLAY NOW</a>
+                        <a href="${pageContext.request.contextPath}/quiz?mode=teacher" class="btn-play-now">PLAY NOW</a>
                     </div>
                 </div>
                 <div class="w-1/2 absolute right-0 top-0 bottom-0 flex items-center justify-center p-2">
-                    <img src="${pageContext.request.contextPath}/assets/images/normal_mode.png" alt="Normal Mode" class="w-full h-full object-contain img-blend scale-110 translate-x-4">
+                    <img src="${pageContext.request.contextPath}/assets/images/normal_mode.png" alt="Teacher Mode" class="w-full h-full object-contain img-blend scale-110 translate-x-4">
                 </div>
             </div>
 
@@ -115,14 +115,14 @@
                 </div>
             </div>
 
-            <!-- Teacher Mode (Span 1) -->
+            <!-- Friend Battle (Span 1) -->
             <div class="col-span-1 card-border bg-[#f8f8f8] p-8 flex flex-col justify-between min-h-[300px] group hover:border-blue-600 transition-colors duration-300">
                 <div>
-                    <h3 class="font-serif text-3xl md:text-4xl font-bold leading-[1.1] mb-4">TEACHER<br>MODE</h3>
-                    <p class="text-sm text-black leading-snug">Receive detailed explanations for every answer.</p>
+                    <h3 class="font-serif text-3xl md:text-4xl font-bold leading-[1.1] mb-4">FRIEND<br>BATTLE</h3>
+                    <p class="text-sm text-black leading-snug">Challenge your friends in real-time. Create or join a room.</p>
                 </div>
                 <div class="mt-8">
-                    <a href="${pageContext.request.contextPath}/quiz?mode=teacher" class="btn-play-now">PLAY NOW</a>
+                    <a href="${pageContext.request.contextPath}/battle" class="btn-play-now">ENTER LOBBY</a>
                 </div>
             </div>
 
