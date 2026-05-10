@@ -38,7 +38,7 @@ public class AuthFilter implements Filter {
         if (isLoggedIn) {
             // Admin Protection Check
             if (path.contains("/pages/admin/") && !"ADMIN".equals(session.getAttribute("role"))) {
-                res.sendRedirect(req.getContextPath() + "/pages/dashboard.jsp?error=Unauthorized");
+                res.sendRedirect(req.getContextPath() + "/dashboard");
                 return;
             }
             chain.doFilter(request, response); // Allow request

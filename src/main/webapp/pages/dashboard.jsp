@@ -26,13 +26,13 @@
 
 <!-- TopNavBar (Mobile Only) -->
 <nav class="md:hidden flex justify-between items-center w-full px-6 py-4 z-50 bg-[#f4f4f5] border-b-2 border-gray-900 sticky top-0">
-    <div class="text-2xl font-display font-bold tracking-tighter text-gray-900">QM</div>
+    <div class="text-xl font-display font-bold tracking-tighter text-gray-900">QuizMaster</div>
 </nav>
 
 <!-- SideNavBar (Desktop Only) -->
 <nav class="hidden md:flex flex-col p-8 z-40 bg-transparent h-screen w-64 border-r-2 border-gray-900 fixed left-0 top-0">
     <div class="mb-16">
-        <h1 class="text-5xl font-display font-bold text-gray-900 mb-2">QM</h1>
+        <h1 class="text-3xl font-display font-bold text-gray-900 mb-2">QuizMaster</h1>
     </div>
     
     <div class="flex flex-col gap-6 flex-grow uppercase text-sm font-semibold tracking-widest text-gray-900">
@@ -41,14 +41,14 @@
             <span>Dashboard</span>
         </a>
         <!-- Inactive Tabs -->
-        <a class="flex items-center gap-3 hover:opacity-70 transition-opacity w-max" href="${pageContext.request.contextPath}/modes">
+        <a class="flex items-center gap-3 hover:opacity-70 transition-opacity w-max" href="${pageContext.request.contextPath}/pages/modes.jsp">
             <span>The Arena</span>
         </a>
     </div>
     
     <div class="mt-auto flex flex-col gap-6 uppercase text-sm font-semibold tracking-widest text-gray-900 pt-8 border-t-2 border-gray-900">
         <% if ("ADMIN".equals(session.getAttribute("role"))) { %>
-        <a class="flex items-center gap-3 hover:opacity-70 transition-opacity w-max" href="${pageContext.request.contextPath}/pages/admin.jsp">
+        <a class="flex items-center gap-3 hover:opacity-70 transition-opacity w-max" href="${pageContext.request.contextPath}/admin">
             <span>Admin Panel</span>
         </a>
         <% } %>
@@ -100,7 +100,7 @@
                 <p class="text-gray-700 text-lg mb-12 font-medium leading-relaxed max-w-md">
                     Challenge your intellect against the adaptive algorithm. Select a mode to begin your next mental conquest. The stakes are higher than ever.
                 </p>
-                <a href="${pageContext.request.contextPath}/modes" class="text-gray-900 border-b-[3px] border-gray-900 pb-1 font-bold text-sm tracking-widest uppercase hover:text-blue-600 hover:border-blue-600 transition-colors w-max">
+                <a href="${pageContext.request.contextPath}/pages/modes.jsp" class="text-gray-900 border-b-[3px] border-gray-900 pb-1 font-bold text-sm tracking-widest uppercase hover:text-blue-600 hover:border-blue-600 transition-colors w-max">
                     Select Game Mode
                 </a>
             </div>

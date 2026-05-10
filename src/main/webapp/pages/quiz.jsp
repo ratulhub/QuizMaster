@@ -35,20 +35,20 @@
 <!-- TopNavBar (Mobile Only) -->
 <nav class="md:hidden fixed top-0 w-full z-50 bg-[#f4f4f4]/90 backdrop-blur-md border-b border-black flex justify-between items-center px-6 py-4">
     <div class="flex items-center gap-4">
-        <div class="text-3xl font-display-lg font-bold tracking-tighter">QM</div>
+        <div class="text-xl font-display-lg font-bold tracking-tighter">QuizMaster</div>
     </div>
 </nav>
 
 <!-- SideNavBar (Desktop) -->
 <nav class="hidden md:flex fixed left-0 top-0 h-full flex-col pt-12 p-8 z-40 border-r border-black w-64 bg-transparent">
     <div class="mb-24 flex justify-center w-full">
-        <div class="text-6xl font-display-lg font-bold tracking-tighter">QM</div>
+        <div class="text-3xl font-display-lg font-bold tracking-tighter">QuizMaster</div>
     </div>
     <div class="flex-1 flex flex-col gap-8">
         <a class="block text-sm font-label-caps tracking-widest hover:underline decoration-2 underline-offset-4" href="${pageContext.request.contextPath}/dashboard">
             HOME
         </a>
-        <a class="block text-sm font-label-caps tracking-widest hover:underline decoration-2 underline-offset-4" href="${pageContext.request.contextPath}/modes">
+        <a class="block text-sm font-label-caps tracking-widest hover:underline decoration-2 underline-offset-4" href="${pageContext.request.contextPath}/pages/modes.jsp">
             DISCOVER
         </a>
         <a class="block text-sm font-label-caps tracking-widest hover:underline decoration-2 underline-offset-4" href="${pageContext.request.contextPath}/dashboard">

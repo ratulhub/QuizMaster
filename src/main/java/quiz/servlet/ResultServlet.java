@@ -124,7 +124,7 @@ public class ResultServlet extends HttpServlet {
 
         } catch (Exception e) {
             e.printStackTrace();
-            res.sendRedirect(req.getContextPath() + "/pages/dashboard.jsp");
+            res.sendRedirect(req.getContextPath() + "/dashboard");
             return;
         }
 

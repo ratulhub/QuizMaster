@@ -66,12 +66,12 @@
     <!-- Sidebar -->
     <aside class="w-64 border-r-2 border-black flex flex-col py-12 px-8 shrink-0 bg-transparent relative z-10">
         <div class="mb-20">
-            <h1 class="font-serif text-5xl font-bold tracking-tighter" style="letter-spacing: -0.05em;">QM</h1>
+            <h1 class="font-serif text-3xl font-bold tracking-tighter" style="letter-spacing: -0.03em;">QuizMaster</h1>
         </div>
         
         <nav class="flex flex-col gap-6">
-            <div><a href="${pageContext.request.contextPath}/" class="sidebar-link">HOME</a></div>
-            <div><a href="${pageContext.request.contextPath}/modes" class="sidebar-link active">DISCOVER</a></div>
+            <div><a href="${pageContext.request.contextPath}/dashboard" class="sidebar-link">HOME</a></div>
+            <div><a href="${pageContext.request.contextPath}/pages/modes.jsp" class="sidebar-link active">DISCOVER</a></div>
             <div><a href="${pageContext.request.contextPath}/dashboard" class="sidebar-link">MY QUIZZES</a></div>
         </nav>
     </aside>
