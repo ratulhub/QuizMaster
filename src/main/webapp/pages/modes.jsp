@@ -1,232 +1,163 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Select Protocol - QuizMaster</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/style.css">
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "secondary-container": "#fe5c4c",
-                        "surface-container-low": "#f6f2f7",
-                        "on-secondary-fixed": "#410001",
-                        "on-secondary-fixed-variant": "#910809",
-                        "on-tertiary-container": "#ffd293",
-                        "error-container": "#ffdad6",
-                        "on-error": "#ffffff",
-                        "on-secondary-container": "#610002",
-                        "inverse-on-surface": "#f3eff4",
-                        "outline-variant": "#cbc4d2",
-                        "on-tertiary-fixed": "#291800",
-                        "on-primary-fixed-variant": "#4f378a",
-                        "surface-variant": "#e5e1e6",
-                        "on-background": "#1c1b1f",
-                        "on-primary-container": "#e0d2ff",
-                        "surface-container": "#f0edf2",
-                        "on-primary": "#ffffff",
-                        "secondary-fixed": "#ffdad5",
-                        "primary": "#4f378a",
-                        "error": "#ba1a1a",
-                        "surface-container-lowest": "#ffffff",
-                        "surface-container-highest": "#e5e1e6",
-                        "background": "#fcf8fd",
-                        "tertiary-container": "#815600",
-                        "tertiary-fixed-dim": "#fcba55",
-                        "surface-dim": "#dcd9de",
-                        "surface-container-high": "#ebe7ec",
-                        "surface-bright": "#fcf8fd",
-                        "secondary-fixed-dim": "#ffb4aa",
-                        "inverse-primary": "#cfbcff",
-                        "inverse-surface": "#313034",
-                        "on-error-container": "#93000a",
-                        "tertiary": "#624000",
-                        "tertiary-fixed": "#ffddb1",
-                        "on-secondary": "#ffffff",
-                        "surface-tint": "#6750a4",
-                        "on-surface-variant": "#494551",
-                        "on-tertiary-fixed-variant": "#624000",
-                        "primary-fixed-dim": "#cfbcff",
-                        "surface": "#fcf8fd",
-                        "primary-fixed": "#e9ddff",
-                        "secondary": "#b4271f",
-                        "outline": "#7a7582",
-                        "on-surface": "#1c1b1f",
-                        "primary-container": "#6750a4",
-                        "on-tertiary": "#ffffff",
-                        "on-primary-fixed": "#22005d",
-                        "mode-roast": "#ba1a1a",
-                        "mode-sudden-death": "#624000",
-                        "mode-teacher": "#815600",
-                        "mode-friend": "#386a20",
-                        "mode-bride": "#9c27b0"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "1rem",
-                        "lg": "2rem",
-                        "xl": "3rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "lg": "1.5rem",
-                        "gutter": "1.5rem",
-                        "md": "1rem",
-                        "sm": "0.5rem",
-                        "margin-desktop": "2.5rem",
-                        "xl": "2rem",
-                        "margin-mobile": "1rem",
-                        "xxl": "4rem",
-                        "xs": "0.25rem"
-                    },
-                    "fontFamily": {
-                        "title-lg": ["Outfit"],
-                        "headline-md": ["Outfit"],
-                        "display-lg": ["Outfit"],
-                        "headline-lg": ["Outfit"],
-                        "body-lg": ["Outfit"],
-                        "label-sm": ["Outfit"],
-                        "title-md": ["Outfit"],
-                        "label-lg": ["Outfit"],
-                        "body-md": ["Outfit"]
-                    },
-                    "fontSize": {
-                        "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}],
-                        "headline-md": ["28px", {"lineHeight": "36px", "fontWeight": "400"}],
-                        "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "400"}],
-                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
-                        "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
-                        "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
-                        "title-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0.15px", "fontWeight": "500"}],
-                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}],
-                        "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}]
-                    }
-                }
-            }
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Editorial Selection - QuizMaster</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,700&display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            color: #000;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
         }
-    </script>
-<style>
-        body { font-family: 'Outfit', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .card-border {
+            border: 2px solid #000;
+        }
+        
+        .btn-play-now {
+            display: inline-block;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            padding-bottom: 2px;
+            border-bottom: 3px solid #000;
+            text-transform: uppercase;
+            transition: all 0.2s;
+            color: #000;
+            text-decoration: none;
+        }
+        .btn-play-now:hover {
+            color: #2563eb;
+            border-bottom-color: #2563eb;
+        }
+
+        /* Image blend modes for that realistic printed look */
+        .img-blend {
+            mix-blend-mode: multiply;
+            filter: contrast(1.15) brightness(0.95);
+        }
+        
+        .sidebar-link {
+            text-decoration: none;
+            color: #000;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            display: inline-block;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+            transition: all 0.2s;
+        }
+        .sidebar-link.active, .sidebar-link:hover {
+            border-bottom-color: #000;
+        }
     </style>
 </head>
-<body class="bg-background min-h-screen text-on-background flex flex-col">
-<!-- TopAppBar -->
-<header class="hidden md:flex flex justify-between items-center w-full px-margin-desktop py-md max-w-full mx-auto bg-background dark:bg-background docked full-width top-0">
-<div class="flex items-center gap-xl">
-<h1 class="font-title-lg text-title-lg font-bold text-primary dark:text-primary-fixed-dim">QuizMaster</h1>
-<nav class="flex gap-lg">
-<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 font-label-lg text-label-lg hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="${pageContext.request.contextPath}/modes">Protocols</a>
-<a class="text-on-surface-variant dark:text-surface-variant font-label-lg text-label-lg hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="${pageContext.request.contextPath}/dashboard">History</a>
-<a class="text-on-surface-variant dark:text-surface-variant font-label-lg text-label-lg hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="${pageContext.request.contextPath}/dashboard">Profile</a>
-</nav>
-</div>
-<div class="flex items-center gap-md">
-<a href="${pageContext.request.contextPath}/dashboard" class="text-on-surface-variant hover:text-primary transition-colors font-label-lg text-label-lg mr-4">Back to Base</a>
-<button class="text-on-surface-variant hover:text-primary transition-colors">
-<span class="material-symbols-outlined" data-icon="settings">settings</span>
-</button>
-<button class="text-on-surface-variant hover:text-primary transition-colors">
-<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
-</button>
-</div>
-</header>
-<!-- Main Content Canvas -->
-<main class="flex-grow px-margin-mobile md:px-margin-desktop py-xl max-w-7xl mx-auto w-full relative">
-<!-- Subtle Background Glow -->
-<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-primary-fixed-dim opacity-20 blur-[100px] rounded-full pointer-events-none -z-10"></div>
-<div class="text-center mb-xxl mt-lg">
-<h2 class="font-display-lg text-display-lg text-primary mb-sm">Select Protocol</h2>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
-<!-- Normal Mode Card -->
-<div class="bg-surface-container-low rounded-[2rem] p-lg flex flex-col justify-between border border-outline-variant/30 shadow-[0_4px_8px_-4px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_16px_-4px_rgba(0,0,0,0.08)] hover:border-outline-variant/50 transition-all duration-300 min-h-[280px]">
-<div class="text-center flex-grow flex flex-col justify-center">
-<h3 class="font-headline-md text-headline-md text-primary mb-md">Normal Mode</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Standard assessment protocol. Balanced difficulty.</p>
-</div>
-<a href="${pageContext.request.contextPath}/quiz?mode=normal" class="w-full bg-primary text-on-primary rounded-full py-md font-label-lg text-label-lg hover:bg-primary/90 transition-colors block text-center">
-                    Engage
-</a>
-</div>
-<!-- Roast Mode Card -->
-<div class="bg-surface-container-low relative overflow-hidden rounded-[2rem] p-lg flex flex-col justify-between border border-outline-variant/30 shadow-[0_4px_8px_-4px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_16px_-4px_rgba(0,0,0,0.08)] hover:border-outline-variant/50 transition-all duration-300 min-h-[280px]">
-<div class="absolute inset-0 bg-mode-roast opacity-[0.02] pointer-events-none"></div>
-<div class="text-center flex-grow flex flex-col justify-center relative z-10">
-<h3 class="font-headline-md text-headline-md text-mode-roast mb-md">Roast Mode</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">AI will roast your mistakes relentlessly.</p>
-</div>
-<a href="${pageContext.request.contextPath}/quiz?mode=roast" class="w-full bg-mode-roast text-on-primary rounded-full py-md font-label-lg text-label-lg hover:bg-mode-roast/90 transition-colors relative z-10 block text-center">
-                    Engage
-</a>
-</div>
-<!-- Sudden Death Card -->
-<div class="bg-surface-container-low relative overflow-hidden rounded-[2rem] p-lg flex flex-col justify-between border border-outline-variant/30 shadow-[0_4px_8px_-4px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_16px_-4px_rgba(0,0,0,0.08)] hover:border-outline-variant/50 transition-all duration-300 min-h-[280px]">
-<div class="absolute inset-0 bg-mode-sudden-death opacity-[0.02] pointer-events-none"></div>
-<div class="text-center flex-grow flex flex-col justify-center relative z-10">
-<h3 class="font-headline-md text-headline-md text-mode-sudden-death mb-md">Sudden Death</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">One mistake and the simulation ends. 2x XP.</p>
-</div>
-<a href="${pageContext.request.contextPath}/quiz?mode=sudden_death" class="w-full bg-mode-sudden-death text-on-primary rounded-full py-md font-label-lg text-label-lg hover:bg-mode-sudden-death/90 transition-colors relative z-10 block text-center">
-                    Engage
-</a>
-</div>
-<!-- Teacher Mode Card -->
-<div class="bg-surface-container-low relative overflow-hidden rounded-[2rem] p-lg flex flex-col justify-between border border-outline-variant/30 shadow-[0_4px_8px_-4px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_16px_-4px_rgba(0,0,0,0.08)] hover:border-outline-variant/50 transition-all duration-300 min-h-[280px]">
-<div class="absolute inset-0 bg-mode-teacher opacity-[0.02] pointer-events-none"></div>
-<div class="text-center flex-grow flex flex-col justify-center relative z-10">
-<h3 class="font-headline-md text-headline-md text-mode-teacher mb-md">Teacher Mode</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Receive detailed explanations for every answer.</p>
-</div>
-<a href="${pageContext.request.contextPath}/quiz?mode=teacher" class="w-full bg-mode-teacher text-on-primary rounded-full py-md font-label-lg text-label-lg hover:bg-mode-teacher/90 transition-colors relative z-10 block text-center">
-                    Engage
-</a>
-</div>
-<!-- Friend Battle Card -->
-<div class="bg-surface-container-low relative overflow-hidden rounded-[2rem] p-lg flex flex-col justify-between border border-outline-variant/30 shadow-[0_4px_8px_-4px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_16px_-4px_rgba(0,0,0,0.08)] hover:border-outline-variant/50 transition-all duration-300 min-h-[280px]">
-<div class="absolute inset-0 bg-mode-friend opacity-[0.02] pointer-events-none"></div>
-<div class="text-center flex-grow flex flex-col justify-center relative z-10">
-<h3 class="font-headline-md text-headline-md text-mode-friend mb-md">Friend Battle</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Compete head-to-head in real time.</p>
-</div>
-<form action="${pageContext.request.contextPath}/battle" method="post" class="w-full">
-    <input type="hidden" name="action" value="create">
-    <button type="submit" class="w-full bg-mode-friend text-on-primary rounded-full py-md font-label-lg text-label-lg hover:bg-mode-friend/90 transition-colors relative z-10">
-                        Host
-    </button>
-</form>
-</div>
-<!-- Bride Interview Card -->
-<div class="bg-surface-container-low relative overflow-hidden rounded-[2rem] p-lg flex flex-col justify-between border border-outline-variant/30 shadow-[0_4px_8px_-4px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_16px_-4px_rgba(0,0,0,0.08)] hover:border-outline-variant/50 transition-all duration-300 min-h-[280px]">
-<div class="absolute inset-0 bg-mode-bride opacity-[0.02] pointer-events-none"></div>
-<div class="text-center flex-grow flex flex-col justify-center relative z-10">
-<h3 class="font-headline-md text-headline-md text-mode-bride mb-md">Bride Interview</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Answer life scenario questions.</p>
-</div>
-<a href="${pageContext.request.contextPath}/quiz?mode=bride" class="w-full bg-mode-bride text-on-primary rounded-full py-md font-label-lg text-label-lg hover:bg-mode-bride/90 transition-colors relative z-10 block text-center">
-                    Engage
-</a>
-</div>
-</div>
-</main>
-<!-- BottomNavBar (Mobile) -->
-<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] bg-surface-container-lowest dark:bg-inverse-surface">
-<a href="${pageContext.request.contextPath}/dashboard" class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-6 py-1 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all">
-<span class="material-symbols-outlined font-label-sm text-label-sm" data-icon="auto_stories">auto_stories</span>
-<span class="font-label-sm text-label-sm mt-1">Library</span>
-</a>
-<a href="${pageContext.request.contextPath}/modes" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-6 py-1 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all">
-<span class="material-symbols-outlined font-label-sm text-label-sm" data-icon="play_circle">play_circle</span>
-<span class="font-label-sm text-label-sm mt-1">Active</span>
-</a>
-<a href="${pageContext.request.contextPath}/dashboard" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-6 py-1 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all">
-<span class="material-symbols-outlined font-label-sm text-label-sm" data-icon="leaderboard">leaderboard</span>
-<span class="font-label-sm text-label-sm mt-1">Stats</span>
-</a>
-</nav>
-<script src="${pageContext.request.contextPath}/assets/app.js"></script>
-</body></html>
+<body class="min-h-screen flex">
+    
+    <!-- Sidebar -->
+    <aside class="w-64 border-r-2 border-black flex flex-col py-12 px-8 shrink-0 bg-transparent relative z-10">
+        <div class="mb-20">
+            <h1 class="font-serif text-5xl font-bold tracking-tighter" style="letter-spacing: -0.05em;">QM</h1>
+        </div>
+        
+        <nav class="flex flex-col gap-6">
+            <div><a href="${pageContext.request.contextPath}/" class="sidebar-link">HOME</a></div>
+            <div><a href="${pageContext.request.contextPath}/modes" class="sidebar-link active">DISCOVER</a></div>
+            <div><a href="${pageContext.request.contextPath}/dashboard" class="sidebar-link">MY QUIZZES</a></div>
+            <div><a href="${pageContext.request.contextPath}/dashboard" class="sidebar-link">PROFILE</a></div>
+            <div><a href="${pageContext.request.contextPath}/dashboard" class="sidebar-link">SETTINGS</a></div>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-12 flex flex-col max-w-[1200px] mx-auto w-full relative z-10">
+        <h2 class="font-serif text-6xl md:text-7xl font-bold tracking-tight mb-10" style="letter-spacing: -0.02em;">EDITORIAL SELECTION</h2>
+        
+        <!-- Grid Container -->
+        <div class="grid grid-cols-4 gap-4 flex-1">
+            
+            <!-- Normal Mode (Spans 2 cols) -->
+            <div class="col-span-2 card-border bg-[#f8f8f8] flex relative overflow-hidden min-h-[300px] group hover:border-blue-600 transition-colors duration-300">
+                <div class="p-8 flex flex-col justify-between w-1/2 z-10 relative">
+                    <div>
+                        <h3 class="font-serif text-3xl md:text-4xl font-bold leading-[1.1] mb-4">NORMAL<br>MODE</h3>
+                        <p class="text-sm text-black leading-snug">The classic, adaptive quiz experience. Challenge your knowledge across various subjects.</p>
+                    </div>
+                    <div class="mt-8">
+                        <a href="${pageContext.request.contextPath}/quiz?mode=normal" class="btn-play-now">PLAY NOW</a>
+                    </div>
+                </div>
+                <div class="w-1/2 absolute right-0 top-0 bottom-0 flex items-center justify-center p-2">
+                    <img src="${pageContext.request.contextPath}/assets/images/normal_mode.png" alt="Normal Mode" class="w-full h-full object-contain img-blend scale-110 translate-x-4">
+                </div>
+            </div>
+
+            <!-- Roast Mode (Spans 2 cols) -->
+            <div class="col-span-2 card-border bg-[#f8f8f8] flex relative overflow-hidden min-h-[300px] group hover:border-blue-600 transition-colors duration-300">
+                <div class="w-[45%] absolute left-0 top-0 bottom-0 flex items-center justify-center p-2 border-r-2 border-black group-hover:border-blue-600 transition-colors duration-300">
+                    <img src="${pageContext.request.contextPath}/assets/images/roast_mode.png" alt="Roast Mode" class="w-full h-full object-contain img-blend scale-[1.3] -translate-y-2">
+                </div>
+                <div class="w-[55%] ml-auto p-8 flex flex-col justify-between z-10">
+                    <div>
+                        <h3 class="font-serif text-3xl md:text-4xl font-bold leading-[1.1] mb-4">ROAST<br>MODE</h3>
+                        <p class="text-sm text-black leading-snug">Sarcastic AI responses.<br>Prepare to be roasted.</p>
+                    </div>
+                    <div class="mt-8">
+                        <a href="${pageContext.request.contextPath}/quiz?mode=roast" class="btn-play-now">PLAY NOW</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Teacher Mode (Span 1) -->
+            <div class="col-span-1 card-border bg-[#f8f8f8] p-8 flex flex-col justify-between min-h-[300px] group hover:border-blue-600 transition-colors duration-300">
+                <div>
+                    <h3 class="font-serif text-3xl md:text-4xl font-bold leading-[1.1] mb-4">TEACHER<br>MODE</h3>
+                    <p class="text-sm text-black leading-snug">Receive detailed explanations for every answer.</p>
+                </div>
+                <div class="mt-8">
+                    <a href="${pageContext.request.contextPath}/quiz?mode=teacher" class="btn-play-now">PLAY NOW</a>
+                </div>
+            </div>
+
+            <!-- Sudden Death (Span 1) -->
+            <div class="col-span-1 card-border bg-[#f8f8f8] p-8 flex flex-col justify-between min-h-[300px] group hover:border-blue-600 transition-colors duration-300">
+                <div>
+                    <h3 class="font-serif text-3xl md:text-4xl font-bold leading-[1.1] mb-4">SUDDEN<br>DEATH</h3>
+                    <p class="text-sm text-black leading-snug">One wrong move and you're out. High stakes, fast pace.</p>
+                </div>
+                <div class="mt-8">
+                    <a href="${pageContext.request.contextPath}/quiz?mode=sudden_death" class="btn-play-now">PLAY NOW</a>
+                </div>
+            </div>
+
+            <!-- The Daily Challenge (Spans 2 cols) -->
+            <div class="col-span-2 card-border bg-[#f8f8f8] flex relative overflow-hidden min-h-[300px] group hover:border-blue-600 transition-colors duration-300">
+                <div class="w-[55%] p-8 flex flex-col justify-between z-10 border-r-2 border-black group-hover:border-blue-600 transition-colors duration-300">
+                    <div>
+                        <h3 class="font-serif text-3xl md:text-4xl font-bold leading-[1.1] mb-4">THE DAILY<br>CHALLENGE</h3>
+                        <p class="text-sm text-black leading-snug">A new, curated quiz every day.<br>Compete globally.</p>
+                    </div>
+                    <div class="mt-8">
+                        <!-- Using bride mode as the 'daily challenge' or just redirecting to dashboard if no specific mode is asked -->
+                        <a href="${pageContext.request.contextPath}/quiz?mode=bride" class="btn-play-now">PLAY NOW</a>
+                    </div>
+                </div>
+                <div class="w-[45%] absolute right-0 top-0 bottom-0 flex items-center justify-center p-4">
+                    <img src="${pageContext.request.contextPath}/assets/images/daily_challenge.png" alt="Daily Challenge" class="w-full h-full object-contain img-blend scale-110 translate-y-4">
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>
