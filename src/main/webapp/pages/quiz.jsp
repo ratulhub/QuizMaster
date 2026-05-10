@@ -1,221 +1,164 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List, quiz.model.Models" %>
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>QuizMaster - Active Protocol</title>
+<title>The Arena - QuizMaster</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/style.css">
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "secondary-container": "#fe5c4c",
-                        "surface-container-low": "#f6f2f7",
-                        "on-secondary-fixed": "#410001",
-                        "on-secondary-fixed-variant": "#910809",
-                        "on-tertiary-container": "#ffd293",
-                        "error-container": "#ffdad6",
-                        "on-error": "#ffffff",
-                        "on-secondary-container": "#610002",
-                        "inverse-on-surface": "#f3eff4",
-                        "outline-variant": "#cbc4d2",
-                        "on-tertiary-fixed": "#291800",
-                        "on-primary-fixed-variant": "#4f378a",
-                        "surface-variant": "#e5e1e6",
-                        "on-background": "#1c1b1f",
-                        "on-primary-container": "#e0d2ff",
-                        "surface-container": "#f0edf2",
-                        "on-primary": "#ffffff",
-                        "secondary-fixed": "#ffdad5",
-                        "primary": "#4f378a",
-                        "error": "#ba1a1a",
-                        "surface-container-lowest": "#ffffff",
-                        "surface-container-highest": "#e5e1e6",
-                        "background": "#fcf8fd",
-                        "tertiary-container": "#815600",
-                        "tertiary-fixed-dim": "#fcba55",
-                        "surface-dim": "#dcd9de",
-                        "surface-container-high": "#ebe7ec",
-                        "surface-bright": "#fcf8fd",
-                        "secondary-fixed-dim": "#ffb4aa",
-                        "inverse-primary": "#cfbcff",
-                        "inverse-surface": "#313034",
-                        "on-error-container": "#93000a",
-                        "tertiary": "#624000",
-                        "tertiary-fixed": "#ffddb1",
-                        "on-secondary": "#ffffff",
-                        "surface-tint": "#6750a4",
-                        "on-surface-variant": "#494551",
-                        "on-tertiary-fixed-variant": "#624000",
-                        "primary-fixed-dim": "#cfbcff",
-                        "surface": "#fcf8fd",
-                        "primary-fixed": "#e9ddff",
-                        "secondary": "#b4271f",
-                        "outline": "#7a7582",
-                        "on-surface": "#1c1b1f",
-                        "primary-container": "#6750a4",
-                        "on-tertiary": "#ffffff",
-                        "on-primary-fixed": "#22005d"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "1rem",
-                        "lg": "2rem",
-                        "xl": "3rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "lg": "1.5rem",
-                        "gutter": "1.5rem",
-                        "md": "1rem",
-                        "sm": "0.5rem",
-                        "margin-desktop": "2.5rem",
-                        "xl": "2rem",
-                        "margin-mobile": "1rem",
-                        "xxl": "4rem",
-                        "xs": "0.25rem"
-                    },
-                    "fontFamily": {
-                        "title-lg": ["Outfit"],
-                        "headline-md": ["Outfit"],
-                        "display-lg": ["Outfit"],
-                        "headline-lg": ["Outfit"],
-                        "body-lg": ["Outfit"],
-                        "label-sm": ["Outfit"],
-                        "title-md": ["Outfit"],
-                        "label-lg": ["Outfit"],
-                        "body-md": ["Outfit"]
-                    },
-                    "fontSize": {
-                        "title-lg": ["22px", { "lineHeight": "28px", "fontWeight": "500" }],
-                        "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "400" }],
-                        "display-lg": ["57px", { "lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "400" }],
-                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "400" }],
-                        "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400" }],
-                        "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500" }],
-                        "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0.15px", "fontWeight": "500" }],
-                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500" }],
-                        "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400" }]
-                    }
-                }
-            }
-        }
-    </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap" rel="stylesheet"/>
 <style>
         body {
-            font-family: 'Outfit', sans-serif;
-            background-color: #fcf8fd;
-            color: #1c1b1f;
+            background-color: #f4f4f4;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06'/%3E%3C/svg%3E");
+            color: #000;
+            font-family: 'Inter', sans-serif;
         }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        .font-display-lg { font-family: 'Playfair Display', serif; }
+        .font-label-caps { font-family: 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.1em; }
+        
+        /* Custom styles for peer checked state propagation */
+        input[type="radio"]:checked + div {
+            background-color: #000;
+            color: #fff;
+        }
+        input[type="radio"]:checked + div .text-gray-600 {
+            color: #ccc;
         }
     </style>
 </head>
-<body class="bg-background text-on-background min-h-screen flex flex-col">
-<!-- TopAppBar -->
-<header class="bg-background dark:bg-background docked full-width top-0 flat no shadows z-40 hidden md:block">
-<div class="flex justify-between items-center w-full px-margin-desktop py-md max-w-full mx-auto">
-<div class="flex items-center gap-4">
-<span class="font-title-lg text-title-lg font-bold text-primary dark:text-primary-fixed-dim">QuizMaster</span>
-</div>
-<nav class="hidden md:flex gap-8 items-center">
-<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 font-label-lg text-label-lg" href="${pageContext.request.contextPath}/modes">Protocols</a>
-<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 font-label-lg text-label-lg" href="${pageContext.request.contextPath}/dashboard">History</a>
-<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 font-label-lg text-label-lg" href="${pageContext.request.contextPath}/dashboard">Profile</a>
-</nav>
-<div class="flex items-center gap-4 text-on-surface-variant">
-<button class="hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-variant"><span class="material-symbols-outlined" data-icon="settings">settings</span></button>
-<button class="hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-variant"><span class="material-symbols-outlined" data-icon="notifications">notifications</span></button>
-</div>
-</div>
-</header>
-<!-- Main Content Area -->
-<main class="flex-grow pb-24 md:pb-8 pt-6 md:pt-12 px-margin-mobile md:px-margin-desktop flex justify-center">
-<!-- Main Card Container -->
-<div class="w-full max-w-3xl bg-surface-container-low rounded-xl p-lg md:p-xl shadow-[0_4px_8px_-4px_rgba(0,0,0,0.04)] border border-surface-variant/50">
-<!-- Header Section -->
-<div class="flex justify-between items-center mb-xl border-b border-surface-variant pb-lg">
-<h1 class="font-headline-lg text-headline-lg text-primary">Protocol Active</h1>
-<div class="bg-primary text-on-primary font-label-sm text-label-sm px-4 py-2 rounded-full uppercase tracking-wider">
-                    MODE: <%= request.getParameter("mode") != null ? request.getParameter("mode").toUpperCase() : "NORMAL" %>
-                </div>
-</div>
-<!-- Quiz Content -->
-<form id="quizForm" action="${pageContext.request.contextPath}/submit" method="post" class="space-y-xxl">
-<input type="hidden" name="mode" value="<%= request.getParameter("mode") != null ? request.getParameter("mode") : "normal" %>">
-<input type="hidden" name="total" value="<%= request.getAttribute("total") != null ? request.getAttribute("total") : "0" %>">
-<input type="hidden" name="questionIds" value="<%= request.getAttribute("questionIds") %>">
+<body class="antialiased min-h-screen flex selection:bg-black selection:text-white">
 
-<% 
-    List<Models.Question> questions = (List<Models.Question>) request.getAttribute("questions");
-    if (questions != null && !questions.isEmpty()) {
-        int i = 1;
-        for (Models.Question q : questions) {
-%>
-<!-- Question <%= i %> -->
-<div class="space-y-md mt-xl">
-<h2 class="font-title-lg text-title-lg text-on-background mb-lg"><%= i %>. <%= q.getText() %></h2>
-<div class="space-y-sm">
-<!-- Option A -->
-<label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q_<%= q.getId() %>" value="A" type="radio" required/>
-<span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors"><%= q.getOptionA() %></span>
-</label>
-<!-- Option B -->
-<label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q_<%= q.getId() %>" value="B" type="radio" required/>
-<span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors"><%= q.getOptionB() %></span>
-</label>
-<!-- Option C -->
-<label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q_<%= q.getId() %>" value="C" type="radio" required/>
-<span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors"><%= q.getOptionC() %></span>
-</label>
-<!-- Option D -->
-<label class="flex items-center p-md bg-surface-container hover:bg-surface-container-high transition-colors rounded-lg cursor-pointer group">
-<input class="w-5 h-5 text-primary bg-surface-container-highest border-outline focus:ring-primary focus:ring-offset-surface-container-low cursor-pointer" name="q_<%= q.getId() %>" value="D" type="radio" required/>
-<span class="ml-4 font-body-lg text-body-lg text-on-surface-variant group-hover:text-on-background transition-colors"><%= q.getOptionD() %></span>
-</label>
-</div>
-</div>
-<% 
-        i++;
-        }
-    } else {
-%>
-    <div class="text-center p-xl">
-        <p class="font-body-lg text-body-lg text-on-surface-variant">No questions found in the database. Please ask an admin to upload a quiz.</p>
+<!-- TopNavBar (Mobile Only) -->
+<nav class="md:hidden fixed top-0 w-full z-50 bg-[#f4f4f4]/90 backdrop-blur-md border-b border-black flex justify-between items-center px-6 py-4">
+    <div class="flex items-center gap-4">
+        <div class="text-3xl font-display-lg font-bold tracking-tighter">QM</div>
     </div>
-<% } %>
-<!-- Submit Button Area (Optional/Contextual) -->
-<div class="mt-xl pt-lg flex justify-end">
-<button type="submit" class="bg-primary text-on-primary font-label-lg text-label-lg px-8 py-3 rounded-full hover:bg-primary/90 transition-colors shadow-sm">
-                    Submit Answers
-                </button>
-</div>
-</form>
-</div>
-</main>
-<!-- BottomNavBar (Mobile) -->
-<nav class="md:hidden shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] bg-surface-container-lowest dark:bg-inverse-surface shadow-md fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2">
-<a href="${pageContext.request.contextPath}/dashboard" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-6 py-1 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-full group">
-<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform" data-icon="auto_stories">auto_stories</span>
-<span class="font-label-sm text-label-sm">Library</span>
-</a>
-<a href="${pageContext.request.contextPath}/modes" class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-6 py-1 scale-95 duration-100 group">
-<span class="material-symbols-outlined mb-1" data-icon="play_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_circle</span>
-<span class="font-label-sm text-label-sm">Active</span>
-</a>
-<a href="${pageContext.request.contextPath}/dashboard" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-6 py-1 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all rounded-full group">
-<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform" data-icon="leaderboard">leaderboard</span>
-<span class="font-label-sm text-label-sm">Stats</span>
-</a>
 </nav>
-<script src="${pageContext.request.contextPath}/assets/app.js"></script>
-</body></html>
+
+<!-- SideNavBar (Desktop) -->
+<nav class="hidden md:flex fixed left-0 top-0 h-full flex-col pt-12 p-8 z-40 border-r border-black w-64 bg-transparent">
+    <div class="mb-24 flex justify-center w-full">
+        <div class="text-6xl font-display-lg font-bold tracking-tighter">QM</div>
+    </div>
+    <div class="flex-1 flex flex-col gap-8">
+        <a class="block text-sm font-label-caps tracking-widest hover:underline decoration-2 underline-offset-4" href="${pageContext.request.contextPath}/dashboard">
+            HOME
+        </a>
+        <a class="block text-sm font-label-caps tracking-widest hover:underline decoration-2 underline-offset-4" href="${pageContext.request.contextPath}/modes">
+            DISCOVER
+        </a>
+        <a class="block text-sm font-label-caps tracking-widest hover:underline decoration-2 underline-offset-4" href="${pageContext.request.contextPath}/dashboard">
+            MY QUIZZES
+        </a>
+    </div>
+</nav>
+
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 p-6 md:p-16 pt-24 md:pt-16 min-h-screen relative flex flex-col">
+    
+    <!-- Header Section -->
+    <header class="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 pb-8 border-b border-black gap-6">
+        <div class="flex flex-wrap items-center gap-6">
+            <span class="text-3xl font-display-lg italic font-bold">The Arena.</span>
+            <span class="px-4 py-1.5 text-xs font-label-caps tracking-widest uppercase border border-black bg-white/50">
+                MODE: <%= request.getParameter("mode") != null ? request.getParameter("mode").toUpperCase() : "NORMAL" %>
+            </span>
+        </div>
+        <div class="flex items-center gap-6">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-xl">timer</span>
+                <span class="font-label-caps text-base font-bold tracking-widest">Active</span>
+            </div>
+            <div class="hidden md:block h-6 w-px bg-black/30"></div>
+            <a href="${pageContext.request.contextPath}/dashboard" class="font-label-caps text-sm font-bold tracking-widest hover:opacity-70 transition-opacity">ABORT</a>
+        </div>
+    </header>
+
+    <div class="max-w-5xl mx-auto w-full flex-1 flex flex-col">
+        <form id="quizForm" action="${pageContext.request.contextPath}/submit" method="post" class="w-full">
+            <input type="hidden" name="mode" value="<%= request.getParameter("mode") != null ? request.getParameter("mode") : "normal" %>">
+            <input type="hidden" name="total" value="<%= request.getAttribute("total") != null ? request.getAttribute("total") : "0" %>">
+            <input type="hidden" name="questionIds" value="<%= request.getAttribute("questionIds") %>">
+
+            <% 
+                List<Models.Question> questions = (List<Models.Question>) request.getAttribute("questions");
+                if (questions != null && !questions.isEmpty()) {
+                    int i = 1;
+                    for (Models.Question q : questions) {
+            %>
+            <div class="mb-24">
+                <!-- Question Section -->
+                <section class="mb-12">
+                    <div class="text-sm font-label-caps mb-4 tracking-widest text-gray-500">QUESTION <%= i %></div>
+                    <h1 class="text-4xl md:text-5xl font-display-lg font-bold leading-tight md:leading-snug max-w-4xl">
+                        <%= q.getText() %>
+                    </h1>
+                </section>
+
+                <!-- Options Grid -->
+                <section class="grid grid-cols-1 md:grid-cols-2 bg-white/40 border border-black">
+                    <!-- Option A -->
+                    <label class="cursor-pointer relative group">
+                        <input type="radio" name="q_<%= q.getId() %>" value="A" required class="absolute opacity-0 w-0 h-0">
+                        <div class="h-full p-8 md:p-12 border-b md:border-r border-black flex flex-col items-start text-left transition-all duration-300 group-hover:bg-black group-hover:text-white">
+                            <div class="font-display-lg text-4xl md:text-5xl font-bold mb-6">A.</div>
+                            <h3 class="font-display-lg text-2xl md:text-3xl font-bold mb-3 leading-tight"><%= q.getOptionA() %></h3>
+                        </div>
+                    </label>
+
+                    <!-- Option B -->
+                    <label class="cursor-pointer relative group">
+                        <input type="radio" name="q_<%= q.getId() %>" value="B" required class="absolute opacity-0 w-0 h-0">
+                        <div class="h-full p-8 md:p-12 border-b border-black flex flex-col items-start text-left transition-all duration-300 group-hover:bg-black group-hover:text-white">
+                            <div class="font-display-lg text-4xl md:text-5xl font-bold mb-6">B.</div>
+                            <h3 class="font-display-lg text-2xl md:text-3xl font-bold mb-3 leading-tight"><%= q.getOptionB() %></h3>
+                        </div>
+                    </label>
+
+                    <!-- Option C -->
+                    <label class="cursor-pointer relative group">
+                        <input type="radio" name="q_<%= q.getId() %>" value="C" required class="absolute opacity-0 w-0 h-0">
+                        <div class="h-full p-8 md:p-12 border-b md:border-b-0 md:border-r border-black flex flex-col items-start text-left transition-all duration-300 group-hover:bg-black group-hover:text-white">
+                            <div class="font-display-lg text-4xl md:text-5xl font-bold mb-6">C.</div>
+                            <h3 class="font-display-lg text-2xl md:text-3xl font-bold mb-3 leading-tight"><%= q.getOptionC() %></h3>
+                        </div>
+                    </label>
+
+                    <!-- Option D -->
+                    <label class="cursor-pointer relative group">
+                        <input type="radio" name="q_<%= q.getId() %>" value="D" required class="absolute opacity-0 w-0 h-0">
+                        <div class="h-full p-8 md:p-12 flex flex-col items-start text-left transition-all duration-300 group-hover:bg-black group-hover:text-white">
+                            <div class="font-display-lg text-4xl md:text-5xl font-bold mb-6">D.</div>
+                            <h3 class="font-display-lg text-2xl md:text-3xl font-bold mb-3 leading-tight"><%= q.getOptionD() %></h3>
+                        </div>
+                    </label>
+                </section>
+            </div>
+            <% 
+                    i++;
+                    }
+                } else {
+            %>
+                <div class="text-center p-20 border border-black bg-white/40 mb-16">
+                    <p class="font-display-lg text-3xl font-bold">No questions retrieved.</p>
+                    <p class="font-label-caps tracking-widest mt-4">Please contact central command to populate the database.</p>
+                </div>
+            <% } %>
+
+            <!-- Footer Actions -->
+            <footer class="mt-8 flex justify-end items-center pt-8 border-t border-black mb-16">
+                <button type="submit" class="flex items-center gap-2 border border-black px-8 py-4 hover:bg-black hover:text-white transition-colors font-label-caps text-sm tracking-widest uppercase font-bold">
+                    <span>Submit Answers</span>
+                    <span class="material-symbols-outlined text-xl">arrow_forward</span>
+                </button>
+            </footer>
+        </form>
+    </div>
+</main>
+
+</body>
+</html>

@@ -1,247 +1,116 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html class="light" lang="en"><head>
+<html class="dark" lang="en">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>QuizMaster Dashboard</title>
-<!-- Material Symbols -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<!-- Google Fonts: Outfit -->
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<title>Dashboard - QuizMaster</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/style.css">
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "on-surface-variant": "#494551",
-                        "inverse-primary": "#cfbcff",
-                        "on-tertiary-container": "#ffd293",
-                        "inverse-on-surface": "#f3eff4",
-                        "on-background": "#1c1b1f",
-                        "surface-container-high": "#ebe7ec",
-                        "outline-variant": "#cbc4d2",
-                        "on-primary-container": "#e0d2ff",
-                        "primary": "#4f378a",
-                        "secondary": "#b4271f",
-                        "surface-container-highest": "#e5e1e6",
-                        "secondary-fixed-dim": "#ffb4aa",
-                        "on-secondary-container": "#610002",
-                        "on-tertiary-fixed-variant": "#624000",
-                        "secondary-fixed": "#ffdad5",
-                        "error-container": "#ffdad6",
-                        "surface-variant": "#e5e1e6",
-                        "tertiary-fixed": "#ffddb1",
-                        "on-primary-fixed": "#22005d",
-                        "surface": "#fcf8fd",
-                        "on-secondary-fixed": "#410001",
-                        "primary-fixed": "#e9ddff",
-                        "tertiary": "#624000",
-                        "secondary-container": "#fe5c4c",
-                        "on-primary-fixed-variant": "#4f378a",
-                        "on-error-container": "#93000a",
-                        "on-secondary-fixed-variant": "#910809",
-                        "outline": "#7a7582",
-                        "primary-container": "#6750a4",
-                        "error": "#ba1a1a",
-                        "surface-dim": "#dcd9de",
-                        "surface-container-low": "#f6f2f7",
-                        "primary-fixed-dim": "#cfbcff",
-                        "on-primary": "#ffffff",
-                        "on-tertiary": "#ffffff",
-                        "on-secondary": "#ffffff",
-                        "surface-tint": "#6750a4",
-                        "tertiary-fixed-dim": "#fcba55",
-                        "surface-container-lowest": "#ffffff",
-                        "inverse-surface": "#313034",
-                        "background": "#fcf8fd",
-                        "surface-bright": "#fcf8fd",
-                        "on-tertiary-fixed": "#291800",
-                        "on-surface": "#1c1b1f",
-                        "on-error": "#ffffff",
-                        "tertiary-container": "#815600",
-                        "surface-container": "#f0edf2"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "1rem",
-                        "lg": "2rem",
-                        "xl": "3rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "xxl": "4rem",
-                        "sm": "0.5rem",
-                        "margin-mobile": "1rem",
-                        "margin-desktop": "2.5rem",
-                        "xs": "0.25rem",
-                        "md": "1rem",
-                        "xl": "2rem",
-                        "lg": "1.5rem",
-                        "gutter": "1.5rem"
-                    },
-                    "fontFamily": {
-                        "label-lg": ["Outfit"],
-                        "headline-md": ["Outfit"],
-                        "body-md": ["Outfit"],
-                        "title-lg": ["Outfit"],
-                        "display-lg": ["Outfit"],
-                        "headline-lg": ["Outfit"],
-                        "body-lg": ["Outfit"],
-                        "title-md": ["Outfit"],
-                        "label-sm": ["Outfit"]
-                    },
-                    "fontSize": {
-                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}],
-                        "headline-md": ["28px", {"lineHeight": "36px", "fontWeight": "400"}],
-                        "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
-                        "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}],
-                        "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "400"}],
-                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
-                        "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
-                        "title-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0.15px", "fontWeight": "500"}],
-                        "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}]
-                    }
-                },
-            },
-        }
-    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
         body {
-            font-family: 'Outfit', sans-serif;
-            background-color: #fcf8fd;
+            background-color: #f4f4f5;
+            color: #111827;
+            font-family: 'Inter', sans-serif;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
         }
-        .tonal-elevation {
-            box-shadow: 0 4px 8px rgba(0,0,0,0.04);
-            border: 1px solid #E6E1E5;
+        .editorial-title {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: -0.02em;
         }
-        .hero-gradient {
-            background: radial-gradient(circle at top left, rgba(103, 80, 164, 0.05) 0%, rgba(255, 255, 255, 0) 50%);
-        }
-    </style>
+        .font-display { font-family: 'Playfair Display', serif; }
+</style>
 </head>
-<body class="min-h-screen text-on-background">
-<!-- TopAppBar -->
-<header class="bg-background dark:bg-background flex justify-between items-center w-full px-margin-desktop py-md max-w-full mx-auto fixed top-0 z-50">
-<div class="font-title-lg text-title-lg font-bold text-primary dark:text-primary-fixed-dim">QuizMaster</div>
-<div class="hidden md:flex items-center gap-xl">
-<nav class="flex gap-lg">
-<a class="font-label-lg text-label-lg text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 active:opacity-70 transition-opacity" href="${pageContext.request.contextPath}/modes">Protocols</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="${pageContext.request.contextPath}/dashboard">History</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="${pageContext.request.contextPath}/dashboard">Profile</a>
-</nav>
-<div class="flex items-center gap-md ml-xl">
-<span class="font-body-md text-body-md text-on-surface-variant">Welcome, <%= session.getAttribute("user") %></span>
-<% if ("ADMIN".equals(session.getAttribute("role"))) { %>
-<a href="${pageContext.request.contextPath}/pages/admin.jsp" class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-label-sm text-label-sm">Admin</a>
-<% } else { %>
-<span class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-label-sm text-label-sm">User</span>
-<% } %>
-<a href="${pageContext.request.contextPath}/login?action=logout" class="border border-secondary text-secondary rounded-full px-6 py-1 font-label-lg text-label-lg hover:bg-secondary hover:text-on-secondary transition-all">Logout</a>
-</div>
-</div>
-<div class="flex items-center gap-md md:hidden">
-<span class="material-symbols-outlined text-on-surface-variant">settings</span>
-<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
-</div>
-</header>
-<!-- Main Content Area -->
-<main class="pt-xxl pb-xxl px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto hero-gradient mt-xl">
-<!-- User Profile Header -->
-<section class="mt-xl mb-xxl">
-<h1 class="font-display-lg text-[48px] md:text-display-lg">
-                Commander <span class="text-primary-container font-extrabold"><%= request.getAttribute("rank_title") != null ? request.getAttribute("rank_title") : "Novice" %></span>
-</h1>
-</section>
-<!-- Bento Grid Stats Section -->
-<section class="grid grid-cols-1 md:grid-cols-3 gap-lg mb-xxl">
-<!-- XP Card -->
-<div class="tonal-elevation bg-surface-container-lowest p-lg rounded-lg flex flex-col items-center justify-center text-center transition-all hover:shadow-md">
-<span class="font-label-lg text-label-lg text-on-surface-variant mb-md uppercase tracking-wider">Total XP</span>
-<span class="font-display-lg text-[64px] text-primary-container leading-none font-bold"><%= request.getAttribute("xp") != null ? request.getAttribute("xp") : "0" %></span>
-</div>
-<!-- Quizzes Card -->
-<div class="tonal-elevation bg-surface-container-lowest p-lg rounded-lg flex flex-col items-center justify-center text-center transition-all hover:shadow-md">
-<span class="font-label-lg text-label-lg text-on-surface-variant mb-md uppercase tracking-wider">Quizzes Completed</span>
-<span class="font-display-lg text-[64px] text-primary-container leading-none font-bold"><%= request.getAttribute("total_quizzes") != null ? request.getAttribute("total_quizzes") : "0" %></span>
-</div>
-<!-- Streak Card -->
-<div class="tonal-elevation bg-surface-container-lowest p-lg rounded-lg flex flex-col items-center justify-center text-center transition-all hover:shadow-md relative overflow-hidden">
-<div class="absolute top-0 right-0 w-16 h-16 bg-secondary opacity-5 rotate-45 translate-x-8 -translate-y-8"></div>
-<span class="font-label-lg text-label-lg text-on-surface-variant mb-md uppercase tracking-wider">Current Streak</span>
-<div class="flex items-center gap-sm">
-<span class="font-display-lg text-[64px] text-secondary leading-none font-bold"><%= request.getAttribute("current_streak") != null ? request.getAttribute("current_streak") : "0" %></span>
-<span class="material-symbols-outlined text-[48px] text-secondary" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
-</div>
-</div>
-</section>
-<!-- CTA Section: Enter the Arena -->
-<section class="tonal-elevation bg-surface-container-low p-xxl rounded-lg text-center relative overflow-hidden group">
-<div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-[0.02] transition-opacity duration-500"></div>
-<div class="relative z-10 max-w-2xl mx-auto">
-<h2 class="font-headline-lg text-headline-lg text-on-surface mb-md">Enter the Arena</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-xl">Choose your challenge mode and prove your worth. Compete against others or test your knowledge solo.</p>
-<a href="${pageContext.request.contextPath}/pages/modes.jsp" class="inline-block bg-primary text-on-primary font-title-md text-title-md px-xxl py-md rounded-full shadow-lg hover:bg-primary-container hover:scale-105 transition-all duration-300">
-                    Select Game Mode
-</a>
-</div>
-<!-- Subtle background elements -->
-<div class="absolute bottom-0 left-0 w-32 h-32 bg-primary-container opacity-5 rounded-full -translate-x-12 translate-y-12"></div>
-<div class="absolute top-0 right-0 w-48 h-48 bg-primary opacity-5 rounded-full translate-x-12 -translate-y-12"></div>
-</section>
-<!-- Recent Activity Section (Additional for context) -->
-<section class="mt-xxl">
-<div class="flex justify-between items-end mb-lg">
-<h3 class="font-title-lg text-title-lg text-on-surface">Recent Activity</h3>
-<a class="font-label-lg text-label-lg text-primary hover:underline" href="#">View All History</a>
-</div>
-<div class="space-y-md">
-<div class="tonal-elevation bg-surface-container-lowest p-md rounded-lg flex items-center gap-lg hover:bg-surface-container-low transition-colors">
-<div class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center">
-<span class="material-symbols-outlined text-on-tertiary-fixed">science</span>
-</div>
-<div class="flex-grow">
-<p class="font-title-md text-title-md text-on-surface">Chemical Reactions Mastery</p>
-<p class="font-body-md text-body-md text-on-surface-variant">Completed 2 hours ago • Rank: Silver</p>
-</div>
-<div class="text-right">
-<span class="font-title-md text-title-md text-primary">+25 XP</span>
-</div>
-</div>
-<div class="tonal-elevation bg-surface-container-lowest p-md rounded-lg flex items-center gap-lg hover:bg-surface-container-low transition-colors">
-<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center">
-<span class="material-symbols-outlined text-on-primary-fixed">public</span>
-</div>
-<div class="flex-grow">
-<p class="font-title-md text-title-md text-on-surface">Global Capitals &amp; Geography</p>
-<p class="font-body-md text-body-md text-on-surface-variant">Completed Yesterday • Rank: Gold</p>
-</div>
-<div class="text-right">
-<span class="font-title-md text-title-md text-primary">+45 XP</span>
-</div>
-</div>
-</div>
-</section>
-</main>
-<!-- BottomNavBar (Visible only on mobile) -->
-<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] bg-surface-container-lowest dark:bg-inverse-surface">
-<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-6 py-1 hover:bg-surface-container-high transition-all" href="${pageContext.request.contextPath}/dashboard">
-<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
-<span class="font-label-sm text-label-sm">Library</span>
-</a>
-<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-6 py-1 scale-95 duration-100" href="${pageContext.request.contextPath}/modes">
-<span class="material-symbols-outlined" data-icon="play_circle" style="font-variation-settings: 'FILL' 1;">play_circle</span>
-<span class="font-label-sm text-label-sm">Active</span>
-</a>
-<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-6 py-1 hover:bg-surface-container-high transition-all" href="${pageContext.request.contextPath}/dashboard">
-<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
-<span class="font-label-sm text-label-sm">Stats</span>
-</a>
+<body class="bg-[#f4f4f5] text-gray-900 antialiased overflow-x-hidden min-h-screen flex flex-col md:flex-row">
+
+<!-- TopNavBar (Mobile Only) -->
+<nav class="md:hidden flex justify-between items-center w-full px-6 py-4 z-50 bg-[#f4f4f5] border-b-2 border-gray-900 sticky top-0">
+    <div class="text-2xl font-display font-bold tracking-tighter text-gray-900">QM</div>
 </nav>
 
-<script src="${pageContext.request.contextPath}/assets/app.js"></script>
-</body></html>
+<!-- SideNavBar (Desktop Only) -->
+<nav class="hidden md:flex flex-col p-8 z-40 bg-transparent h-screen w-64 border-r-2 border-gray-900 fixed left-0 top-0">
+    <div class="mb-16">
+        <h1 class="text-5xl font-display font-bold text-gray-900 mb-2">QM</h1>
+    </div>
+    
+    <div class="flex flex-col gap-6 flex-grow uppercase text-sm font-semibold tracking-widest text-gray-900">
+        <!-- Active Tab -->
+        <a class="flex items-center gap-3 hover:opacity-70 transition-opacity border-b-2 border-gray-900 w-max pb-1" href="${pageContext.request.contextPath}/dashboard">
+            <span>Dashboard</span>
+        </a>
+        <!-- Inactive Tabs -->
+        <a class="flex items-center gap-3 hover:opacity-70 transition-opacity w-max" href="${pageContext.request.contextPath}/modes">
+            <span>The Arena</span>
+        </a>
+    </div>
+    
+    <div class="mt-auto flex flex-col gap-6 uppercase text-sm font-semibold tracking-widest text-gray-900 pt-8 border-t-2 border-gray-900">
+        <% if ("ADMIN".equals(session.getAttribute("role"))) { %>
+        <a class="flex items-center gap-3 hover:opacity-70 transition-opacity w-max" href="${pageContext.request.contextPath}/pages/admin.jsp">
+            <span>Admin Panel</span>
+        </a>
+        <% } %>
+        <a class="flex items-center gap-3 hover:opacity-70 transition-opacity w-max text-red-700" href="${pageContext.request.contextPath}/login?action=logout">
+            <span>Logout</span>
+        </a>
+    </div>
+</nav>
+
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 p-6 md:p-12 lg:p-20 overflow-y-auto">
+    <div class="max-w-7xl mx-auto space-y-12">
+        
+        <!-- Header -->
+        <header class="border-b-2 border-gray-900 pb-8 text-center">
+            <h1 class="text-6xl md:text-8xl lg:text-[7rem] leading-none editorial-title font-bold text-gray-900 tracking-tighter uppercase mb-6">
+                Commander <%= request.getAttribute("rank_title") != null ? request.getAttribute("rank_title") : "Novice" %>
+            </h1>
+            <p class="text-lg text-gray-700 max-w-2xl mx-auto font-medium">
+                Welcome back to the command center, <%= session.getAttribute("user") %>. Review your latest intellect metrics and prepare for the next engagement.
+            </p>
+        </header>
+        
+        <!-- Stats Architectural Blocks -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-0 border-2 border-gray-900 bg-[#f4f4f5]">
+            <!-- Stat Block 1 -->
+            <div class="p-8 flex flex-col justify-between aspect-square md:aspect-auto md:h-56 border-b-2 md:border-b-0 md:border-r-2 border-gray-900 hover:bg-white transition-colors">
+                <div class="text-sm text-gray-900 uppercase tracking-widest font-bold">Total XP</div>
+                <div class="text-7xl font-display font-bold text-gray-900 mt-4"><%= request.getAttribute("xp") != null ? request.getAttribute("xp") : "0" %></div>
+            </div>
+            
+            <!-- Stat Block 2 -->
+            <div class="p-8 flex flex-col justify-between aspect-square md:aspect-auto md:h-56 border-b-2 md:border-b-0 md:border-r-2 border-gray-900 hover:bg-white transition-colors">
+                <div class="text-sm text-gray-900 uppercase tracking-widest font-bold">Quizzes Completed</div>
+                <div class="text-7xl font-display font-bold text-gray-900 mt-4"><%= request.getAttribute("total_quizzes") != null ? request.getAttribute("total_quizzes") : "0" %></div>
+            </div>
+            
+            <!-- Stat Block 3 -->
+            <div class="p-8 flex flex-col justify-between aspect-square md:aspect-auto md:h-56 hover:bg-white transition-colors">
+                <div class="text-sm text-gray-900 uppercase tracking-widest font-bold">Current Streak</div>
+                <div class="text-7xl font-display font-bold text-gray-900 mt-4"><%= request.getAttribute("current_streak") != null ? request.getAttribute("current_streak") : "0" %></div>
+            </div>
+        </section>
+        
+        <!-- Hero Section / Arena -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 border-2 border-gray-900 bg-[#f4f4f5] min-h-[400px]">
+            <div class="p-10 md:p-16 flex flex-col justify-center border-b-2 lg:border-b-0 lg:border-r-2 border-gray-900 hover:bg-white transition-colors">
+                <h2 class="text-5xl md:text-6xl font-display font-bold text-gray-900 mb-6 leading-tight">Enter the Arena</h2>
+                <p class="text-gray-700 text-lg mb-12 font-medium leading-relaxed max-w-md">
+                    Challenge your intellect against the adaptive algorithm. Select a mode to begin your next mental conquest. The stakes are higher than ever.
+                </p>
+                <a href="${pageContext.request.contextPath}/modes" class="text-gray-900 border-b-[3px] border-gray-900 pb-1 font-bold text-sm tracking-widest uppercase hover:text-blue-600 hover:border-blue-600 transition-colors w-max">
+                    Select Game Mode
+                </a>
+            </div>
+            <div class="relative overflow-hidden flex items-center justify-center p-8 bg-gray-50 border-gray-900 hover:bg-white transition-colors">
+                <img src="${pageContext.request.contextPath}/assets/images/cracked_sphere.png" alt="Arena Image" class="w-full h-full object-contain mix-blend-multiply drop-shadow-xl" style="filter: contrast(1.2) brightness(0.9);">
+            </div>
+        </section>
+        
+    </div>
+</main>
+
+</body>
+</html>

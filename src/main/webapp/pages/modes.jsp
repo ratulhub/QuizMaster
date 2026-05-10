@@ -73,8 +73,6 @@
             <div><a href="${pageContext.request.contextPath}/" class="sidebar-link">HOME</a></div>
             <div><a href="${pageContext.request.contextPath}/modes" class="sidebar-link active">DISCOVER</a></div>
             <div><a href="${pageContext.request.contextPath}/dashboard" class="sidebar-link">MY QUIZZES</a></div>
-            <div><a href="${pageContext.request.contextPath}/dashboard" class="sidebar-link">PROFILE</a></div>
-            <div><a href="${pageContext.request.contextPath}/dashboard" class="sidebar-link">SETTINGS</a></div>
         </nav>
     </aside>
 
@@ -143,7 +141,7 @@
             <div class="col-span-2 card-border bg-[#f8f8f8] flex relative overflow-hidden min-h-[300px] group hover:border-blue-600 transition-colors duration-300">
                 <div class="w-[55%] p-8 flex flex-col justify-between z-10 border-r-2 border-black group-hover:border-blue-600 transition-colors duration-300">
                     <div>
-                        <h3 class="font-serif text-3xl md:text-4xl font-bold leading-[1.1] mb-4">THE DAILY<br>CHALLENGE</h3>
+                        <h3 class="font-serif text-3xl md:text-4xl font-bold leading-[1.1] mb-4">BRIDE<br>INTERVIEW</h3>
                         <p class="text-sm text-black leading-snug">A new, curated quiz every day.<br>Compete globally.</p>
                     </div>
                     <div class="mt-8">
