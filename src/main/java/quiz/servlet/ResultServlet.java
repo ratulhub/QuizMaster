@@ -69,21 +69,9 @@ public class ResultServlet extends HttpServlet {
             total = req.getParameter("total") != null ? Integer.parseInt(req.getParameter("total")) : 0;
         }
 
-        // Roast mode custom performance message
-        String roastMessage = "";
-        if ("roast".equalsIgnoreCase(mode)) {
-            double percent = total > 0 ? ((double) score / total) : 0;
-            if (percent >= 0.8) {
-                roastMessage = "Whoa! Even a roasted marshmallow would be jealous of your skills!";
-            } else if (percent >= 0.5) {
-                roastMessage = "Not bad, but the flames are still licking your heels!";
-            } else if (percent >= 0.2) {
-                roastMessage = "Yikes! You’re getting roasted faster than a burrito in a fire!";
-            } else {
-                roastMessage = "Epic failure! The fire department called to put out the dumpster fire you’re a walking disaster!";
-            }
-            req.setAttribute("roastMessage", roastMessage);
-        }
+        // Simplified XP Calculation
+        int xpMultiplier = mode != null && mode.equalsIgnoreCase("sudden_death") ? 2 : 1;
+        int xpEarned = score * 10 * xpMultiplier;
 
         try (Connection conn = DBConnection.getConnection()) {
             conn.setAutoCommit(false);
