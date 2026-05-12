@@ -62,25 +62,19 @@
                     <%= request.getAttribute("rank") != null ? request.getAttribute("rank") : "Novice" %>
                 </div>
             </div>
-<!-- Roast Message -->
-            <c:if test="${not empty roastMessage}">
-                <div class="p-4 text-center font-label-caps text-red-600 break-words overflow-hidden">
-                    ${roastMessage}
-                </div>
-            </c:if>
-            <!-- End Roast Message -->
-            
-            <!-- Actions -->
-            <div class="p-8 md:p-12 flex flex-col md:flex-row justify-between items-center gap-6">
-                <a href="${pageContext.request.contextPath}/dashboard" class="flex items-center gap-2 border-2 border-black px-8 py-4 hover:bg-black hover:text-white transition-colors font-label-caps text-sm tracking-widest uppercase font-bold w-full md:w-auto justify-center">
-                    <span class="material-symbols-outlined text-xl">home</span>
-                    <span>Return to Base</span>
-                </a>
-                <a href="${pageContext.request.contextPath}/pages/modes.jsp" class="flex items-center gap-2 bg-black text-white px-8 py-4 hover:bg-gray-800 transition-colors font-label-caps text-sm tracking-widest uppercase font-bold w-full md:w-auto justify-center">
-                    <span>Play Again</span>
-                    <span class="material-symbols-outlined text-xl">arrow_forward</span>
-                </a>
-            </div>
+        </div>
+        
+        <!-- Actions -->
+        <div class="p-8 md:p-12 flex flex-col md:flex-row justify-between items-center gap-6">
+            <a href="${pageContext.request.contextPath}/dashboard" class="flex items-center gap-2 border-2 border-black px-8 py-4 hover:bg-black hover:text-white transition-colors font-label-caps text-sm tracking-widest uppercase font-bold w-full md:w-auto justify-center">
+                <span class="material-symbols-outlined text-xl">home</span>
+                <span>Return to Base</span>
+            </a>
+            <a href="${pageContext.request.contextPath}/pages/modes.jsp" class="flex items-center gap-2 bg-black text-white px-8 py-4 hover:bg-gray-800 transition-colors font-label-caps text-sm tracking-widest uppercase font-bold w-full md:w-auto justify-center">
+                <span>Play Again</span>
+                <span class="material-symbols-outlined text-xl">arrow_forward</span>
+            </a>
+        </div>
         
     </div>
 </main>
