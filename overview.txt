@@ -2,40 +2,51 @@
 QuizMaster - Project Overview
 ======================================================
 
-QuizMaster is a university-level Java Web Application designed to showcase fundamental software engineering principles while delivering a premium, startup-quality user experience.
+QuizMaster is a university‑level Java Web Application that demonstrates core software engineering principles while delivering a premium, startup‑quality user experience.
 
-Architecture:
--------------
-- Model-View-Controller (MVC) Pattern implemented via Servlets and JSP.
-- No heavy frameworks (No Spring, No Hibernate) to demonstrate raw understanding of HTTP requests, session lifecycle, and JDBC.
-- Deployment: Containerized via Docker running Apache Tomcat 10.1 on Render.
-- Database: Supabase PostgreSQL.
+## Architecture
+- **Pattern**: Model‑View‑Controller (MVC) using Java Servlets and JSP.
+- **Web Server**: Apache Tomcat 10.1, containerised via Docker for easy deployment on Render.
+- **Database**: Supabase PostgreSQL (hosted, with PostgREST API for future extensions).
+- **Build System**: Maven for dependency management and packaging.
+- **Frontend**: HTML, CSS (including modern glassmorphism and animations), vanilla JavaScript, and JSP for server‑side rendering.
 
-Directory Structure:
---------------------
+## Directory Structure
+```
 QuizMaster/
-├── src/main/java/quiz/
-│   ├── db/        (Database Connection)
-│   ├── filter/    (Authentication Middleware)
-│   ├── model/     (Data Models like User, Question)
-│   ├── servlet/   (Controllers handling HTTP methods)
-│   └── util/      (Helpers: Password Hashing, File Parsing)
+├─ src/main/java/quiz/
+│   ├─ db/            # JDBC connection utilities
+│   ├─ filter/        # Authentication & authorization filters
+│   ├─ model/         # POJOs (User, Question, QuizResult, etc.)
+│   ├─ servlet/       # Controllers (LoginServlet, DashboardServlet, QuizServlet, AdminServlet, UploadServlet, ...)
+│   └─ util/          # Helpers (Password hashing, File parsing, Constants)
 │
-├── src/main/webapp/
-│   ├── assets/    (CSS, JS, Fonts)
-│   ├── pages/     (JSP Views: Login, Dashboard, Admin)
-│   ├── WEB-INF/   (Security configurations)
-│   └── index.jsp  (Entry point redirect)
+├─ src/main/webapp/
+│   ├─ assets/        # CSS, JS, fonts, images (glassmorphic UI, animations)
+│   ├─ pages/         # JSP views (login.jsp, dashboard.jsp, quiz.jsp, admin.jsp, upload.jsp, mode.jsp, result.jsp)
+│   ├─ WEB-INF/       # web.xml and security configs
+│   └─ index.jsp      # Entry point redirects to login
 │
-├── pom.xml        (Maven Dependencies and Build configs)
-└── Dockerfile     (Render deployment instructions)
+├─ pom.xml            # Maven dependencies (Servlet API, PostgreSQL driver, JSTL, etc.)
+└─ Dockerfile         # Build & run instructions for Render
+```
 
-Key Features:
--------------
-1. Secure Authentication (SHA-256 Hashing, Session Management).
-2. Gamification (XP, Ranks, Streaks).
-3. Dynamic Quiz Modes (Normal, Roast, Sudden Death, Teacher).
-4. Admin Capabilities (Bulk uploading questions via TXT, DOCX, PDF).
-5. Cinematic UI/UX (Glassmorphism, CSS animations).
+## Key Features
+1. **Secure Authentication** – SHA‑256 password hashing, HTTP sessions, role‑based access via servlet filters.
+2. **Gamification** – Experience points, ranks, streak tracking, and dynamic leaderboards.
+3. **Multiple Quiz Modes** – Normal, Roast, Sudden Death, Teacher, Bride Interview, etc., each with custom scoring logic.
+4. **Admin Dashboard** – Bulk upload of questions (TXT, DOCX, PDF) via `UploadServlet`; CRUD operations for users and quizzes.
+5. **Cinematic UI** – Glassmorphism, CSS transitions, dark‑mode support, responsive layout.
+6. **Database Layer** – Centralised `schema.sql` defines tables (`users`, `questions`, `quizzes`, `results`, `quiz_modes`), with foreign‑key constraints and indexes for performance.
+7. **Dockerised Deployment** – Single‑container image runnable on Render or any Docker‑compatible host.
 
-This project proves that "simple" Java EE can look and function like a modern web startup when architecture and design are prioritized.
+## Development Highlights
+- **Maven** builds a WAR file that can be deployed to any Tomcat server.
+- **Supabase integration** provides a managed PostgreSQL instance; connection details are externalised via environment variables.
+- **Testing** – Unit tests for DAO classes using JUnit and integration tests for servlets with Embedded Tomcat.
+- **Documentation** – Comprehensive `README.md` with setup, build, and deployment instructions.
+
+## Frontend / Backend / Database Summary
+- **Frontend**: HTML, CSS (including custom glassmorphic styles), JavaScript, JSP.
+- **Backend**: Java (Servlet API), Maven, Docker, Tomcat.
+- **Database**: Supabase PostgreSQL.
